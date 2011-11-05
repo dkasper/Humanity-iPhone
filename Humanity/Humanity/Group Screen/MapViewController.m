@@ -14,6 +14,7 @@
     self = [super init];
     if(self) {
         self.title = @"Map";
+                self.tabBarItem.image = [UIImage imageNamed:@"map.png"];
     }
     return self;
 }

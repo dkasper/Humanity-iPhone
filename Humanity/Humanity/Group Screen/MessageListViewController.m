@@ -23,6 +23,7 @@ static NSString *cellIdentifier = @"MessageCell";
     self = [super init];
     if(self) {
         self.title = @"Messages";
+        self.tabBarItem.image = [UIImage imageNamed:@"messages.png"];
     }
     return self;
 }

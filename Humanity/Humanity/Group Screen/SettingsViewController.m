@@ -14,6 +14,7 @@
     self = [super init];
     if(self) {
         self.title = @"More";
+                self.tabBarItem.image = [UIImage imageNamed:@"settings.png"];
     }
     return self;
 }
