@@ -101,6 +101,7 @@ static NSString *cellIdentifier = @"MessageCell";
     if(!cell) {
         cell = [[MessageTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.name = [[self.messages objectAtIndex:indexPath.row] objectForKey:@"name"];
     cell.body = [[self.messages objectAtIndex:indexPath.row] objectForKey:@"body"];
 
@@ -123,6 +124,7 @@ static NSString *cellIdentifier = @"MessageCell";
         newFrame.origin.y = newFrame.origin.y + MESSAGE_VIEW_HEIGHT;
         self.toggleTextViewButton.frame = newFrame;
         
+        newFrame = self.messageTableView.frame;
         newFrame.origin.y += 30;
         self.messageTableView.frame = newFrame;
     }
