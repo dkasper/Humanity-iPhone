@@ -6,6 +6,8 @@
 //
 
 #import "AppDelegate.h"
+#import "GroupListViewController.h"
+#import "LoginViewController.h"
 
 @implementation AppDelegate
 
@@ -21,6 +23,26 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
+    
+    LoginViewController *loginController = [[LoginViewController alloc] init];
+    
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginController];
+    [loginController release];
+    
+    [self.window setRootViewController:navController];
+    [navController release];
+                                                
+    //IF user logged in already, go directly to the GroupListViewController
+    /*
+    GroupListViewController *listController = [[GroupListViewController alloc] init];
+    
+	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:listController];
+    
+	[listController release];
+    
+    [self.window setRootViewController:navController];
+	[navController release];
+     */
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

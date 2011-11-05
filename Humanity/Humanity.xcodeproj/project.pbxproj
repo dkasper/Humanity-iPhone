@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49DA2FF51465ECA600D4089E /* GroupListMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DA2FF41465ECA600D4089E /* GroupListMessageCell.m */; };
+		49DA2FF81465EEA000D4089E /* GroupListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DA2FF71465EEA000D4089E /* GroupListViewController.m */; };
+		49DA30001465FDFE00D4089E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DA2FFF1465FDFE00D4089E /* LoginViewController.m */; };
 		F7B78F611465CFE900B7A3E4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B78F601465CFE900B7A3E4 /* UIKit.framework */; };
 		F7B78F631465CFE900B7A3E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B78F621465CFE900B7A3E4 /* Foundation.framework */; };
 		F7B78F651465CFE900B7A3E4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B78F641465CFE900B7A3E4 /* CoreGraphics.framework */; };
@@ -17,6 +20,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		49DA2FF31465ECA600D4089E /* GroupListMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupListMessageCell.h; path = "Group LIst Message Cell/GroupListMessageCell.h"; sourceTree = "<group>"; };
+		49DA2FF41465ECA600D4089E /* GroupListMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupListMessageCell.m; path = "Group LIst Message Cell/GroupListMessageCell.m"; sourceTree = "<group>"; };
+		49DA2FF61465EEA000D4089E /* GroupListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupListViewController.h; path = "Group List Screen/GroupListViewController.h"; sourceTree = "<group>"; };
+		49DA2FF71465EEA000D4089E /* GroupListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupListViewController.m; path = "Group List Screen/GroupListViewController.m"; sourceTree = "<group>"; };
+		49DA2FFE1465FDFE00D4089E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = "Login Screen/LoginViewController.h"; sourceTree = "<group>"; };
+		49DA2FFF1465FDFE00D4089E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = "Login Screen/LoginViewController.m"; sourceTree = "<group>"; };
 		F7B78F5C1465CFE900B7A3E4 /* Humanity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Humanity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7B78F601465CFE900B7A3E4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F7B78F621465CFE900B7A3E4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -45,6 +54,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49DA2FED1465DED800D4089E /* Group List Screen */ = {
+			isa = PBXGroup;
+			children = (
+				49DA2FF61465EEA000D4089E /* GroupListViewController.h */,
+				49DA2FF71465EEA000D4089E /* GroupListViewController.m */,
+			);
+			name = "Group List Screen";
+			sourceTree = "<group>";
+		};
+		49DA2FF21465EC1800D4089E /* Group List Message Cell */ = {
+			isa = PBXGroup;
+			children = (
+				49DA2FF31465ECA600D4089E /* GroupListMessageCell.h */,
+				49DA2FF41465ECA600D4089E /* GroupListMessageCell.m */,
+			);
+			name = "Group List Message Cell";
+			sourceTree = "<group>";
+		};
+		49DA2FFD1465FD5F00D4089E /* Login Screen */ = {
+			isa = PBXGroup;
+			children = (
+				49DA2FFE1465FDFE00D4089E /* LoginViewController.h */,
+				49DA2FFF1465FDFE00D4089E /* LoginViewController.m */,
+			);
+			name = "Login Screen";
+			sourceTree = "<group>";
+		};
 		F7B78F511465CFE800B7A3E4 = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +111,9 @@
 		F7B78F661465CFE900B7A3E4 /* Humanity */ = {
 			isa = PBXGroup;
 			children = (
+				49DA2FFD1465FD5F00D4089E /* Login Screen */,
+				49DA2FF21465EC1800D4089E /* Group List Message Cell */,
+				49DA2FED1465DED800D4089E /* Group List Screen */,
 				F7B78F771465D23500B7A3E4 /* Group Screen */,
 				F7B78F6F1465CFE900B7A3E4 /* AppDelegate.h */,
 				F7B78F701465CFE900B7A3E4 /* AppDelegate.m */,
@@ -168,6 +207,9 @@
 				F7B78F6D1465CFE900B7A3E4 /* main.m in Sources */,
 				F7B78F711465CFE900B7A3E4 /* AppDelegate.m in Sources */,
 				F7B78F7A1465D35D00B7A3E4 /* GroupViewController.m in Sources */,
+				49DA2FF51465ECA600D4089E /* GroupListMessageCell.m in Sources */,
+				49DA2FF81465EEA000D4089E /* GroupListViewController.m in Sources */,
+				49DA30001465FDFE00D4089E /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +313,7 @@
 				F7B78F761465CFE900B7A3E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
