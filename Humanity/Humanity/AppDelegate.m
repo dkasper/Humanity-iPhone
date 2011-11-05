@@ -3,7 +3,6 @@
 //  Humanity
 //
 //  Created by David Kasper on 11/5/11.
-//
 
 #import "AppDelegate.h"
 

@@ -14,6 +14,10 @@
 		F7B78F6D1465CFE900B7A3E4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B78F6C1465CFE900B7A3E4 /* main.m */; };
 		F7B78F711465CFE900B7A3E4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B78F701465CFE900B7A3E4 /* AppDelegate.m */; };
 		F7B78F7A1465D35D00B7A3E4 /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B78F791465D35D00B7A3E4 /* GroupViewController.m */; };
+		F7B78F851465D50100B7A3E4 /* MessageListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B78F841465D50000B7A3E4 /* MessageListViewController.m */; };
+		F7B78F891465D51800B7A3E4 /* MemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B78F881465D51800B7A3E4 /* MemberListViewController.m */; };
+		F7B78F8C1465D52D00B7A3E4 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B78F8B1465D52D00B7A3E4 /* MapViewController.m */; };
+		F7B78F8F1465D54300B7A3E4 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B78F8E1465D54300B7A3E4 /* SettingsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +33,14 @@
 		F7B78F701465CFE900B7A3E4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F7B78F781465D35D00B7A3E4 /* GroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupViewController.h; path = "Group Screen/GroupViewController.h"; sourceTree = "<group>"; };
 		F7B78F791465D35D00B7A3E4 /* GroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupViewController.m; path = "Group Screen/GroupViewController.m"; sourceTree = "<group>"; };
+		F7B78F831465D50000B7A3E4 /* MessageListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageListViewController.h; path = "Group Screen/MessageListViewController.h"; sourceTree = "<group>"; };
+		F7B78F841465D50000B7A3E4 /* MessageListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageListViewController.m; path = "Group Screen/MessageListViewController.m"; sourceTree = "<group>"; };
+		F7B78F871465D51800B7A3E4 /* MemberListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MemberListViewController.h; path = "Group Screen/MemberListViewController.h"; sourceTree = "<group>"; };
+		F7B78F881465D51800B7A3E4 /* MemberListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MemberListViewController.m; path = "Group Screen/MemberListViewController.m"; sourceTree = "<group>"; };
+		F7B78F8A1465D52D00B7A3E4 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapViewController.h; path = "Group Screen/MapViewController.h"; sourceTree = "<group>"; };
+		F7B78F8B1465D52D00B7A3E4 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = "Group Screen/MapViewController.m"; sourceTree = "<group>"; };
+		F7B78F8D1465D54300B7A3E4 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = "Group Screen/SettingsViewController.h"; sourceTree = "<group>"; };
+		F7B78F8E1465D54300B7A3E4 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = "Group Screen/SettingsViewController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +111,14 @@
 			children = (
 				F7B78F781465D35D00B7A3E4 /* GroupViewController.h */,
 				F7B78F791465D35D00B7A3E4 /* GroupViewController.m */,
+				F7B78F831465D50000B7A3E4 /* MessageListViewController.h */,
+				F7B78F841465D50000B7A3E4 /* MessageListViewController.m */,
+				F7B78F871465D51800B7A3E4 /* MemberListViewController.h */,
+				F7B78F881465D51800B7A3E4 /* MemberListViewController.m */,
+				F7B78F8A1465D52D00B7A3E4 /* MapViewController.h */,
+				F7B78F8B1465D52D00B7A3E4 /* MapViewController.m */,
+				F7B78F8D1465D54300B7A3E4 /* SettingsViewController.h */,
+				F7B78F8E1465D54300B7A3E4 /* SettingsViewController.m */,
 			);
 			name = "Group Screen";
 			sourceTree = "<group>";
@@ -168,6 +188,10 @@
 				F7B78F6D1465CFE900B7A3E4 /* main.m in Sources */,
 				F7B78F711465CFE900B7A3E4 /* AppDelegate.m in Sources */,
 				F7B78F7A1465D35D00B7A3E4 /* GroupViewController.m in Sources */,
+				F7B78F851465D50100B7A3E4 /* MessageListViewController.m in Sources */,
+				F7B78F891465D51800B7A3E4 /* MemberListViewController.m in Sources */,
+				F7B78F8C1465D52D00B7A3E4 /* MapViewController.m in Sources */,
+				F7B78F8F1465D54300B7A3E4 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +295,7 @@
 				F7B78F761465CFE900B7A3E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
