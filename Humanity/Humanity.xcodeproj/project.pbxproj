@@ -18,6 +18,9 @@
 		F7B78F891465D51800B7A3E4 /* MemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B78F881465D51800B7A3E4 /* MemberListViewController.m */; };
 		F7B78F8C1465D52D00B7A3E4 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B78F8B1465D52D00B7A3E4 /* MapViewController.m */; };
 		F7B78F8F1465D54300B7A3E4 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B78F8E1465D54300B7A3E4 /* SettingsViewController.m */; };
+		F7B78F961465DAEC00B7A3E4 /* MessageTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B78F951465DAEC00B7A3E4 /* MessageTextView.m */; };
+		F7B78F991465E23C00B7A3E4 /* MessageTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B78F981465E23C00B7A3E4 /* MessageTableCell.m */; };
+		F7B78FA01465E58700B7A3E4 /* MessageTableCellContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B78F9F1465E58600B7A3E4 /* MessageTableCellContentView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +44,12 @@
 		F7B78F8B1465D52D00B7A3E4 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = "Group Screen/MapViewController.m"; sourceTree = "<group>"; };
 		F7B78F8D1465D54300B7A3E4 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = "Group Screen/SettingsViewController.h"; sourceTree = "<group>"; };
 		F7B78F8E1465D54300B7A3E4 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = "Group Screen/SettingsViewController.m"; sourceTree = "<group>"; };
+		F7B78F941465DAEC00B7A3E4 /* MessageTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageTextView.h; path = "Group Screen/MessageTextView.h"; sourceTree = "<group>"; };
+		F7B78F951465DAEC00B7A3E4 /* MessageTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageTextView.m; path = "Group Screen/MessageTextView.m"; sourceTree = "<group>"; };
+		F7B78F971465E23B00B7A3E4 /* MessageTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableCell.h; sourceTree = "<group>"; };
+		F7B78F981465E23C00B7A3E4 /* MessageTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableCell.m; sourceTree = "<group>"; };
+		F7B78F9E1465E58600B7A3E4 /* MessageTableCellContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageTableCellContentView.h; path = "Group Screen/MessageTableCellContentView.h"; sourceTree = "<group>"; };
+		F7B78F9F1465E58600B7A3E4 /* MessageTableCellContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageTableCellContentView.m; path = "Group Screen/MessageTableCellContentView.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +128,12 @@
 				F7B78F8B1465D52D00B7A3E4 /* MapViewController.m */,
 				F7B78F8D1465D54300B7A3E4 /* SettingsViewController.h */,
 				F7B78F8E1465D54300B7A3E4 /* SettingsViewController.m */,
+				F7B78F941465DAEC00B7A3E4 /* MessageTextView.h */,
+				F7B78F951465DAEC00B7A3E4 /* MessageTextView.m */,
+				F7B78F971465E23B00B7A3E4 /* MessageTableCell.h */,
+				F7B78F981465E23C00B7A3E4 /* MessageTableCell.m */,
+				F7B78F9E1465E58600B7A3E4 /* MessageTableCellContentView.h */,
+				F7B78F9F1465E58600B7A3E4 /* MessageTableCellContentView.m */,
 			);
 			name = "Group Screen";
 			sourceTree = "<group>";
@@ -192,6 +207,9 @@
 				F7B78F891465D51800B7A3E4 /* MemberListViewController.m in Sources */,
 				F7B78F8C1465D52D00B7A3E4 /* MapViewController.m in Sources */,
 				F7B78F8F1465D54300B7A3E4 /* SettingsViewController.m in Sources */,
+				F7B78F961465DAEC00B7A3E4 /* MessageTextView.m in Sources */,
+				F7B78F991465E23C00B7A3E4 /* MessageTableCell.m in Sources */,
+				F7B78FA01465E58700B7A3E4 /* MessageTableCellContentView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

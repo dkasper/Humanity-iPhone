@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MessageTextView.h"
 
-@interface MessageListViewController : UIViewController
+@interface MessageListViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, retain) MessageTextView *messageTextView;
+@property (nonatomic, retain) UITableView *messageTableView;
+@property (nonatomic, retain) UIButton *toggleTextViewButton;
 
 @end

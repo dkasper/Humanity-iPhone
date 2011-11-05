@@ -5,6 +5,7 @@
 //  Created by David Kasper on 11/5/11.
 
 #import "AppDelegate.h"
+#import "GroupViewController.h"
 
 @implementation AppDelegate
 
@@ -20,6 +21,9 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
+    GroupViewController *vc = [[GroupViewController alloc] init];
+    [self.window addSubview:vc.view];
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
