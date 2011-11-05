@@ -9,13 +9,14 @@
 #import "MessageListViewController.h"
 #import "MessageTableCell.h"
 
-#define MESSAGE_VIEW_HEIGHT 50
+#define MESSAGE_VIEW_HEIGHT 65
 
 @implementation MessageListViewController
 
 @synthesize messageTextView = _messageTextView;
 @synthesize messageTableView = _messageTableView;
 @synthesize toggleTextViewButton = _toggleTextViewButton;
+@synthesize messages = _messages;
 
 static NSString *cellIdentifier = @"MessageCell";
 
@@ -24,6 +25,8 @@ static NSString *cellIdentifier = @"MessageCell";
     if(self) {
         self.title = @"Messages";
         self.tabBarItem.image = [UIImage imageNamed:@"messages.png"];
+        self.messages = [[NSMutableArray alloc] init];
+        [self.messages addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"David Kasper", @"name", @"Hello World Hello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello World", @"body", nil]];
     }
     return self;
 }
@@ -44,7 +47,7 @@ static NSString *cellIdentifier = @"MessageCell";
 {
     UIView *view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    self.messageTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.messageTextView.bounds.size.height, view.bounds.size.width, view.bounds.size.height - self.messageTextView.bounds.size.height) style:UITableViewStylePlain];
+    self.messageTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, MESSAGE_VIEW_HEIGHT, view.bounds.size.width, view.bounds.size.height - MESSAGE_VIEW_HEIGHT) style:UITableViewStylePlain];
     self.messageTableView.delegate = self;
     self.messageTableView.dataSource = self;
     [view addSubview:self.messageTableView];
@@ -86,7 +89,11 @@ static NSString *cellIdentifier = @"MessageCell";
 #pragma mark - Table View methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return [self.messages count];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [[[self.messages objectAtIndex:indexPath.row] objectForKey:@"body"] sizeWithFont:[UIFont systemFontOfSize:12.0] constrainedToSize:CGSizeMake(280, 9999) lineBreakMode:UILineBreakModeWordWrap].height + 30;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -94,6 +101,8 @@ static NSString *cellIdentifier = @"MessageCell";
     if(!cell) {
         cell = [[MessageTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
+    cell.name = [[self.messages objectAtIndex:indexPath.row] objectForKey:@"name"];
+    cell.body = [[self.messages objectAtIndex:indexPath.row] objectForKey:@"body"];
 
     return cell;
 }

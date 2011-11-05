@@ -24,6 +24,7 @@
 		CGRect tzvFrame = CGRectMake(0.0, 0.0, self.contentView.bounds.size.width, self.contentView.bounds.size.height);
 		self.messageContentView = [[MessageTableCellContentView alloc] initWithFrame:tzvFrame];
 		self.messageContentView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        self.messageContentView.delegate = self;
 		[self.contentView addSubview:self.messageContentView];
     }
     return self;

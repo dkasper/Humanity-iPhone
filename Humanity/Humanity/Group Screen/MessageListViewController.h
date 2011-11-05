@@ -14,5 +14,6 @@
 @property (nonatomic, retain) MessageTextView *messageTextView;
 @property (nonatomic, retain) UITableView *messageTableView;
 @property (nonatomic, retain) UIButton *toggleTextViewButton;
+@property (nonatomic, retain) NSMutableArray *messages;
 
 @end

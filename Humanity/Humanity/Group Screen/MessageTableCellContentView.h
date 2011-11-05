@@ -10,4 +10,6 @@
 
 @interface MessageTableCellContentView : UIView
 
+@property(nonatomic, assign) id delegate;
+
 @end

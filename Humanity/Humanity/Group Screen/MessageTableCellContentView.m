@@ -10,6 +10,8 @@
 
 @implementation MessageTableCellContentView
 
+@synthesize delegate = _delegate;
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -26,7 +28,9 @@
 - (void)drawRect:(CGRect)rect
 {
     // Drawing code
+    [[self.delegate name] drawAtPoint:CGPointMake(60, 5) withFont:[UIFont boldSystemFontOfSize:18.0]];
     
+    [[self.delegate body] drawInRect:CGRectMake(60, 25, 250, 100) withFont:[UIFont systemFontOfSize:12.0] lineBreakMode:UILineBreakModeWordWrap];
 }
 
 @end

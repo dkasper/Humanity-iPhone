@@ -39,6 +39,7 @@
         self.sendButton = [UIButton buttonWithType:UIButtonTypeCustom];
         self.sendButton.frame = CGRectMake(self.bounds.size.width - BUTTON_WIDTH - 5, CONTRACTED_TEXT_HEIGHT + 10, BUTTON_WIDTH, BUTTON_HEIGHT);
         self.sendButton.titleLabel.text = @"Send";
+        self.sendButton.backgroundColor = [UIColor greenColor];
         [self addSubview:self.sendButton];
     }
     return self;
@@ -69,6 +70,10 @@
     self.textView.frame = newFrame;
     self.enabled = YES;
     
+    newFrame = self.sendButton.frame;
+    newFrame.origin.y += EXPANDED_HEIGHT - CONTRACTED_HEIGHT;
+    self.sendButton.frame = newFrame;
+    
     newFrame = self.frame;
     newFrame.size.height = EXPANDED_HEIGHT;
     self.frame = newFrame;
@@ -84,6 +89,10 @@
     newFrame.size.height = CONTRACTED_TEXT_HEIGHT;
     self.textView.frame = newFrame;
     self.enabled = NO;
+    
+    newFrame = self.sendButton.frame;
+    newFrame.origin.y -= EXPANDED_HEIGHT - CONTRACTED_HEIGHT;
+    self.sendButton.frame = newFrame;
     
     newFrame = self.frame;
     newFrame.size.height = CONTRACTED_HEIGHT;
