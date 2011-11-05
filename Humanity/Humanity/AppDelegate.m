@@ -3,11 +3,11 @@
 //  Humanity
 //
 //  Created by David Kasper on 11/5/11.
-//
 
 #import "AppDelegate.h"
 #import "GroupListViewController.h"
 #import "LoginViewController.h"
+#import "GroupViewController.h"
 
 @implementation AppDelegate
 
@@ -43,6 +43,7 @@
     [self.window setRootViewController:navController];
 	[navController release];
      */
+     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

@@ -17,6 +17,21 @@
 		F7B78F6D1465CFE900B7A3E4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B78F6C1465CFE900B7A3E4 /* main.m */; };
 		F7B78F711465CFE900B7A3E4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B78F701465CFE900B7A3E4 /* AppDelegate.m */; };
 		F7B78F7A1465D35D00B7A3E4 /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B78F791465D35D00B7A3E4 /* GroupViewController.m */; };
+		F7B78F851465D50100B7A3E4 /* MessageListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B78F841465D50000B7A3E4 /* MessageListViewController.m */; };
+		F7B78F891465D51800B7A3E4 /* MemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B78F881465D51800B7A3E4 /* MemberListViewController.m */; };
+		F7B78F8C1465D52D00B7A3E4 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B78F8B1465D52D00B7A3E4 /* MapViewController.m */; };
+		F7B78F8F1465D54300B7A3E4 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B78F8E1465D54300B7A3E4 /* SettingsViewController.m */; };
+		F7B78F961465DAEC00B7A3E4 /* MessageTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B78F951465DAEC00B7A3E4 /* MessageTextView.m */; };
+		F7B78F991465E23C00B7A3E4 /* MessageTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B78F981465E23C00B7A3E4 /* MessageTableCell.m */; };
+		F7B78FA01465E58700B7A3E4 /* MessageTableCellContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B78F9F1465E58600B7A3E4 /* MessageTableCellContentView.m */; };
+		F7B78FAD1465F4F000B7A3E4 /* map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7B78FA41465F4F000B7A3E4 /* map@2x.png */; };
+		F7B78FAE1465F4F000B7A3E4 /* members@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7B78FA51465F4F000B7A3E4 /* members@2x.png */; };
+		F7B78FAF1465F4F000B7A3E4 /* messages@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7B78FA61465F4F000B7A3E4 /* messages@2x.png */; };
+		F7B78FB01465F4F000B7A3E4 /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7B78FA71465F4F000B7A3E4 /* settings@2x.png */; };
+		F7B78FB11465F4F000B7A3E4 /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = F7B78FA91465F4F000B7A3E4 /* map.png */; };
+		F7B78FB21465F4F000B7A3E4 /* members.png in Resources */ = {isa = PBXBuildFile; fileRef = F7B78FAA1465F4F000B7A3E4 /* members.png */; };
+		F7B78FB31465F4F000B7A3E4 /* messages.png in Resources */ = {isa = PBXBuildFile; fileRef = F7B78FAB1465F4F000B7A3E4 /* messages.png */; };
+		F7B78FB41465F4F000B7A3E4 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = F7B78FAC1465F4F000B7A3E4 /* settings.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +53,28 @@
 		F7B78F701465CFE900B7A3E4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F7B78F781465D35D00B7A3E4 /* GroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupViewController.h; path = "Group Screen/GroupViewController.h"; sourceTree = "<group>"; };
 		F7B78F791465D35D00B7A3E4 /* GroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupViewController.m; path = "Group Screen/GroupViewController.m"; sourceTree = "<group>"; };
+		F7B78F831465D50000B7A3E4 /* MessageListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageListViewController.h; path = "Group Screen/MessageListViewController.h"; sourceTree = "<group>"; };
+		F7B78F841465D50000B7A3E4 /* MessageListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageListViewController.m; path = "Group Screen/MessageListViewController.m"; sourceTree = "<group>"; };
+		F7B78F871465D51800B7A3E4 /* MemberListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MemberListViewController.h; path = "Group Screen/MemberListViewController.h"; sourceTree = "<group>"; };
+		F7B78F881465D51800B7A3E4 /* MemberListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MemberListViewController.m; path = "Group Screen/MemberListViewController.m"; sourceTree = "<group>"; };
+		F7B78F8A1465D52D00B7A3E4 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapViewController.h; path = "Group Screen/MapViewController.h"; sourceTree = "<group>"; };
+		F7B78F8B1465D52D00B7A3E4 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = "Group Screen/MapViewController.m"; sourceTree = "<group>"; };
+		F7B78F8D1465D54300B7A3E4 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = "Group Screen/SettingsViewController.h"; sourceTree = "<group>"; };
+		F7B78F8E1465D54300B7A3E4 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = "Group Screen/SettingsViewController.m"; sourceTree = "<group>"; };
+		F7B78F941465DAEC00B7A3E4 /* MessageTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageTextView.h; path = "Group Screen/MessageTextView.h"; sourceTree = "<group>"; };
+		F7B78F951465DAEC00B7A3E4 /* MessageTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageTextView.m; path = "Group Screen/MessageTextView.m"; sourceTree = "<group>"; };
+		F7B78F971465E23B00B7A3E4 /* MessageTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableCell.h; sourceTree = "<group>"; };
+		F7B78F981465E23C00B7A3E4 /* MessageTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableCell.m; sourceTree = "<group>"; };
+		F7B78F9E1465E58600B7A3E4 /* MessageTableCellContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageTableCellContentView.h; path = "Group Screen/MessageTableCellContentView.h"; sourceTree = "<group>"; };
+		F7B78F9F1465E58600B7A3E4 /* MessageTableCellContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageTableCellContentView.m; path = "Group Screen/MessageTableCellContentView.m"; sourceTree = "<group>"; };
+		F7B78FA41465F4F000B7A3E4 /* map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map@2x.png"; sourceTree = "<group>"; };
+		F7B78FA51465F4F000B7A3E4 /* members@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "members@2x.png"; sourceTree = "<group>"; };
+		F7B78FA61465F4F000B7A3E4 /* messages@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "messages@2x.png"; sourceTree = "<group>"; };
+		F7B78FA71465F4F000B7A3E4 /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
+		F7B78FA91465F4F000B7A3E4 /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
+		F7B78FAA1465F4F000B7A3E4 /* members.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = members.png; sourceTree = "<group>"; };
+		F7B78FAB1465F4F000B7A3E4 /* messages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = messages.png; sourceTree = "<group>"; };
+		F7B78FAC1465F4F000B7A3E4 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +151,7 @@
 				49DA2FFD1465FD5F00D4089E /* Login Screen */,
 				49DA2FF21465EC1800D4089E /* Group List Message Cell */,
 				49DA2FED1465DED800D4089E /* Group List Screen */,
+				F7B78FA11465F4F000B7A3E4 /* Images */,
 				F7B78F771465D23500B7A3E4 /* Group Screen */,
 				F7B78F6F1465CFE900B7A3E4 /* AppDelegate.h */,
 				F7B78F701465CFE900B7A3E4 /* AppDelegate.m */,
@@ -138,8 +176,61 @@
 			children = (
 				F7B78F781465D35D00B7A3E4 /* GroupViewController.h */,
 				F7B78F791465D35D00B7A3E4 /* GroupViewController.m */,
+				F7B78F831465D50000B7A3E4 /* MessageListViewController.h */,
+				F7B78F841465D50000B7A3E4 /* MessageListViewController.m */,
+				F7B78F871465D51800B7A3E4 /* MemberListViewController.h */,
+				F7B78F881465D51800B7A3E4 /* MemberListViewController.m */,
+				F7B78F8A1465D52D00B7A3E4 /* MapViewController.h */,
+				F7B78F8B1465D52D00B7A3E4 /* MapViewController.m */,
+				F7B78F8D1465D54300B7A3E4 /* SettingsViewController.h */,
+				F7B78F8E1465D54300B7A3E4 /* SettingsViewController.m */,
+				F7B78F941465DAEC00B7A3E4 /* MessageTextView.h */,
+				F7B78F951465DAEC00B7A3E4 /* MessageTextView.m */,
+				F7B78F971465E23B00B7A3E4 /* MessageTableCell.h */,
+				F7B78F981465E23C00B7A3E4 /* MessageTableCell.m */,
+				F7B78F9E1465E58600B7A3E4 /* MessageTableCellContentView.h */,
+				F7B78F9F1465E58600B7A3E4 /* MessageTableCellContentView.m */,
 			);
 			name = "Group Screen";
+			sourceTree = "<group>";
+		};
+		F7B78FA11465F4F000B7A3E4 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				F7B78FA21465F4F000B7A3E4 /* TabBarIcon */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		F7B78FA21465F4F000B7A3E4 /* TabBarIcon */ = {
+			isa = PBXGroup;
+			children = (
+				F7B78FA31465F4F000B7A3E4 /* high-res */,
+				F7B78FA81465F4F000B7A3E4 /* standard-res */,
+			);
+			path = TabBarIcon;
+			sourceTree = "<group>";
+		};
+		F7B78FA31465F4F000B7A3E4 /* high-res */ = {
+			isa = PBXGroup;
+			children = (
+				F7B78FA41465F4F000B7A3E4 /* map@2x.png */,
+				F7B78FA51465F4F000B7A3E4 /* members@2x.png */,
+				F7B78FA61465F4F000B7A3E4 /* messages@2x.png */,
+				F7B78FA71465F4F000B7A3E4 /* settings@2x.png */,
+			);
+			path = "high-res";
+			sourceTree = "<group>";
+		};
+		F7B78FA81465F4F000B7A3E4 /* standard-res */ = {
+			isa = PBXGroup;
+			children = (
+				F7B78FA91465F4F000B7A3E4 /* map.png */,
+				F7B78FAA1465F4F000B7A3E4 /* members.png */,
+				F7B78FAB1465F4F000B7A3E4 /* messages.png */,
+				F7B78FAC1465F4F000B7A3E4 /* settings.png */,
+			);
+			path = "standard-res";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +285,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7B78F6B1465CFE900B7A3E4 /* InfoPlist.strings in Resources */,
+				F7B78FAD1465F4F000B7A3E4 /* map@2x.png in Resources */,
+				F7B78FAE1465F4F000B7A3E4 /* members@2x.png in Resources */,
+				F7B78FAF1465F4F000B7A3E4 /* messages@2x.png in Resources */,
+				F7B78FB01465F4F000B7A3E4 /* settings@2x.png in Resources */,
+				F7B78FB11465F4F000B7A3E4 /* map.png in Resources */,
+				F7B78FB21465F4F000B7A3E4 /* members.png in Resources */,
+				F7B78FB31465F4F000B7A3E4 /* messages.png in Resources */,
+				F7B78FB41465F4F000B7A3E4 /* settings.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +309,13 @@
 				49DA2FF51465ECA600D4089E /* GroupListMessageCell.m in Sources */,
 				49DA2FF81465EEA000D4089E /* GroupListViewController.m in Sources */,
 				49DA30001465FDFE00D4089E /* LoginViewController.m in Sources */,
+				F7B78F851465D50100B7A3E4 /* MessageListViewController.m in Sources */,
+				F7B78F891465D51800B7A3E4 /* MemberListViewController.m in Sources */,
+				F7B78F8C1465D52D00B7A3E4 /* MapViewController.m in Sources */,
+				F7B78F8F1465D54300B7A3E4 /* SettingsViewController.m in Sources */,
+				F7B78F961465DAEC00B7A3E4 /* MessageTextView.m in Sources */,
+				F7B78F991465E23C00B7A3E4 /* MessageTableCell.m in Sources */,
+				F7B78FA01465E58700B7A3E4 /* MessageTableCellContentView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
