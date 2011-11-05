@@ -13,6 +13,7 @@
 		F7B78F6B1465CFE900B7A3E4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F7B78F691465CFE900B7A3E4 /* InfoPlist.strings */; };
 		F7B78F6D1465CFE900B7A3E4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B78F6C1465CFE900B7A3E4 /* main.m */; };
 		F7B78F711465CFE900B7A3E4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B78F701465CFE900B7A3E4 /* AppDelegate.m */; };
+		F7B78F7A1465D35D00B7A3E4 /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B78F791465D35D00B7A3E4 /* GroupViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		F7B78F6E1465CFE900B7A3E4 /* Humanity-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Humanity-Prefix.pch"; sourceTree = "<group>"; };
 		F7B78F6F1465CFE900B7A3E4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F7B78F701465CFE900B7A3E4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F7B78F781465D35D00B7A3E4 /* GroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupViewController.h; path = "Group Screen/GroupViewController.h"; sourceTree = "<group>"; };
+		F7B78F791465D35D00B7A3E4 /* GroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupViewController.m; path = "Group Screen/GroupViewController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +75,7 @@
 		F7B78F661465CFE900B7A3E4 /* Humanity */ = {
 			isa = PBXGroup;
 			children = (
+				F7B78F771465D23500B7A3E4 /* Group Screen */,
 				F7B78F6F1465CFE900B7A3E4 /* AppDelegate.h */,
 				F7B78F701465CFE900B7A3E4 /* AppDelegate.m */,
 				F7B78F671465CFE900B7A3E4 /* Supporting Files */,
@@ -88,6 +92,15 @@
 				F7B78F6E1465CFE900B7A3E4 /* Humanity-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F7B78F771465D23500B7A3E4 /* Group Screen */ = {
+			isa = PBXGroup;
+			children = (
+				F7B78F781465D35D00B7A3E4 /* GroupViewController.h */,
+				F7B78F791465D35D00B7A3E4 /* GroupViewController.m */,
+			);
+			name = "Group Screen";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -117,7 +130,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0420;
-				ORGANIZATIONNAME = Yobongo;
+				ORGANIZATIONNAME = Humanity;
 			};
 			buildConfigurationList = F7B78F561465CFE800B7A3E4 /* Build configuration list for PBXProject "Humanity" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -154,6 +167,7 @@
 			files = (
 				F7B78F6D1465CFE900B7A3E4 /* main.m in Sources */,
 				F7B78F711465CFE900B7A3E4 /* AppDelegate.m in Sources */,
+				F7B78F7A1465D35D00B7A3E4 /* GroupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
