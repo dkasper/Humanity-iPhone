@@ -9,7 +9,7 @@
 #import "MessageListViewController.h"
 #import "MessageTableCell.h"
 
-#define MESSAGE_VIEW_HEIGHT 65
+#define MESSAGE_VIEW_HEIGHT 70
 
 @implementation MessageListViewController
 
@@ -113,11 +113,18 @@ static NSString *cellIdentifier = @"MessageCell";
         CGRect newFrame = self.toggleTextViewButton.frame;
         newFrame.origin.y = newFrame.origin.y - MESSAGE_VIEW_HEIGHT;
         self.toggleTextViewButton.frame = newFrame;
+        
+        newFrame = self.messageTableView.frame;
+        newFrame.origin.y -= 30;
+        self.messageTableView.frame = newFrame;
     } else {
         [self.messageTextView expand];
         CGRect newFrame = self.toggleTextViewButton.frame;
         newFrame.origin.y = newFrame.origin.y + MESSAGE_VIEW_HEIGHT;
         self.toggleTextViewButton.frame = newFrame;
+        
+        newFrame.origin.y += 30;
+        self.messageTableView.frame = newFrame;
     }
 }
 
