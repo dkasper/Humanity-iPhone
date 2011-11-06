@@ -12,15 +12,15 @@
 
 -(void)loadViewContent
 {
-    self.frame = CGRectMake(0, 0, 320, 100);
+    self.frame = CGRectMake(0, 0, 320, 96);
     self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"texture.png"]];
     
-    UIImageView *profilePic = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 80, 80)];
+    UIImageView *profilePic = [[UIImageView alloc] initWithFrame:CGRectMake(10, 8, 80, 80)];
     [profilePic setImage:[UIImage imageNamed:@"addaphoto.png"]];
     [self addSubview:profilePic];
     [profilePic release];
     
-    UILabel *userNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 15, 190, 20)];
+    UILabel *userNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(110, 15, 190, 20)];
     userNameLabel.text = @"Manny Tee";
     userNameLabel.font = [UIFont boldSystemFontOfSize:16.0];
     userNameLabel.backgroundColor = [UIColor clearColor];
@@ -28,7 +28,7 @@
     [self addSubview:userNameLabel];
     [userNameLabel release];
     
-    UILabel *emailLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 35, 190, 15)];
+    UILabel *emailLabel = [[UILabel alloc] initWithFrame:CGRectMake(110, 35, 190, 15)];
     emailLabel.text = @"mannytee@gmail.com";
     emailLabel.font = [UIFont boldSystemFontOfSize:12.0];
     emailLabel.backgroundColor = [UIColor clearColor];

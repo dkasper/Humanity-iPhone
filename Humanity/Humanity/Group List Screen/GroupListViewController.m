@@ -29,13 +29,17 @@
         self.navigationItem.rightBarButtonItem = addButton;
         [addButton release];
         
-        UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc]
-                                           initWithBarButtonSystemItem:UIBarButtonSystemItemAction 
-                                           target:self 
-                                           action:@selector(launchSettings)];
-        self.navigationItem.leftBarButtonItem = settingsButton;
-        [settingsButton release];
-        
+        UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
+		[settingsButton setImage: [UIImage imageNamed:@"settings_bbi_unselected.png"] forState:UIControlStateNormal];
+		[settingsButton setImage: [UIImage imageNamed:@"settings_bbi_selected.png"] forState:UIControlStateHighlighted];
+		settingsButton.frame= CGRectMake(0, 0, 40, 30);
+		[settingsButton addTarget:self action:@selector(launchSettings) forControlEvents:UIControlEventTouchUpInside];
+		
+		UIBarButtonItem *settingsBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:settingsButton];
+		
+		self.navigationItem.leftBarButtonItem= settingsBarButtonItem;
+		[settingsBarButtonItem release];
+
         UIBarButtonItem *customBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Pods" 
                                                                              style: UIBarButtonItemStyleBordered 
                                                                             target: nil 

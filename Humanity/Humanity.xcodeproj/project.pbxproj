@@ -13,6 +13,11 @@
 		49BC870C146629A400EF87BB /* addaphoto@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49BC870B146629A400EF87BB /* addaphoto@2x.png */; };
 		49BC870E146629C500EF87BB /* texture.png in Resources */ = {isa = PBXBuildFile; fileRef = 49BC870D146629C500EF87BB /* texture.png */; };
 		49BC871F1466531D00EF87BB /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BC871E1466531C00EF87BB /* MessageUI.framework */; };
+		49BC872714665CD400EF87BB /* settings_bbi_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49BC872514665CD400EF87BB /* settings_bbi_selected@2x.png */; };
+		49BC872814665CD400EF87BB /* settings_bbi_unselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49BC872614665CD400EF87BB /* settings_bbi_unselected@2x.png */; };
+		49BC872B14665E8D00EF87BB /* settings_bbi_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 49BC872914665E8D00EF87BB /* settings_bbi_selected.png */; };
+		49BC872C14665E8D00EF87BB /* settings_bbi_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 49BC872A14665E8D00EF87BB /* settings_bbi_unselected.png */; };
+		49BC872F1466601800EF87BB /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BC872E1466601800EF87BB /* EditProfileViewController.m */; };
 		49DA2FF51465ECA600D4089E /* GroupListMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DA2FF41465ECA600D4089E /* GroupListMessageCell.m */; };
 		49DA2FF81465EEA000D4089E /* GroupListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DA2FF71465EEA000D4089E /* GroupListViewController.m */; };
 		49DA30001465FDFE00D4089E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DA2FFF1465FDFE00D4089E /* LoginViewController.m */; };
@@ -100,6 +105,12 @@
 		49BC870B146629A400EF87BB /* addaphoto@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addaphoto@2x.png"; sourceTree = "<group>"; };
 		49BC870D146629C500EF87BB /* texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture.png; sourceTree = "<group>"; };
 		49BC871E1466531C00EF87BB /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		49BC872514665CD400EF87BB /* settings_bbi_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings_bbi_selected@2x.png"; sourceTree = "<group>"; };
+		49BC872614665CD400EF87BB /* settings_bbi_unselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings_bbi_unselected@2x.png"; sourceTree = "<group>"; };
+		49BC872914665E8D00EF87BB /* settings_bbi_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_bbi_selected.png; sourceTree = "<group>"; };
+		49BC872A14665E8D00EF87BB /* settings_bbi_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_bbi_unselected.png; sourceTree = "<group>"; };
+		49BC872D1466601800EF87BB /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditProfileViewController.h; path = "Profile Screen/EditProfileViewController.h"; sourceTree = "<group>"; };
+		49BC872E1466601800EF87BB /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditProfileViewController.m; path = "Profile Screen/EditProfileViewController.m"; sourceTree = "<group>"; };
 		49DA2FF31465ECA600D4089E /* GroupListMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupListMessageCell.h; path = "Group LIst Message Cell/GroupListMessageCell.h"; sourceTree = "<group>"; };
 		49DA2FF41465ECA600D4089E /* GroupListMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupListMessageCell.m; path = "Group LIst Message Cell/GroupListMessageCell.m"; sourceTree = "<group>"; };
 		49DA2FF61465EEA000D4089E /* GroupListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupListViewController.h; path = "Group List Screen/GroupListViewController.h"; sourceTree = "<group>"; };
@@ -318,8 +329,37 @@
 		49BC8720146659A700EF87BB /* Profile Screen */ = {
 			isa = PBXGroup;
 			children = (
+				49BC872D1466601800EF87BB /* EditProfileViewController.h */,
+				49BC872E1466601800EF87BB /* EditProfileViewController.m */,
 			);
 			name = "Profile Screen";
+			sourceTree = "<group>";
+		};
+		49BC872114665C8400EF87BB /* high-res */ = {
+			isa = PBXGroup;
+			children = (
+				49BC872514665CD400EF87BB /* settings_bbi_selected@2x.png */,
+				49BC872614665CD400EF87BB /* settings_bbi_unselected@2x.png */,
+			);
+			name = "high-res";
+			sourceTree = "<group>";
+		};
+		49BC872314665C9900EF87BB /* NavBarIcon */ = {
+			isa = PBXGroup;
+			children = (
+				49BC872414665CAD00EF87BB /* standard-res */,
+				49BC872114665C8400EF87BB /* high-res */,
+			);
+			name = NavBarIcon;
+			sourceTree = "<group>";
+		};
+		49BC872414665CAD00EF87BB /* standard-res */ = {
+			isa = PBXGroup;
+			children = (
+				49BC872914665E8D00EF87BB /* settings_bbi_selected.png */,
+				49BC872A14665E8D00EF87BB /* settings_bbi_unselected.png */,
+			);
+			name = "standard-res";
 			sourceTree = "<group>";
 		};
 		49DA2FED1465DED800D4089E /* Group List Screen */ = {
@@ -593,6 +633,7 @@
 		F7B78FA11465F4F000B7A3E4 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				49BC872314665C9900EF87BB /* NavBarIcon */,
 				49BC87081466296A00EF87BB /* Background */,
 				49BC87001466230E00EF87BB /* Profile */,
 				49DA3010146604DC00D4089E /* Facebook */,
@@ -704,6 +745,10 @@
 				49BC87021466233E00EF87BB /* addaphoto.png in Resources */,
 				49BC870C146629A400EF87BB /* addaphoto@2x.png in Resources */,
 				49BC870E146629C500EF87BB /* texture.png in Resources */,
+				49BC872714665CD400EF87BB /* settings_bbi_selected@2x.png in Resources */,
+				49BC872814665CD400EF87BB /* settings_bbi_unselected@2x.png in Resources */,
+				49BC872B14665E8D00EF87BB /* settings_bbi_selected.png in Resources */,
+				49BC872C14665E8D00EF87BB /* settings_bbi_unselected.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -762,6 +807,7 @@
 				49BC87051466236C00EF87BB /* ProfileView.m in Sources */,
 				F7B78FC61466102A00B7A3E4 /* GroupConstants.h in Sources */,
 				66A1058F1466200800E5FC75 /* HMButton.m in Sources */,
+				49BC872F1466601800EF87BB /* EditProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
