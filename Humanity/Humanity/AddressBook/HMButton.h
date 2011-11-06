@@ -1,4 +1,4 @@
-@interface JTVButton : UIButton {
+@interface HMButton : UIButton {
 @private
 	id _userInfo;
 }

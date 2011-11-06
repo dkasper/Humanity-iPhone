@@ -7,7 +7,7 @@
 //
 
 #import "SCGroupSelectorTableViewController.h"
-#import "JTVButton.h"
+#import "HMButton.h"
 //#import "SCTableViewHeader.h"
 //#import "SCUserGroupCell.h"
 
@@ -593,7 +593,7 @@ the user holds down delete and does a full-line delete. This catches that case.
 	if (add) {  
 	    [_selectedItems addObject:item];
 	
-    	JTVButton *button = [JTVButton buttonWithType:UIButtonTypeCustom];
+    	HMButton *button = [HMButton buttonWithType:UIButtonTypeCustom];
     	[button setBackgroundImage:[self backgroundImageForItem:item selected:NO] forState:UIControlStateNormal];
         button.adjustsImageWhenHighlighted = NO;
     	
@@ -677,7 +677,7 @@ the user holds down delete and does a full-line delete. This catches that case.
 		}
 	}*/
 	
-	JTVButton *button = (JTVButton *) sender; 
+	HMButton *button = (HMButton *) sender; 
 	if (_selectedButton && _selectedButton != button) {
 		[_selectedButton setBackgroundImage:[self backgroundImageForItem:_selectedButton.userInfo selected:NO] forState:UIControlStateNormal];
 	    [_selectedButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];

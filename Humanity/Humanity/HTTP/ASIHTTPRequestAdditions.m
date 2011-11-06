@@ -6,7 +6,7 @@ NSString *const PUT = @"PUT";
 NSString *const GET = @"GET";
 NSString *const POST = @"POST";
 
-NSString *const APIRootURLFormat =   @"http://www.gethumanity.com/%@";
+NSString *const APIRootURLFormat =   @"http://gethumanity.com/%@";
 
 static NSString *localeIdentifier = nil;
 static NSString *versionIdentifier = nil;
@@ -29,7 +29,9 @@ BOOL shouldRetryFromStatusCode(NSUInteger statusCode) {
 }
 
  + (NSString *) pathWithApi:(NSString *)api {
-    return [NSString stringWithFormat:APIRootURLFormat, api];   
+    NSString *p = [NSString stringWithFormat:APIRootURLFormat, api];
+    NSLog(@"api: %@", p);
+    return p;        
 }
  
 

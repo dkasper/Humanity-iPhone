@@ -1,7 +1,7 @@
-#import "JTVButton.h"
+#import "HMButton.h"
 
 
-@implementation JTVButton
+@implementation HMButton
 @synthesize userInfo = _userInfo;
 
 - (void) dealloc {
