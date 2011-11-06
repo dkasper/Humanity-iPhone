@@ -14,7 +14,7 @@
 #import "ASIHTTPRequest.h"
 #import "ASIHTTPRequestAdditions.h"
 #import "ASIFormDataRequest.h"
-#import "KeychainItemWrapper.h"
+#import "KeychainWrapper.h"
 #import <Security/Security.h>
 
 
@@ -33,7 +33,8 @@ static NSString *kHMFacebookToken = @"kHMFacebookToken";
     if (!(self = [super init]))
         return nil;
     _facebookSession = [[Facebook alloc] initWithAppId:@"260726697307269"];
-    _keychain =  [[KeychainItemWrapper alloc] initWithIdentifier:@"gethumanity.com" accessGroup:nil];
+    _keychain =  [[KeychainWrapper alloc] init];
+    
     return self;
 }
 
@@ -58,7 +59,7 @@ static NSString *kHMFacebookToken = @"kHMFacebookToken";
 - (BOOL) loginFromKeychain {
     NSLog(@"loginFromKeychain");
     if (_loggingIn || _loggedIn) return NO; 
-    NSString *fid = [_keychain objectForKey:kHMFacebookToken];
+    NSString *fid = [_keychain myObjectForKey:kHMFacebookToken];
     if (!fid.length) return NO;
      _facebookID = [fid retain];
      _loggedIn = YES;
@@ -113,8 +114,9 @@ static NSString *kHMFacebookToken = @"kHMFacebookToken";
     _loggedIn = YES;
     _loggingIn = NO;
     
-    [_keychain setObject:_facebookID forKey:kHMFacebookToken];
-    
+#if TARGET_IPHONE_SIMULATOR
+    [_keychain mySetObject:_facebookID forKey:kHMFacebookToken];
+#endif    
     [[NSNotificationCenter defaultCenter] postNotificationName:HumanityUserDidLoginNotification object:nil];
         
 }

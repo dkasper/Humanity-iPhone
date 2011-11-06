@@ -16,14 +16,14 @@ extern NSString *const HumanityUserDidLogoutNotification;
 
 
 @class Facebook;
-@class KeychainItemWrapper;
+@class KeychainWrapper;
 
 @interface AccountManager : NSObject <FBSessionDelegate> {
     Facebook *_facebookSession;
     NSString *_facebookID; 
     BOOL _loggedIn;
     BOOL _loggingIn;
-    KeychainItemWrapper *_keychain;
+    KeychainWrapper *_keychain;
 }
 
 + (AccountManager *) sharedAccountManager;
