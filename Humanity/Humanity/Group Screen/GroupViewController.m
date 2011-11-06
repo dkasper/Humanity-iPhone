@@ -9,6 +9,7 @@
 
 @implementation GroupViewController
 
+@synthesize podName = _podName;
 @synthesize messageListViewController = _messageListViewController;
 @synthesize memberListViewController = _memberListViewController;
 @synthesize mapViewController = _mapViewController;
@@ -24,6 +25,11 @@
         [self setViewControllers:[NSArray arrayWithObjects:self.messageListViewController, self.memberListViewController, self.mapViewController, self.settingsViewController, nil]];
     }
     return self;
+}
+
+-(void)setPodName:(NSString *)name {
+    _podName = [name retain];
+    self.title = _podName;
 }
 
 @end

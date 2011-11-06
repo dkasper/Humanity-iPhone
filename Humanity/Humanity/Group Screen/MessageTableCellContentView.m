@@ -26,6 +26,9 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
+    
+    [[UIImage imageNamed:@"map.png"] drawInRect:CGRectMake(5, 5, 50, 50)];
+    
     // Drawing code
     [[self.delegate name] drawAtPoint:CGPointMake(60, 5) withFont:[UIFont boldSystemFontOfSize:18.0]];
     

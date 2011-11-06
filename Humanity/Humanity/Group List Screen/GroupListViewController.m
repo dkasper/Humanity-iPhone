@@ -76,6 +76,10 @@
     return [temp count];
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 50;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *CellIdentifier = @"GroupListMessageCell";
@@ -89,6 +93,7 @@
     }
     
     [cell setMessageCellGroup:@"Some Pod" message:@"Hello"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
     
@@ -96,6 +101,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     GroupViewController *vc = [[GroupViewController alloc] init];
+    vc.podName = @"Test Name";
     [self.navigationController pushViewController:vc animated:YES];
     [vc release];
 }
@@ -124,17 +130,6 @@
     [listHeaderView release];
 }
 
--(void)setFooterView
-{
-    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 370, 320, 50)];
-    
-    footerView.backgroundColor = [UIColor redColor];
-    
-    [self.view addSubview:footerView];
-    [footerView release];
-}
-
-
 #pragma mark - View lifecycle
 
 /*
@@ -157,8 +152,6 @@
     [self setTableHeaderView];
     
     [self.view addSubview:groupListTableView];
-    
-    [self setFooterView];
 }
 
 

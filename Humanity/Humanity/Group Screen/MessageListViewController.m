@@ -8,8 +8,7 @@
 
 #import "MessageListViewController.h"
 #import "MessageTableCell.h"
-
-#define MESSAGE_VIEW_HEIGHT 70
+#import "GroupConstants.h"
 
 @implementation MessageListViewController
 
@@ -47,12 +46,13 @@ static NSString *cellIdentifier = @"MessageCell";
 {
     UIView *view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    self.messageTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, MESSAGE_VIEW_HEIGHT, view.bounds.size.width, view.bounds.size.height - MESSAGE_VIEW_HEIGHT) style:UITableViewStylePlain];
+    self.messageTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, CONTRACTED_HEIGHT, view.bounds.size.width, view.bounds.size.height - CONTRACTED_HEIGHT) style:UITableViewStylePlain];
     self.messageTableView.delegate = self;
     self.messageTableView.dataSource = self;
     [view addSubview:self.messageTableView];
     
-    self.messageTextView = [[MessageTextView alloc] initWithFrame:CGRectMake(0, 0, view.bounds.size.width, MESSAGE_VIEW_HEIGHT)];
+    self.messageTextView = [[MessageTextView alloc] initWithFrame:CGRectMake(0, 0, view.bounds.size.width, CONTRACTED_HEIGHT)];
+    self.messageTextView.delegate = self;
     [view addSubview:self.messageTextView];
     
     self.toggleTextViewButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -112,7 +112,7 @@ static NSString *cellIdentifier = @"MessageCell";
     if(self.messageTextView.enabled) {
         [self.messageTextView contract];
         CGRect newFrame = self.toggleTextViewButton.frame;
-        newFrame.origin.y = newFrame.origin.y - MESSAGE_VIEW_HEIGHT;
+        newFrame.origin.y = newFrame.origin.y - EXPANDED_HEIGHT;
         self.toggleTextViewButton.frame = newFrame;
         
         newFrame = self.messageTableView.frame;
@@ -121,7 +121,7 @@ static NSString *cellIdentifier = @"MessageCell";
     } else {
         [self.messageTextView expand];
         CGRect newFrame = self.toggleTextViewButton.frame;
-        newFrame.origin.y = newFrame.origin.y + MESSAGE_VIEW_HEIGHT;
+        newFrame.origin.y = newFrame.origin.y + EXPANDED_HEIGHT;
         self.toggleTextViewButton.frame = newFrame;
         
         newFrame = self.messageTableView.frame;

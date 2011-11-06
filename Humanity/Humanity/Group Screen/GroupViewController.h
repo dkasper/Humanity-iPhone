@@ -13,6 +13,8 @@
 
 @interface GroupViewController : UITabBarController
 
+@property (nonatomic, retain) NSString *podName;
+
 @property (nonatomic, retain) MessageListViewController *messageListViewController;
 @property (nonatomic, retain) MemberListViewController *memberListViewController;
 @property (nonatomic, retain) MapViewController *mapViewController;

@@ -7,14 +7,7 @@
 //
 
 #import "MessageTextView.h"
-
-#define CONTRACTED_TEXT_HEIGHT 30
-#define EXPANDED_TEXT_HEIGHT 60
-#define EXPANDED_HEIGHT 100
-#define CONTRACTED_HEIGHT 70
-#define PICTURE_SIZE 40
-#define BUTTON_WIDTH 40
-#define BUTTON_HEIGHT 20
+#import "GroupConstants.h"
 
 @implementation MessageTextView
 
@@ -22,12 +15,15 @@
 @synthesize closeButton = _closeButton;
 @synthesize sendButton = _sendButton;
 @synthesize enabled = _enabled;
+@synthesize locationSwitch = _locationSwitch;
+@synthesize delegate = _delegate;
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        self.clipsToBounds = YES;
         self.backgroundColor = [UIColor colorWithWhite:200/255.0 alpha:1.0];
         self.textView = [[UITextView alloc] initWithFrame:CGRectMake(PICTURE_SIZE + 10, 5, self.bounds.size.width - PICTURE_SIZE - 15, CONTRACTED_TEXT_HEIGHT)];
         self.textView.font = [UIFont systemFontOfSize:14.0];
@@ -37,10 +33,15 @@
         [self showPlaceholder];
         
         self.sendButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.sendButton.frame = CGRectMake(self.bounds.size.width - BUTTON_WIDTH - 5, CONTRACTED_TEXT_HEIGHT + 10, BUTTON_WIDTH, BUTTON_HEIGHT);
+        self.sendButton.frame = CGRectMake(self.bounds.size.width - BUTTON_WIDTH - 5, EXPANDED_HEIGHT - BUTTON_HEIGHT - 5, BUTTON_WIDTH, BUTTON_HEIGHT);
         self.sendButton.titleLabel.text = @"Send";
+        self.sendButton.titleLabel.textColor = [UIColor whiteColor];
         self.sendButton.backgroundColor = [UIColor greenColor];
+        [self.sendButton addTarget:self action:@selector(send:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.sendButton];
+        
+        self.locationSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(60, self.sendButton.frame.origin.y, BUTTON_WIDTH, BUTTON_HEIGHT)];
+        [self addSubview:self.locationSwitch];
     }
     return self;
 }
@@ -70,10 +71,6 @@
     self.textView.frame = newFrame;
     self.enabled = YES;
     
-    newFrame = self.sendButton.frame;
-    newFrame.origin.y += EXPANDED_HEIGHT - CONTRACTED_HEIGHT;
-    self.sendButton.frame = newFrame;
-    
     newFrame = self.frame;
     newFrame.size.height = EXPANDED_HEIGHT;
     self.frame = newFrame;
@@ -90,13 +87,17 @@
     self.textView.frame = newFrame;
     self.enabled = NO;
     
-    newFrame = self.sendButton.frame;
-    newFrame.origin.y -= EXPANDED_HEIGHT - CONTRACTED_HEIGHT;
-    self.sendButton.frame = newFrame;
-    
     newFrame = self.frame;
     newFrame.size.height = CONTRACTED_HEIGHT;
     self.frame = newFrame;
+}
+
+-(void)send:(id)sender {
+    if(self.delegate && [self.delegate respondsToSelector:@selector(sendMessage)]) {
+        [self.delegate sendMessage];
+    }
+    self.textView.text = @"";
+    [self.delegate toggleTextView:sender];
 }
 
 /*
