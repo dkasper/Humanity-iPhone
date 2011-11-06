@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "FBConnect.h"
+#import "LoginViewController.h"
+#import "AccountManager.h"
 
 @implementation AppDelegate
 
@@ -14,6 +17,7 @@
 
 - (void)dealloc
 {
+    [_loginViewController release];
     [_window release];
     [super dealloc];
 }
@@ -23,6 +27,14 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    
+    _loginViewController = [[LoginViewController alloc] init];
+    
+    
+    [AccountManager sharedAccountManager];
+    
+    [self.window addSubview:_loginViewController.view];
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -64,6 +76,16 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
+}
+     
+
+- (BOOL) application:(UIApplication *) application handleOpenURL:(NSURL *) url {
+	NSLog(@"App opened with url %@", url.absoluteString);
+	if ([url.scheme hasPrefix:@"fb"]) {
+		
+		[[AccountManager sharedAccountManager].facebookSession handleOpenURL:url];
+    }
+    return YES;
 }
 
 @end

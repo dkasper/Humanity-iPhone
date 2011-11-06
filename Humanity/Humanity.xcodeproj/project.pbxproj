@@ -22,6 +22,13 @@
 		6626A1471465FA1E0019AA25 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6626A1461465FA1E0019AA25 /* SystemConfiguration.framework */; };
 		6626A1491465FA910019AA25 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6626A1481465FA910019AA25 /* MobileCoreServices.framework */; };
 		6626A14B1465FADA0019AA25 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6626A14A1465FADA0019AA25 /* libz.dylib */; };
+		6626A14E146600110019AA25 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6626A14D146600110019AA25 /* LoginViewController.m */; };
+		6626A15A146602900019AA25 /* Facebook.m in Sources */ = {isa = PBXBuildFile; fileRef = 6626A151146602900019AA25 /* Facebook.m */; };
+		6626A15B146602900019AA25 /* FBDialog.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6626A153146602900019AA25 /* FBDialog.bundle */; };
+		6626A15C146602900019AA25 /* FBDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 6626A155146602900019AA25 /* FBDialog.m */; };
+		6626A15D146602900019AA25 /* FBLoginDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 6626A157146602900019AA25 /* FBLoginDialog.m */; };
+		6626A15E146602900019AA25 /* FBRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6626A159146602900019AA25 /* FBRequest.m */; };
+		6626A16114660A980019AA25 /* AccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6626A16014660A980019AA25 /* AccountManager.m */; };
 		6668554A1465DBE80023B5DE /* SCAddressBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 666855491465DBE80023B5DE /* SCAddressBook.m */; };
 		666855521465DC050023B5DE /* ASIHTTPRequestAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6668554C1465DC050023B5DE /* ASIHTTPRequestAdditions.m */; };
 		666855531465DC050023B5DE /* SCCachedHTTPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6668554E1465DC050023B5DE /* SCCachedHTTPManager.m */; };
@@ -75,6 +82,20 @@
 		6626A1461465FA1E0019AA25 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		6626A1481465FA910019AA25 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		6626A14A1465FADA0019AA25 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		6626A14C146600110019AA25 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		6626A14D146600110019AA25 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		6626A150146602900019AA25 /* Facebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Facebook.h; sourceTree = "<group>"; };
+		6626A151146602900019AA25 /* Facebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Facebook.m; sourceTree = "<group>"; };
+		6626A152146602900019AA25 /* FBConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBConnect.h; sourceTree = "<group>"; };
+		6626A153146602900019AA25 /* FBDialog.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FBDialog.bundle; sourceTree = "<group>"; };
+		6626A154146602900019AA25 /* FBDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBDialog.h; sourceTree = "<group>"; };
+		6626A155146602900019AA25 /* FBDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBDialog.m; sourceTree = "<group>"; };
+		6626A156146602900019AA25 /* FBLoginDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBLoginDialog.h; sourceTree = "<group>"; };
+		6626A157146602900019AA25 /* FBLoginDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBLoginDialog.m; sourceTree = "<group>"; };
+		6626A158146602900019AA25 /* FBRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBRequest.h; sourceTree = "<group>"; };
+		6626A159146602900019AA25 /* FBRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBRequest.m; sourceTree = "<group>"; };
+		6626A15F14660A970019AA25 /* AccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountManager.h; sourceTree = "<group>"; };
+		6626A16014660A980019AA25 /* AccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountManager.m; sourceTree = "<group>"; };
 		666855481465DBE80023B5DE /* SCAddressBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCAddressBook.h; path = AddressBook/SCAddressBook.h; sourceTree = "<group>"; };
 		666855491465DBE80023B5DE /* SCAddressBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCAddressBook.m; path = AddressBook/SCAddressBook.m; sourceTree = "<group>"; };
 		6668554B1465DC050023B5DE /* ASIHTTPRequestAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIHTTPRequestAdditions.h; path = HTTP/ASIHTTPRequestAdditions.h; sourceTree = "<group>"; };
@@ -156,6 +177,24 @@
 			);
 			name = JSONkit;
 			path = Humanity/JSONkit;
+			sourceTree = "<group>";
+		};
+		6626A14F146602900019AA25 /* Facebook */ = {
+			isa = PBXGroup;
+			children = (
+				6626A150146602900019AA25 /* Facebook.h */,
+				6626A151146602900019AA25 /* Facebook.m */,
+				6626A152146602900019AA25 /* FBConnect.h */,
+				6626A153146602900019AA25 /* FBDialog.bundle */,
+				6626A154146602900019AA25 /* FBDialog.h */,
+				6626A155146602900019AA25 /* FBDialog.m */,
+				6626A156146602900019AA25 /* FBLoginDialog.h */,
+				6626A157146602900019AA25 /* FBLoginDialog.m */,
+				6626A158146602900019AA25 /* FBRequest.h */,
+				6626A159146602900019AA25 /* FBRequest.m */,
+			);
+			name = Facebook;
+			path = Humanity/Facebook;
 			sourceTree = "<group>";
 		};
 		666855461465DA1F0023B5DE /* HTTP */ = {
@@ -270,6 +309,7 @@
 		F7B78F5F1465CFE900B7A3E4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6626A14F146602900019AA25 /* Facebook */,
 				6626A1211465E3470019AA25 /* JSONkit */,
 				66EE1DD11465D75900C1600C /* ASIHTTPRequest */,
 				F7B78F601465CFE900B7A3E4 /* UIKit.framework */,
@@ -284,6 +324,10 @@
 			children = (
 				6626A12F1465E8210019AA25 /* SCSearchBar.h */,
 				6626A1301465E8210019AA25 /* SCSearchBar.m */,
+				6626A15F14660A970019AA25 /* AccountManager.h */,
+				6626A16014660A980019AA25 /* AccountManager.m */,
+				6626A14C146600110019AA25 /* LoginViewController.h */,
+				6626A14D146600110019AA25 /* LoginViewController.m */,
 				6668555B1465DCAB0023B5DE /* SCReachability.h */,
 				6668555C1465DCAB0023B5DE /* SCReachability.m */,
 				666855651465DEFB0023B5DE /* Additions */,
@@ -360,6 +404,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7B78F6B1465CFE900B7A3E4 /* InfoPlist.strings in Resources */,
+				6626A15B146602900019AA25 /* FBDialog.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +444,12 @@
 				6626A13D1465F0860019AA25 /* UITableViewAdditions.m in Sources */,
 				6626A1401465F4F20019AA25 /* UIAlertViewAdditions.m in Sources */,
 				6626A1431465F6230019AA25 /* UITableViewCellAdditions.m in Sources */,
+				6626A14E146600110019AA25 /* LoginViewController.m in Sources */,
+				6626A15A146602900019AA25 /* Facebook.m in Sources */,
+				6626A15C146602900019AA25 /* FBDialog.m in Sources */,
+				6626A15D146602900019AA25 /* FBLoginDialog.m in Sources */,
+				6626A15E146602900019AA25 /* FBRequest.m in Sources */,
+				6626A16114660A980019AA25 /* AccountManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
