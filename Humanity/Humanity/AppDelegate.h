@@ -7,8 +7,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@class Facebook;
+@class LoginViewController;
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate> {
+   
+    LoginViewController *_loginViewController;
+}
 
 @property (strong, nonatomic) UIWindow *window;
+
 
 @end

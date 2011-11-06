@@ -5,6 +5,9 @@
 //  Created by David Kasper on 11/5/11.
 
 #import "AppDelegate.h"
+#import "FBConnect.h"
+#import "LoginViewController.h"
+#import "AccountManager.h"
 #import "GroupListViewController.h"
 #import "LoginViewController.h"
 #import "GroupViewController.h"
@@ -15,36 +18,36 @@
 
 - (void)dealloc
 {
+    [_loginViewController release];
     [_window release];
     [super dealloc];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    [[AccountManager sharedAccountManager] loginFromKeychain];
+    
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    
     // Override point for customization after application launch.
     
-    LoginViewController *loginController = [[LoginViewController alloc] init];
-    
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginController];
-    [loginController release];
-    
-    [self.window setRootViewController:navController];
-    [navController release];
-                                                
-    //IF user logged in already, go directly to the GroupListViewController
-    /*
-    GroupListViewController *listController = [[GroupListViewController alloc] init];
-    
-	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:listController];
-    
-	[listController release];
-    
-    [self.window setRootViewController:navController];
-	[navController release];
-     */
-     
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    
+    if (![AccountManager sharedAccountManager].loggedIn) {    
+        _loginViewController = [[LoginViewController alloc] init];
+        //UINavigationController *loginNavController = [[LoginViewController alloc] initWithRootViewController:_loginViewController];
+        [self.window addSubview:_loginViewController.view];
+        //[loginNavController release];
+    } else {
+        GroupListViewController *listController = [[GroupListViewController alloc] init];
+    	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:listController];    
+    	[listController release];    
+        [self.window setRootViewController:navController];
+    	[navController release];
+    }
+        
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -86,6 +89,16 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
+}
+     
+
+- (BOOL) application:(UIApplication *) application handleOpenURL:(NSURL *) url {
+	NSLog(@"App opened with url %@", url.absoluteString);
+	if ([url.scheme hasPrefix:@"fb"]) {
+		
+		[[AccountManager sharedAccountManager].facebookSession handleOpenURL:url];
+    }
+    return YES;
 }
 
 @end

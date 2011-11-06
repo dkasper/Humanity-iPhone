@@ -8,8 +8,7 @@
 
 #import "MessageListViewController.h"
 #import "MessageTableCell.h"
-
-#define MESSAGE_VIEW_HEIGHT 70
+#import "GroupConstants.h"
 
 @implementation MessageListViewController
 
@@ -26,7 +25,7 @@ static NSString *cellIdentifier = @"MessageCell";
         self.title = @"Messages";
         self.tabBarItem.image = [UIImage imageNamed:@"messages.png"];
         self.messages = [[NSMutableArray alloc] init];
-        [self.messages addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"David Kasper", @"name", @"Hello World Hello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello World", @"body", nil]];
+        [self.messages addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"David Kasper", @"name", @"Hello World Hello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello World", @"content", nil]];
     }
     return self;
 }
@@ -47,12 +46,13 @@ static NSString *cellIdentifier = @"MessageCell";
 {
     UIView *view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    self.messageTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, MESSAGE_VIEW_HEIGHT, view.bounds.size.width, view.bounds.size.height - MESSAGE_VIEW_HEIGHT) style:UITableViewStylePlain];
+    self.messageTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, CONTRACTED_HEIGHT, view.bounds.size.width, view.bounds.size.height - CONTRACTED_HEIGHT) style:UITableViewStylePlain];
     self.messageTableView.delegate = self;
     self.messageTableView.dataSource = self;
     [view addSubview:self.messageTableView];
     
-    self.messageTextView = [[MessageTextView alloc] initWithFrame:CGRectMake(0, 0, view.bounds.size.width, MESSAGE_VIEW_HEIGHT)];
+    self.messageTextView = [[MessageTextView alloc] initWithFrame:CGRectMake(0, 0, view.bounds.size.width, CONTRACTED_HEIGHT)];
+    self.messageTextView.delegate = self;
     [view addSubview:self.messageTextView];
     
     self.toggleTextViewButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -93,7 +93,7 @@ static NSString *cellIdentifier = @"MessageCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [[[self.messages objectAtIndex:indexPath.row] objectForKey:@"body"] sizeWithFont:[UIFont systemFontOfSize:12.0] constrainedToSize:CGSizeMake(280, 9999) lineBreakMode:UILineBreakModeWordWrap].height + 30;
+    return [[[self.messages objectAtIndex:indexPath.row] objectForKey:@"content"] sizeWithFont:[UIFont systemFontOfSize:12.0] constrainedToSize:CGSizeMake(MESSAGE_TEXT_WIDTH, 9999) lineBreakMode:UILineBreakModeWordWrap].height + (EXPANDED_HEIGHT - CONTRACTED_HEIGHT);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -103,7 +103,7 @@ static NSString *cellIdentifier = @"MessageCell";
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.name = [[self.messages objectAtIndex:indexPath.row] objectForKey:@"name"];
-    cell.body = [[self.messages objectAtIndex:indexPath.row] objectForKey:@"body"];
+    cell.content = [[self.messages objectAtIndex:indexPath.row] objectForKey:@"content"];
 
     return cell;
 }
@@ -112,20 +112,22 @@ static NSString *cellIdentifier = @"MessageCell";
     if(self.messageTextView.enabled) {
         [self.messageTextView contract];
         CGRect newFrame = self.toggleTextViewButton.frame;
-        newFrame.origin.y = newFrame.origin.y - MESSAGE_VIEW_HEIGHT;
+        newFrame.origin.y = newFrame.origin.y - EXPANDED_HEIGHT;
+        newFrame.size.height = CONTRACTED_HEIGHT;
         self.toggleTextViewButton.frame = newFrame;
         
         newFrame = self.messageTableView.frame;
-        newFrame.origin.y -= 30;
+        newFrame.origin.y -= (EXPANDED_HEIGHT - CONTRACTED_HEIGHT);
         self.messageTableView.frame = newFrame;
     } else {
         [self.messageTextView expand];
         CGRect newFrame = self.toggleTextViewButton.frame;
-        newFrame.origin.y = newFrame.origin.y + MESSAGE_VIEW_HEIGHT;
+        newFrame.origin.y = newFrame.origin.y + EXPANDED_HEIGHT;
+        newFrame.size.height = 100;
         self.toggleTextViewButton.frame = newFrame;
         
         newFrame = self.messageTableView.frame;
-        newFrame.origin.y += 30;
+        newFrame.origin.y += (EXPANDED_HEIGHT - CONTRACTED_HEIGHT);
         self.messageTableView.frame = newFrame;
     }
 }
