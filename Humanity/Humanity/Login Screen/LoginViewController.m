@@ -8,6 +8,8 @@
 
 #import "LoginViewController.h"
 #import "GroupListViewController.h"
+#import "AccountManager.h"
+
 
 @implementation LoginViewController
 
@@ -31,9 +33,11 @@
 
 -(void)processLogin
 {
+    /*
     GroupListViewController *listViewController = [[[GroupListViewController alloc] init] autorelease];
 	
     [self.navigationController pushViewController:listViewController animated:YES];
+     */
 }
 
 #pragma mark - View lifecycle
@@ -58,7 +62,7 @@
                                  initWithFrame:CGRectMake(self.view.bounds.origin.x + self.view.bounds.size.width/2 - buttonWidth/2,
                                                           200, buttonWidth, 31)];    
     [fbConnectButton setImage:[UIImage imageNamed:@"login2.png"] forState:UIControlStateNormal];
-    [fbConnectButton addTarget:self action:@selector(processLogin) forControlEvents:UIControlEventTouchUpInside];
+    [fbConnectButton addTarget:self action:@selector(connectWithFacebook:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:fbConnectButton];
                                  
                                  
@@ -77,5 +81,10 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+- (void) connectWithFacebook:(id)sender {
+    [[AccountManager sharedAccountManager] connectToFacebook];
+}
+
 
 @end

@@ -36,5 +36,17 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>CFBundleURLTypes</key>
+    	<array>
+    		<dict>
+    			<key>CFBundleURLName</key>
+    			<string>com.humanity</string>
+    			<key>CFBundleURLSchemes</key>
+    			<array>
+    				<string>humanity</string>
+    				<string>fb260726697307269</string>
+    			</array>
+    		</dict>
+    	</array>
 </dict>
 </plist>

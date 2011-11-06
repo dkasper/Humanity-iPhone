@@ -5,6 +5,9 @@
 //  Created by David Kasper on 11/5/11.
 
 #import "AppDelegate.h"
+#import "FBConnect.h"
+#import "LoginViewController.h"
+#import "AccountManager.h"
 #import "GroupListViewController.h"
 #import "LoginViewController.h"
 #import "GroupViewController.h"
@@ -15,6 +18,7 @@
 
 - (void)dealloc
 {
+    [_loginViewController release];
     [_window release];
     [super dealloc];
 }
@@ -45,6 +49,14 @@
      */
      
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    
+    _loginViewController = [[LoginViewController alloc] init];
+    
+    
+    [AccountManager sharedAccountManager];
+    
+    [self.window addSubview:_loginViewController.view];
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -86,6 +98,16 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
+}
+     
+
+- (BOOL) application:(UIApplication *) application handleOpenURL:(NSURL *) url {
+	NSLog(@"App opened with url %@", url.absoluteString);
+	if ([url.scheme hasPrefix:@"fb"]) {
+		
+		[[AccountManager sharedAccountManager].facebookSession handleOpenURL:url];
+    }
+    return YES;
 }
 
 @end
