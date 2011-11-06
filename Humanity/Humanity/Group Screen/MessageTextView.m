@@ -134,6 +134,7 @@
 }
 
 -(void)send:(id)sender {
+    NSLog(@"Send");
     if(self.delegate && [self.delegate respondsToSelector:@selector(sendMessage)]) {
         [self.delegate sendMessage];
     } else {    

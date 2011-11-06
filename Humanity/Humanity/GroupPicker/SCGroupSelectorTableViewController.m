@@ -232,6 +232,7 @@ static UIImage *buttonBackgroundSelected;
     [_expandedTextView expand];
     
     _contractedTextView.delegate = self;
+    _expandedTextView.delegate = self;
         
     [self.view addSubview:_contractedTextView];
     [self.view addSubview:_expandedTextView];
@@ -289,13 +290,10 @@ static UIImage *buttonBackgroundSelected;
 	self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 	self.navigationController.navigationBar.alpha = 1.;
 	[self.navigationController setNavigationBarHidden:NO animated:YES];
-	
-  //  self.navigationItem.leftBarButtonItem = [UIBarButtonItem backBarButtonItemWithTarget:self action:@selector(backButtonPressed:) title:NSLocalizedString(@"Back", nil)];	
-    
-    
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Done", @"Upload button item to upload a video") style:UIBarButtonItemStyleDone target:self action:@selector(doneButtonPressed:)];
-	self.navigationItem.rightBarButtonItem = rightItem;
-	[rightItem release];
+	  
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Cancel", @"Cancel button") style:UIBarButtonItemStylePlain target:self action:@selector(backButtonPressed:)];
+	self.navigationItem.leftBarButtonItem = leftItem;
+	[leftItem release];
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidChange:) name:UITextFieldTextDidChangeNotification object:_inputTextfield];        	
     
@@ -308,6 +306,11 @@ static UIImage *buttonBackgroundSelected;
     }
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+- (void) sendMessage{
+    [self doneButtonPressed:nil];
+}
+
 - (void) doneButtonPressed:(id)sender{
     [self addButtonForCurrentText];
     if (!([_inputTextfield.text isEqual:@"\u200B"] || !_inputTextfield.text.length)) {
@@ -991,5 +994,8 @@ the user holds down delete and does a full-line delete. This catches that case.
     return YES;
 }
 
+- (NSString *) message {
+    return _expandedTextView.textView.text;
+}
 
 @end

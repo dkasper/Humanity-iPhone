@@ -58,6 +58,7 @@
 
 - (void) setToLabelText:(NSString *)text;
 - (void) setHintLabelText:(NSString *)text;
+//- (void) sendMessage; 
  
 @property (nonatomic, retain) NSArray *groups;
 @property (nonatomic, retain) NSArray *items;
@@ -66,7 +67,7 @@
 @property (nonatomic, retain) NSString *badTextAlertBody;
 @property (nonatomic, readonly) NSArray *selectedItems;
 @property (nonatomic, readonly) BOOL cancelButtonClicked;
-
+@property (nonatomic, readonly) NSString *message;
 @property (nonatomic, assign) id<SCGroupSelectorTableViewControllerDelegate> delegate;
 
 @end
