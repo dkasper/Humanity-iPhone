@@ -14,7 +14,15 @@
 #import "ASIHTTPRequest.h"
 #import "ASIHTTPRequestAdditions.h"
 #import "ASIFormDataRequest.h"
+#import "KeychainItemWrapper.h"
+#import <Security/Security.h>
 
+
+NSString *const HumanityUserDidLoginNotification = @"HumanityUserDidLoginNotification";
+NSString *const HumanityUserDidLogoutNotification = @"HumanityUserDidLogoutNotification";
+
+
+static NSString *kHMFacebookToken = @"kHMFacebookToken"; 
 @implementation AccountManager
 
 @synthesize facebookSession = _facebookSession;
@@ -25,12 +33,14 @@
     if (!(self = [super init]))
         return nil;
     _facebookSession = [[Facebook alloc] initWithAppId:@"260726697307269"];
+    _keychain =  [[KeychainItemWrapper alloc] initWithIdentifier:@"gethumanity.com" accessGroup:nil];
     return self;
 }
 
 - (void) dealloc {
     [_facebookSession release];
     [_facebookID release];
+    [_keychain release];
     [super dealloc];
 }
 
@@ -45,8 +55,21 @@
     return sharedManager;
 }
 
+- (BOOL) loginFromKeychain {
+    if (_loggingIn || _loggedIn) return NO; 
+    NSString *fid = [_keychain objectForKey:kHMFacebookToken];
+    if (!fid.length) return NO;
+     _facebookID = [fid retain];
+     _loggedIn = YES;
+     _loggingIn = NO;
+     
+     [[NSNotificationCenter defaultCenter] postNotificationName:HumanityUserDidLoginNotification object:nil];
+     
+     return YES;
+}
+
 - (void) connectToFacebook {
-    if (_loggingIn) return;     
+    if (_loggingIn || _loggedIn) return;     
     _loggingIn = YES;
     NSArray *permissions = [NSArray arrayWithObjects:@"email", @"offline_access", @"publish_stream", @"read_stream", nil];
     [_facebookSession authorize:permissions method:@"fb_app" delegate:self];
@@ -86,6 +109,20 @@
     _facebookID = [_facebookSession.accessToken retain];
     _loggedIn = YES;
     _loggingIn = NO;
+    
+    [_keychain setObject:_facebookID forKey:kHMFacebookToken];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:HumanityUserDidLoginNotification object:nil];
+        
+}
+
+- (void) logout {
+    [_keychain resetKeychainItem];
+    
+
+    _loggedIn = NO;
+    _loggingIn = NO;
+    [[NSNotificationCenter defaultCenter] postNotificationName:HumanityUserDidLogoutNotification object:nil];
 }
 
 @end

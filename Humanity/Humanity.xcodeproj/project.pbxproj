@@ -49,6 +49,9 @@
 		666855721465E1B90023B5DE /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 666855711465E1B90023B5DE /* AddressBookUI.framework */; };
 		666855761465E2410023B5DE /* SCAPIRequestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 666855751465E2410023B5DE /* SCAPIRequestController.m */; };
 		66A1058F1466200800E5FC75 /* HMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A1058E1466200800E5FC75 /* HMButton.m */; };
+		66A10592146626DD00E5FC75 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66A10591146626DD00E5FC75 /* Security.framework */; };
+		66A10594146627E200E5FC75 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66A10593146627E200E5FC75 /* StoreKit.framework */; };
+		66A105981466297C00E5FC75 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A105971466297C00E5FC75 /* KeychainItemWrapper.m */; };
 		66EE1DE61465D75900C1600C /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 66EE1DD31465D75900C1600C /* ASIAuthenticationDialog.m */; };
 		66EE1DE71465D75900C1600C /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 66EE1DD61465D75900C1600C /* ASIDataCompressor.m */; };
 		66EE1DE81465D75900C1600C /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 66EE1DD81465D75900C1600C /* ASIDataDecompressor.m */; };
@@ -153,6 +156,10 @@
 		666855751465E2410023B5DE /* SCAPIRequestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCAPIRequestController.m; path = HTTP/SCAPIRequestController.m; sourceTree = "<group>"; };
 		66A1058D1466200800E5FC75 /* HMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HMButton.h; path = AddressBook/HMButton.h; sourceTree = "<group>"; };
 		66A1058E1466200800E5FC75 /* HMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HMButton.m; path = AddressBook/HMButton.m; sourceTree = "<group>"; };
+		66A10591146626DD00E5FC75 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		66A10593146627E200E5FC75 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		66A105961466297C00E5FC75 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
+		66A105971466297C00E5FC75 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		66EE1DD21465D75900C1600C /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
 		66EE1DD31465D75900C1600C /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
 		66EE1DD41465D75900C1600C /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
@@ -214,6 +221,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66A10594146627E200E5FC75 /* StoreKit.framework in Frameworks */,
+				66A10592146626DD00E5FC75 /* Security.framework in Frameworks */,
 				6626A14B1465FADA0019AA25 /* libz.dylib in Frameworks */,
 				6626A1491465FA910019AA25 /* MobileCoreServices.framework in Frameworks */,
 				6626A1471465FA1E0019AA25 /* SystemConfiguration.framework in Frameworks */,
@@ -349,6 +358,17 @@
 			name = Additions;
 			sourceTree = "<group>";
 		};
+		66A105951466294800E5FC75 /* Account Manager */ = {
+			isa = PBXGroup;
+			children = (
+				6626A15F14660A970019AA25 /* AccountManager.h */,
+				66A105961466297C00E5FC75 /* KeychainItemWrapper.h */,
+				66A105971466297C00E5FC75 /* KeychainItemWrapper.m */,
+				6626A16014660A980019AA25 /* AccountManager.m */,
+			);
+			name = "Account Manager";
+			sourceTree = "<group>";
+		};
 		66EE1DCF1465D40700C1600C /* AddressBook */ = {
 			isa = PBXGroup;
 			children = (
@@ -390,6 +410,8 @@
 		F7B78F511465CFE800B7A3E4 = {
 			isa = PBXGroup;
 			children = (
+				66A10593146627E200E5FC75 /* StoreKit.framework */,
+				66A10591146626DD00E5FC75 /* Security.framework */,
 				6626A14A1465FADA0019AA25 /* libz.dylib */,
 				6626A1481465FA910019AA25 /* MobileCoreServices.framework */,
 				6626A1461465FA1E0019AA25 /* SystemConfiguration.framework */,
@@ -428,8 +450,7 @@
 			children = (
 				6626A12F1465E8210019AA25 /* SCSearchBar.h */,
 				6626A1301465E8210019AA25 /* SCSearchBar.m */,
-				6626A15F14660A970019AA25 /* AccountManager.h */,
-				6626A16014660A980019AA25 /* AccountManager.m */,
+				66A105951466294800E5FC75 /* Account Manager */,
 				6668555B1465DCAB0023B5DE /* SCReachability.h */,
 				6668555C1465DCAB0023B5DE /* SCReachability.m */,
 				666855651465DEFB0023B5DE /* Additions */,
@@ -646,6 +667,7 @@
 				F7B78F991465E23C00B7A3E4 /* MessageTableCell.m in Sources */,
 				F7B78FA01465E58700B7A3E4 /* MessageTableCellContentView.m in Sources */,
 				66A1058F1466200800E5FC75 /* HMButton.m in Sources */,
+				66A105981466297C00E5FC75 /* KeychainItemWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
