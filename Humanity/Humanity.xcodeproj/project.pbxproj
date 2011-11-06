@@ -10,6 +10,14 @@
 		49DA2FF51465ECA600D4089E /* GroupListMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DA2FF41465ECA600D4089E /* GroupListMessageCell.m */; };
 		49DA2FF81465EEA000D4089E /* GroupListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DA2FF71465EEA000D4089E /* GroupListViewController.m */; };
 		49DA30001465FDFE00D4089E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DA2FFF1465FDFE00D4089E /* LoginViewController.m */; };
+		49DA3019146604DC00D4089E /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 49DA3011146604DC00D4089E /* close.png */; };
+		49DA301A146604DC00D4089E /* fbicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 49DA3012146604DC00D4089E /* fbicon.png */; };
+		49DA301B146604DC00D4089E /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 49DA3013146604DC00D4089E /* login.png */; };
+		49DA301C146604DC00D4089E /* login2.png in Resources */ = {isa = PBXBuildFile; fileRef = 49DA3014146604DC00D4089E /* login2.png */; };
+		49DA301D146604DC00D4089E /* login2_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 49DA3015146604DC00D4089E /* login2_down.png */; };
+		49DA301E146604DC00D4089E /* login_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 49DA3016146604DC00D4089E /* login_down.png */; };
+		49DA301F146604DC00D4089E /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = 49DA3017146604DC00D4089E /* logout.png */; };
+		49DA3020146604DC00D4089E /* logout_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 49DA3018146604DC00D4089E /* logout_down.png */; };
 		F7B78F611465CFE900B7A3E4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B78F601465CFE900B7A3E4 /* UIKit.framework */; };
 		F7B78F631465CFE900B7A3E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B78F621465CFE900B7A3E4 /* Foundation.framework */; };
 		F7B78F651465CFE900B7A3E4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B78F641465CFE900B7A3E4 /* CoreGraphics.framework */; };
@@ -41,6 +49,14 @@
 		49DA2FF71465EEA000D4089E /* GroupListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupListViewController.m; path = "Group List Screen/GroupListViewController.m"; sourceTree = "<group>"; };
 		49DA2FFE1465FDFE00D4089E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = "Login Screen/LoginViewController.h"; sourceTree = "<group>"; };
 		49DA2FFF1465FDFE00D4089E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = "Login Screen/LoginViewController.m"; sourceTree = "<group>"; };
+		49DA3011146604DC00D4089E /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
+		49DA3012146604DC00D4089E /* fbicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fbicon.png; sourceTree = "<group>"; };
+		49DA3013146604DC00D4089E /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
+		49DA3014146604DC00D4089E /* login2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login2.png; sourceTree = "<group>"; };
+		49DA3015146604DC00D4089E /* login2_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login2_down.png; sourceTree = "<group>"; };
+		49DA3016146604DC00D4089E /* login_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_down.png; sourceTree = "<group>"; };
+		49DA3017146604DC00D4089E /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout.png; sourceTree = "<group>"; };
+		49DA3018146604DC00D4089E /* logout_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout_down.png; sourceTree = "<group>"; };
 		F7B78F5C1465CFE900B7A3E4 /* Humanity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Humanity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7B78F601465CFE900B7A3E4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F7B78F621465CFE900B7A3E4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -116,6 +132,21 @@
 				49DA2FFF1465FDFE00D4089E /* LoginViewController.m */,
 			);
 			name = "Login Screen";
+			sourceTree = "<group>";
+		};
+		49DA3010146604DC00D4089E /* Facebook */ = {
+			isa = PBXGroup;
+			children = (
+				49DA3011146604DC00D4089E /* close.png */,
+				49DA3012146604DC00D4089E /* fbicon.png */,
+				49DA3013146604DC00D4089E /* login.png */,
+				49DA3014146604DC00D4089E /* login2.png */,
+				49DA3015146604DC00D4089E /* login2_down.png */,
+				49DA3016146604DC00D4089E /* login_down.png */,
+				49DA3017146604DC00D4089E /* logout.png */,
+				49DA3018146604DC00D4089E /* logout_down.png */,
+			);
+			path = Facebook;
 			sourceTree = "<group>";
 		};
 		F7B78F511465CFE800B7A3E4 = {
@@ -197,6 +228,7 @@
 		F7B78FA11465F4F000B7A3E4 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				49DA3010146604DC00D4089E /* Facebook */,
 				F7B78FA21465F4F000B7A3E4 /* TabBarIcon */,
 			);
 			path = Images;
@@ -293,6 +325,14 @@
 				F7B78FB21465F4F000B7A3E4 /* members.png in Resources */,
 				F7B78FB31465F4F000B7A3E4 /* messages.png in Resources */,
 				F7B78FB41465F4F000B7A3E4 /* settings.png in Resources */,
+				49DA3019146604DC00D4089E /* close.png in Resources */,
+				49DA301A146604DC00D4089E /* fbicon.png in Resources */,
+				49DA301B146604DC00D4089E /* login.png in Resources */,
+				49DA301C146604DC00D4089E /* login2.png in Resources */,
+				49DA301D146604DC00D4089E /* login2_down.png in Resources */,
+				49DA301E146604DC00D4089E /* login_down.png in Resources */,
+				49DA301F146604DC00D4089E /* logout.png in Resources */,
+				49DA3020146604DC00D4089E /* logout_down.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

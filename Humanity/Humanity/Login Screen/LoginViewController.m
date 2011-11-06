@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "GroupListViewController.h"
 
 @implementation LoginViewController
 
@@ -28,6 +29,13 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+-(void)processLogin
+{
+    GroupListViewController *listViewController = [[[GroupListViewController alloc] init] autorelease];
+	
+    [self.navigationController pushViewController:listViewController animated:YES];
+}
+
 #pragma mark - View lifecycle
 
 /*
@@ -44,6 +52,16 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor blackColor];
+    
+    int buttonWidth = 176;
+    UIButton *fbConnectButton = [[UIButton alloc] 
+                                 initWithFrame:CGRectMake(self.view.bounds.origin.x + self.view.bounds.size.width/2 - buttonWidth/2,
+                                                          200, buttonWidth, 31)];    
+    [fbConnectButton setImage:[UIImage imageNamed:@"login2.png"] forState:UIControlStateNormal];
+    [fbConnectButton addTarget:self action:@selector(processLogin) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:fbConnectButton];
+                                 
+                                 
 }
 
 
