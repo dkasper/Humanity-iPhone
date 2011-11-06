@@ -766,8 +766,8 @@ the user holds down delete and does a full-line delete. This catches that case.
 	cell.imageView.image = nil;
 	if ([[item objectForKey:@"type"] isEqual:@"facebook"]) {
 		cell.detailTextLabel.text = @"Facebook"; 
-	} else if ([[item objectForKey:@"type"] isEqual:@"socialcam"]) {
-	    cell.detailTextLabel.text = @"Socialcam";
+	} else if ([[item objectForKey:@"type"] isEqual:@"humanity"]) {
+	    cell.detailTextLabel.text = @"Humanity";
 	} else {
 		cell.detailTextLabel.text = [item objectForKey:@"id"];
 	}
