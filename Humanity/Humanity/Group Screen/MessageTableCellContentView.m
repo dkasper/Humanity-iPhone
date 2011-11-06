@@ -33,7 +33,7 @@
     // Drawing code
     [[self.delegate name] drawAtPoint:CGPointMake(60, 5) withFont:[UIFont boldSystemFontOfSize:18.0]];
     
-    [[self.delegate body] drawInRect:CGRectMake(60, 25, MESSAGE_TEXT_WIDTH, 100) withFont:[UIFont systemFontOfSize:12.0] lineBreakMode:UILineBreakModeWordWrap];
+    [[self.delegate content] drawInRect:CGRectMake(60, 25, MESSAGE_TEXT_WIDTH, 100) withFont:[UIFont systemFontOfSize:12.0] lineBreakMode:UILineBreakModeWordWrap];
 }
 
 @end

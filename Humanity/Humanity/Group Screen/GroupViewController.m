@@ -9,7 +9,8 @@
 
 @implementation GroupViewController
 
-@synthesize podName = _podName;
+@synthesize groupName = _groupName;
+@synthesize groupId = _groupId;
 @synthesize messageListViewController = _messageListViewController;
 @synthesize memberListViewController = _memberListViewController;
 @synthesize mapViewController = _mapViewController;
@@ -27,9 +28,9 @@
     return self;
 }
 
--(void)setPodName:(NSString *)name {
-    _podName = [name retain];
-    self.title = _podName;
+-(void)setGroupName:(NSString *)name {
+    _groupName = [name retain];
+    self.title = _groupName;
 }
 
 @end

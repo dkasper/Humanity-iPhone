@@ -8,6 +8,9 @@
 
 #import "MessageTextView.h"
 #import "GroupConstants.h"
+#import "SCAPIRequestController.h"
+#import "ASIHTTPRequest.h"
+#import "ASIHTTPRequestAdditions.h"
 
 @implementation MessageTextView
 
@@ -97,8 +100,20 @@
     if(self.delegate && [self.delegate respondsToSelector:@selector(sendMessage)]) {
         [self.delegate sendMessage];
     }
+    
+    ASIHTTPRequest *request = [ASIHTTPRequest apiRequestWithAPI:@"message/create.json" target:self selectorFormat:@"sendRequest"];
+    request.requestMethod = POST;
+    [request setPostValue:self.textView.text forKey:@"content"];
+    [[SCAPIRequestController sharedController] addRequest:request];  
+}
+
+- (void) sendRequestDidFinish:(ASIHTTPRequest *) request {
     self.textView.text = @"";
-    [self.delegate toggleTextView:sender];
+    [self.delegate toggleTextView:nil];
+}
+
+- (void) sendRequestDidFail:(ASIHTTPRequest *) request {
+    NSLog(@"Error");
 }
 
 /*

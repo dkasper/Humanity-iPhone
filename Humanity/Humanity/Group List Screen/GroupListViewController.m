@@ -101,7 +101,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     GroupViewController *vc = [[GroupViewController alloc] init];
-    vc.podName = @"Test Name";
+    vc.groupName = @"Test Name";
     [self.navigationController pushViewController:vc animated:YES];
     [vc release];
 }

@@ -25,7 +25,7 @@ static NSString *cellIdentifier = @"MessageCell";
         self.title = @"Messages";
         self.tabBarItem.image = [UIImage imageNamed:@"messages.png"];
         self.messages = [[NSMutableArray alloc] init];
-        [self.messages addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"David Kasper", @"name", @"Hello World Hello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello World", @"body", nil]];
+        [self.messages addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"David Kasper", @"name", @"Hello World Hello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello World", @"content", nil]];
     }
     return self;
 }
@@ -93,7 +93,7 @@ static NSString *cellIdentifier = @"MessageCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [[[self.messages objectAtIndex:indexPath.row] objectForKey:@"body"] sizeWithFont:[UIFont systemFontOfSize:12.0] constrainedToSize:CGSizeMake(MESSAGE_TEXT_WIDTH, 9999) lineBreakMode:UILineBreakModeWordWrap].height + (EXPANDED_HEIGHT - CONTRACTED_HEIGHT);
+    return [[[self.messages objectAtIndex:indexPath.row] objectForKey:@"content"] sizeWithFont:[UIFont systemFontOfSize:12.0] constrainedToSize:CGSizeMake(MESSAGE_TEXT_WIDTH, 9999) lineBreakMode:UILineBreakModeWordWrap].height + (EXPANDED_HEIGHT - CONTRACTED_HEIGHT);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -103,7 +103,7 @@ static NSString *cellIdentifier = @"MessageCell";
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.name = [[self.messages objectAtIndex:indexPath.row] objectForKey:@"name"];
-    cell.body = [[self.messages objectAtIndex:indexPath.row] objectForKey:@"body"];
+    cell.content = [[self.messages objectAtIndex:indexPath.row] objectForKey:@"content"];
 
     return cell;
 }
