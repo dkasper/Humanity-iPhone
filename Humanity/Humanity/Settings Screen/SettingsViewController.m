@@ -7,7 +7,8 @@
 //
 
 #import "SettingsViewController.h"
-#import "ProfileView.h"
+#import "EditProfileViewController.h"
+#import "UserProfileView.h"
 #import "AccountManager.h"
 
 @implementation SettingsViewController
@@ -60,7 +61,7 @@
 - (void)setTableHeaderView
 {
     
-    ProfileView *profileView = [[ProfileView alloc] init];
+    UserProfileView *profileView = [[UserProfileView alloc] init];
     [profileView loadViewContent];
     
     self.settingsTableView.tableHeaderView = profileView;
@@ -86,11 +87,20 @@
                         error:(NSError*)error {
 	[self becomeFirstResponder];
 	[self dismissModalViewControllerAnimated:YES];
+    [self.settingsTableView deselectRowAtIndexPath:[self.settingsTableView indexPathForSelectedRow] animated:YES];
+
 }
 
 -(void)logout
 {
     [[AccountManager sharedAccountManager] logout];
+}
+
+-(void)showProfileEditor
+{
+    EditProfileViewController *editProfileController = [[[EditProfileViewController alloc] init] autorelease];
+	
+    [self.navigationController pushViewController:editProfileController animated:YES];
 }
 
 
@@ -121,6 +131,8 @@
         [self sendFeedback];
     } else if([cell.textLabel.text isEqualToString:@"Logout"]){
         [self logout];
+    } else if([cell.textLabel.text isEqualToString:@"Edit Profile"]){
+        [self showProfileEditor];
     }
 }
  
