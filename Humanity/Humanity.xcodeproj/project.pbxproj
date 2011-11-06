@@ -37,7 +37,6 @@
 		6626A1271465E3470019AA25 /* NSData+JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 6626A1251465E3470019AA25 /* NSData+JSONKit.m */; };
 		6626A12B1465E46B0019AA25 /* ABMultiValueAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6626A12A1465E46B0019AA25 /* ABMultiValueAdditions.m */; };
 		6626A12E1465E5280019AA25 /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6626A12D1465E5280019AA25 /* NSStringAdditions.m */; };
-		6626A1311465E8210019AA25 /* SCSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6626A1301465E8210019AA25 /* SCSearchBar.m */; };
 		6626A1341465E8CA0019AA25 /* UIScreenAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6626A1331465E8CA0019AA25 /* UIScreenAdditions.m */; };
 		6626A1371465E9530019AA25 /* SCTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6626A1361465E9530019AA25 /* SCTableViewController.m */; };
 		6626A13D1465F0860019AA25 /* UITableViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6626A13C1465F0860019AA25 /* UITableViewAdditions.m */; };
@@ -150,8 +149,6 @@
 		6626A12A1465E46B0019AA25 /* ABMultiValueAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABMultiValueAdditions.m; path = AddressBook/ABMultiValueAdditions.m; sourceTree = "<group>"; };
 		6626A12C1465E5280019AA25 /* NSStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSStringAdditions.h; path = AddressBook/NSStringAdditions.h; sourceTree = "<group>"; };
 		6626A12D1465E5280019AA25 /* NSStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSStringAdditions.m; path = AddressBook/NSStringAdditions.m; sourceTree = "<group>"; };
-		6626A12F1465E8210019AA25 /* SCSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSearchBar.h; sourceTree = "<group>"; };
-		6626A1301465E8210019AA25 /* SCSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSearchBar.m; sourceTree = "<group>"; };
 		6626A1321465E8CA0019AA25 /* UIScreenAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIScreenAdditions.h; path = AddressBook/UIScreenAdditions.h; sourceTree = "<group>"; };
 		6626A1331465E8CA0019AA25 /* UIScreenAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIScreenAdditions.m; path = AddressBook/UIScreenAdditions.m; sourceTree = "<group>"; };
 		6626A1351465E9530019AA25 /* SCTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCTableViewController.h; path = AddressBook/SCTableViewController.h; sourceTree = "<group>"; };
@@ -623,8 +620,6 @@
 			children = (
 				49BC8720146659A700EF87BB /* Profile Screen */,
 				49BC86FC14660C6800EF87BB /* Settings Screen */,
-				6626A12F1465E8210019AA25 /* SCSearchBar.h */,
-				6626A1301465E8210019AA25 /* SCSearchBar.m */,
 				66A105951466294800E5FC75 /* Account Manager */,
 				6668555B1465DCAB0023B5DE /* SCReachability.h */,
 				6668555C1465DCAB0023B5DE /* SCReachability.m */,
@@ -837,7 +832,6 @@
 				6626A1271465E3470019AA25 /* NSData+JSONKit.m in Sources */,
 				6626A12B1465E46B0019AA25 /* ABMultiValueAdditions.m in Sources */,
 				6626A12E1465E5280019AA25 /* NSStringAdditions.m in Sources */,
-				6626A1311465E8210019AA25 /* SCSearchBar.m in Sources */,
 				6626A1341465E8CA0019AA25 /* UIScreenAdditions.m in Sources */,
 				6626A1371465E9530019AA25 /* SCTableViewController.m in Sources */,
 				6626A13D1465F0860019AA25 /* UITableViewAdditions.m in Sources */,

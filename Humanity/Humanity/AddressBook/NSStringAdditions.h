@@ -4,11 +4,6 @@
 - (BOOL) hasCaseInsensitivePrefix:(NSString *) prefix;
 - (BOOL) hasCaseInsensitiveSuffix:(NSString *) suffix;
 
-- (NSString *) stringByRemovingCharactersInSet:(NSCharacterSet *) set;
 
 - (NSString *) stringByCapitalizingString;
-
-- (NSString *) stringByEncodingToPercentEscapeString;
-
-- (NSString *) stringByDecodingFromPercentEscapeString; 
 @end

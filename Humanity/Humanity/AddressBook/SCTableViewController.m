@@ -1,7 +1,5 @@
 #import "SCTableViewController.h"
 
-#import "SCSearchBar.h"
-
 #import "UIScreenAdditions.h"
 #import "UITableViewAdditions.h"
 
@@ -13,7 +11,6 @@
 
 @synthesize showsSearchBar = _showsSearchBar;
 @synthesize searchImmediately = _searchImmediately;
-@synthesize searchBar = _searchBar;
 @synthesize hasTabbar = _hasTabbar;
 - (id) initWithStyle:(UITableViewStyle) style position:(SCAlternateViewPosition) position {
 	if (!(self = [super init]))
@@ -30,7 +27,6 @@
 	if ([self isViewLoaded]) {
 		_tableView.dataSource = nil;
 		_tableView.delegate = nil;
-		_searchBar.delegate = nil;
 	}
 
 	[_tableView release];
@@ -62,8 +58,6 @@
         _alternateViewHeight = height;
 		//_alternateView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin);
         
-        NSLog(@"alternateViewYOrigin: %f", alternateViewYOrigin);
-        NSLog(@"height: %f", height);
 		// Autoresizing is great once the initial size is set. but it still has to be set first.
 		if (!_unloaded) {
 			CGRect frame = _tableView.frame;
@@ -73,10 +67,6 @@
 			_tableView.frame = frame;
 		}
 
-		//if (_alternateViewPosition == SCAlternateViewPositionTop)
-			//_tableView.autoresizingMask |= UIViewAutoresizingFlexibleBottomMargin;
-	//	else if (_alternateViewPosition == SCAlternateViewPositionBottom)
-			//_tableView.autoresizingMask |= UIViewAutoresizingFlexibleTopMargin;
 
 		[view addSubview:_alternateView];
 	}

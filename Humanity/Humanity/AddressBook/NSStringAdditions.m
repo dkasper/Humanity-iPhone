@@ -23,33 +23,6 @@
 	return [self _hasCaseInsensitiveSearchInString:suffix options:NSBackwardsSearch];
 }
 
-#pragma mark -
-
-- (NSString *) stringByRemovingCharactersInSet:(NSCharacterSet *) set {
-	NSMutableString *mutableSelf = [self mutableCopy];
-	NSUInteger length = self.length;
-
-	for (NSUInteger i = 0; i < length; i++) {
-		if ([set characterIsMember:[mutableSelf characterAtIndex:i]]) {
-			[mutableSelf deleteCharactersInRange:NSMakeRange(i, 1)];
-			length--; i--;
-		}
-	}
-
-	return [mutableSelf autorelease];
-}
-
-- (NSString *) stringByEncodingToPercentEscapeString {
-	CFStringRef percentEncodedString = CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)self, NULL, (CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
-	return [(NSString *)percentEncodedString autorelease];
-}
-
-- (NSString *) stringByDecodingFromPercentEscapeString {
-	CFStringRef percentDecodedString = CFURLCreateStringByReplacingPercentEscapes(NULL, (CFStringRef)self, (CFStringRef)@"");
-	return [(NSString *)percentDecodedString autorelease];
-}
-
-
 - (NSString *) stringByCapitalizingString {
 	if (!self.length)
 		return @"";

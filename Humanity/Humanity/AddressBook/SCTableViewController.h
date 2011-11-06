@@ -1,5 +1,3 @@
-@class SCSearchBar;
-
 typedef enum {
 	SCAlternateViewPositionNone,
 	SCAlternateViewPositionTop,
@@ -21,7 +19,6 @@ typedef enum {
     
 	BOOL _showsSearchBar;
 	BOOL _searchImmediately;
-	SCSearchBar *_searchBar;
 
 	BOOL _unloaded;
     BOOL _hasTabbar;
@@ -34,7 +31,6 @@ typedef enum {
 
 @property (nonatomic, assign) BOOL showsSearchBar;
 @property (nonatomic, assign) BOOL searchImmediately;
-@property (nonatomic, readonly) SCSearchBar *searchBar;
 @property (nonatomic, assign) BOOL hasTabbar;
 
 - (id) initWithStyle:(UITableViewStyle) style position:(SCAlternateViewPosition) position;
