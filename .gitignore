@@ -2,3 +2,4 @@ build/*
 *.ipa
 *.xcuserstate
 *.xcbkptlist
+.DS_Store
