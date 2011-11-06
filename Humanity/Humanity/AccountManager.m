@@ -14,7 +14,6 @@
 #import "ASIHTTPRequest.h"
 #import "ASIHTTPRequestAdditions.h"
 #import "ASIFormDataRequest.h"
-#import "KeychainWrapper.h"
 #import <Security/Security.h>
 
 
@@ -33,7 +32,6 @@ static NSString *kHMFacebookToken = @"kHMFacebookToken";
     if (!(self = [super init]))
         return nil;
     _facebookSession = [[Facebook alloc] initWithAppId:@"260726697307269"];
-    _keychain =  [[KeychainWrapper alloc] init];
     
     return self;
 }
@@ -41,7 +39,6 @@ static NSString *kHMFacebookToken = @"kHMFacebookToken";
 - (void) dealloc {
     [_facebookSession release];
     [_facebookID release];
-    [_keychain release];
     [super dealloc];
 }
 
@@ -59,7 +56,7 @@ static NSString *kHMFacebookToken = @"kHMFacebookToken";
 - (BOOL) loginFromKeychain {
     NSLog(@"loginFromKeychain");
     if (_loggingIn || _loggedIn) return NO; 
-    NSString *fid = [_keychain myObjectForKey:kHMFacebookToken];
+    NSString *fid = [[NSUserDefaults standardUserDefaults] objectForKey:kHMFacebookToken];
     if (!fid.length) return NO;
      _facebookID = [fid retain];
      _loggedIn = YES;
@@ -114,20 +111,18 @@ static NSString *kHMFacebookToken = @"kHMFacebookToken";
     _loggedIn = YES;
     _loggingIn = NO;
     
-#if TARGET_IPHONE_SIMULATOR
-    [_keychain mySetObject:_facebookID forKey:kHMFacebookToken];
-#endif    
+    [[NSUserDefaults standardUserDefaults] setObject:_facebookID forKey:kHMFacebookToken];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     [[NSNotificationCenter defaultCenter] postNotificationName:HumanityUserDidLoginNotification object:nil];
-        
 }
 
 - (void) logout {
-    [_keychain resetKeychainItem];
     
-
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kHMFacebookToken];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     _loggedIn = NO;
     _loggingIn = NO;
     [[NSNotificationCenter defaultCenter] postNotificationName:HumanityUserDidLogoutNotification object:nil];
 }
-
 @end

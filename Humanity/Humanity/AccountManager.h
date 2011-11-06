@@ -23,7 +23,6 @@ extern NSString *const HumanityUserDidLogoutNotification;
     NSString *_facebookID; 
     BOOL _loggedIn;
     BOOL _loggingIn;
-    KeychainWrapper *_keychain;
 }
 
 + (AccountManager *) sharedAccountManager;
