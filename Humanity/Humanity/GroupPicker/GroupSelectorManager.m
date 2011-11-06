@@ -7,6 +7,11 @@
 //
 
 #import "GroupSelectorManager.h"
+#import "SCAPIRequestController.h"
+#import "ASIHTTPRequest.h"
+#import "ASIHTTPRequestAdditions.h"
+#import "ASIFormDataRequest.h"
+#import "AccountManager.h"
 
 @implementation GroupSelectorManager
 @synthesize video = _video;
@@ -45,8 +50,46 @@
 
 - (void) groupSelectorDidClose:(SCGroupSelectorTableViewController *)groupSelector doneClicked:(BOOL)done {
 	NSLog(@"groupSelectorDidClose");
-	if (done) {
-		//create pod		
+	if (done && groupSelector.selectedItems.count) {
+		ASIFormDataRequest *request = [ASIFormDataRequest apiRequestWithAPI:@"message/send" target:self selectorFormat:@"podCreateRequest"];
+        request.requestMethod = POST;
+        [request setPostValue:[AccountManager sharedAccountManager].accessToken forKey:@"token"];
+        [request setPostValue:groupSelector.message forKey:@"content"];
+        for (NSDictionary *d in groupSelector.selectedItems) {
+            if ([[d objectForKey:@"type"] isEqual:@"humanity"]) {
+                [request setPostValue:[d objectForKey:@"id"] forKey:@"new_group[user_ids][]"];    
+            } else if ([[d objectForKey:@"type"] isEqual:@"phone"]) {
+                [request setPostValue:[d objectForKey:@"id"] forKey:@"new_group[phone_numbers][][number]"];
+                if ([d objectForKey:@"first_name"])
+                    [request setPostValue:[d objectForKey:@"first_name"] forKey:@"new_group[phone_numbers][][first_name]"];
+                if ([d objectForKey:@"last_name"])
+                    [request setPostValue:[d objectForKey:@"last_name"] forKey:@"new_group[phone_numbers][][last_name]"];
+            } else if ([[d objectForKey:@"type"] isEqual:@"email"]) {
+                [request setPostValue:[d objectForKey:@"id"] forKey:@"new_group[emails][][email]"];
+                if ([d objectForKey:@"first_name"])
+                    [request setPostValue:[d objectForKey:@"first_name"] forKey:@"new_group[emails][][first_name]"];
+                if ([d objectForKey:@"last_name"])
+                    [request setPostValue:[d objectForKey:@"last_name"] forKey:@"new_group[emails][][last_name]"];
+            }
+        }    
+        [[SCAPIRequestController sharedController] addRequest:request];		
+	}
+}
+
+- (void) podCreateRequestDidFail:(ASIHTTPRequest *) request {
+	NSLog(@"podCreateRequestDidFail (%d) %@", [request responseStatusCode], [request responseString]);
+	if (!shouldRetryFromStatusCode(request.responseStatusCode) || [[request.userInfo objectForKey:@"retry_count"] intValue] >= 3) {
+		return;
+	}
+	[[SCAPIRequestController sharedController] retryRequest:request];
+}
+
+
+- (void) podCreateRequestDidFinish:(ASIHTTPRequest *) request {
+	NSLog(@"podCreateRequestDidFinish (%d) %@", [request responseStatusCode], [request responseString]);
+	if (!statusCodeIsSuccess(request.responseStatusCode)) {
+		[self podCreateRequestDidFail:request];
+		return;
 	}
 }
 

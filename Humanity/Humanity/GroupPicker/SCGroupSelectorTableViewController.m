@@ -313,10 +313,13 @@ static UIImage *buttonBackgroundSelected;
 
 - (void) doneButtonPressed:(id)sender{
     [self addButtonForCurrentText];
-    if (!([_inputTextfield.text isEqual:@"\u200B"] || !_inputTextfield.text.length)) {
-        [UIAlertView presentAlertWithTitle:nil message:NSLocalizedString(@"Your last entry was not recognized.", @"Message when user enters bad text in group interface")];
-		return;
-	}
+    
+    if (_tableViewListMode != SendListMode) {
+        if (!([_inputTextfield.text isEqual:@"\u200B"] || !_inputTextfield.text.length)) {
+            [UIAlertView presentAlertWithTitle:nil message:NSLocalizedString(@"Your last entry was not recognized.", @"Message when user enters bad text in group interface")];
+    		return;
+    	}
+    }
     if (_delegate) {
         [_delegate groupSelectorDidClose:self doneClicked:YES];
     }
