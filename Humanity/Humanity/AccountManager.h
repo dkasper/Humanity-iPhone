@@ -13,7 +13,14 @@
 
 @interface AccountManager : NSObject <FBSessionDelegate> {
     Facebook *_facebookSession;
+    NSString *_facebookID; 
+    BOOL _loggedIn;
+    BOOL _loggingIn;
 }
+
 + (AccountManager *) sharedAccountManager;
 @property (nonatomic, readonly) Facebook *facebookSession;
+@property (nonatomic, readonly) NSString *facebookID;
+@property (nonatomic, readonly) BOOL loggedIn;
+
 @end

@@ -25,7 +25,6 @@
 		6626A1311465E8210019AA25 /* SCSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6626A1301465E8210019AA25 /* SCSearchBar.m */; };
 		6626A1341465E8CA0019AA25 /* UIScreenAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6626A1331465E8CA0019AA25 /* UIScreenAdditions.m */; };
 		6626A1371465E9530019AA25 /* SCTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6626A1361465E9530019AA25 /* SCTableViewController.m */; };
-		6626A13A1465EAAC0019AA25 /* JTVButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6626A1391465EAAC0019AA25 /* JTVButton.m */; };
 		6626A13D1465F0860019AA25 /* UITableViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6626A13C1465F0860019AA25 /* UITableViewAdditions.m */; };
 		6626A1401465F4F20019AA25 /* UIAlertViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6626A13F1465F4F20019AA25 /* UIAlertViewAdditions.m */; };
 		6626A1431465F6230019AA25 /* UITableViewCellAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6626A1421465F6220019AA25 /* UITableViewCellAdditions.m */; };
@@ -49,6 +48,7 @@
 		666855681465DF520023B5DE /* UIDevice+Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 666855671465DF520023B5DE /* UIDevice+Hardware.m */; };
 		666855721465E1B90023B5DE /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 666855711465E1B90023B5DE /* AddressBookUI.framework */; };
 		666855761465E2410023B5DE /* SCAPIRequestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 666855751465E2410023B5DE /* SCAPIRequestController.m */; };
+		66A1058F1466200800E5FC75 /* HMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A1058E1466200800E5FC75 /* HMButton.m */; };
 		66EE1DE61465D75900C1600C /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 66EE1DD31465D75900C1600C /* ASIAuthenticationDialog.m */; };
 		66EE1DE71465D75900C1600C /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 66EE1DD61465D75900C1600C /* ASIDataCompressor.m */; };
 		66EE1DE81465D75900C1600C /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 66EE1DD81465D75900C1600C /* ASIDataDecompressor.m */; };
@@ -110,8 +110,6 @@
 		6626A1331465E8CA0019AA25 /* UIScreenAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIScreenAdditions.m; path = AddressBook/UIScreenAdditions.m; sourceTree = "<group>"; };
 		6626A1351465E9530019AA25 /* SCTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCTableViewController.h; path = AddressBook/SCTableViewController.h; sourceTree = "<group>"; };
 		6626A1361465E9530019AA25 /* SCTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCTableViewController.m; path = AddressBook/SCTableViewController.m; sourceTree = "<group>"; };
-		6626A1381465EAAC0019AA25 /* JTVButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JTVButton.h; path = AddressBook/JTVButton.h; sourceTree = "<group>"; };
-		6626A1391465EAAC0019AA25 /* JTVButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JTVButton.m; path = AddressBook/JTVButton.m; sourceTree = "<group>"; };
 		6626A13B1465F0860019AA25 /* UITableViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UITableViewAdditions.h; path = AddressBook/UITableViewAdditions.h; sourceTree = "<group>"; };
 		6626A13C1465F0860019AA25 /* UITableViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UITableViewAdditions.m; path = AddressBook/UITableViewAdditions.m; sourceTree = "<group>"; };
 		6626A13E1465F4F20019AA25 /* UIAlertViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIAlertViewAdditions.h; path = AddressBook/UIAlertViewAdditions.h; sourceTree = "<group>"; };
@@ -153,6 +151,8 @@
 		666855711465E1B90023B5DE /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		666855741465E2410023B5DE /* SCAPIRequestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCAPIRequestController.h; path = HTTP/SCAPIRequestController.h; sourceTree = "<group>"; };
 		666855751465E2410023B5DE /* SCAPIRequestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCAPIRequestController.m; path = HTTP/SCAPIRequestController.m; sourceTree = "<group>"; };
+		66A1058D1466200800E5FC75 /* HMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HMButton.h; path = AddressBook/HMButton.h; sourceTree = "<group>"; };
+		66A1058E1466200800E5FC75 /* HMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HMButton.m; path = AddressBook/HMButton.m; sourceTree = "<group>"; };
 		66EE1DD21465D75900C1600C /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
 		66EE1DD31465D75900C1600C /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
 		66EE1DD41465D75900C1600C /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
@@ -320,8 +320,6 @@
 		666855471465DA390023B5DE /* GroupPicker */ = {
 			isa = PBXGroup;
 			children = (
-				6626A1381465EAAC0019AA25 /* JTVButton.h */,
-				6626A1391465EAAC0019AA25 /* JTVButton.m */,
 				666855551465DC320023B5DE /* SCGroupSelectorTableViewController.h */,
 				666855561465DC320023B5DE /* SCGroupSelectorTableViewController.m */,
 			);
@@ -354,6 +352,8 @@
 		66EE1DCF1465D40700C1600C /* AddressBook */ = {
 			isa = PBXGroup;
 			children = (
+				66A1058D1466200800E5FC75 /* HMButton.h */,
+				66A1058E1466200800E5FC75 /* HMButton.m */,
 				666855481465DBE80023B5DE /* SCAddressBook.h */,
 				666855491465DBE80023B5DE /* SCAddressBook.m */,
 			);
@@ -626,7 +626,6 @@
 				6626A1311465E8210019AA25 /* SCSearchBar.m in Sources */,
 				6626A1341465E8CA0019AA25 /* UIScreenAdditions.m in Sources */,
 				6626A1371465E9530019AA25 /* SCTableViewController.m in Sources */,
-				6626A13A1465EAAC0019AA25 /* JTVButton.m in Sources */,
 				6626A13D1465F0860019AA25 /* UITableViewAdditions.m in Sources */,
 				6626A1401465F4F20019AA25 /* UIAlertViewAdditions.m in Sources */,
 				6626A1431465F6230019AA25 /* UITableViewCellAdditions.m in Sources */,
@@ -646,6 +645,7 @@
 				F7B78F961465DAEC00B7A3E4 /* MessageTextView.m in Sources */,
 				F7B78F991465E23C00B7A3E4 /* MessageTableCell.m in Sources */,
 				F7B78FA01465E58700B7A3E4 /* MessageTableCellContentView.m in Sources */,
+				66A1058F1466200800E5FC75 /* HMButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

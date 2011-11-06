@@ -16,7 +16,7 @@
 @end
 
 
-@class JTVButton;
+@class HMButton;
 
 @interface SCGroupSelectorTableViewController : SCTableViewController <SCTableViewDelegate, UITableViewDataSource, UITextFieldDelegate> {
 	NSArray *_sourceItems;
@@ -26,7 +26,7 @@
 	UITextField *_inputTextfield; 
 	UITextField *_dummyTextField;  
 	CGFloat _headerHeight;	
-	JTVButton *_selectedButton;
+	HMButton *_selectedButton;
 	NSArray *_groups; 
 	
 	NSInteger _tableViewListMode;
