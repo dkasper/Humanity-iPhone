@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MessageTextView : UIView<UITextViewDelegate> {
-    
+    BOOL _acceptFocus;  
 }
 
 -(void)showPlaceholder;
@@ -23,5 +23,5 @@
 @property (nonatomic, retain) UISwitch *locationSwitch;
 @property (assign) BOOL enabled;
 @property (nonatomic, assign) id delegate;
-
+@property (nonatomic, assign) BOOL acceptFocus;
 @end

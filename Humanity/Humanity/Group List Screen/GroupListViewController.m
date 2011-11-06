@@ -9,6 +9,7 @@
 #import "GroupListViewController.h"
 #import "SettingsViewController.h"
 #import "GroupViewController.h"
+#import "GroupSelectorManager.h"
 
 @implementation GroupListViewController
 
@@ -67,6 +68,10 @@
 
 - (void)addPod
 {
+    if (!_groupSelectorManager) {
+        _groupSelectorManager = [[GroupSelectorManager alloc] init];
+    }
+    [_groupSelectorManager showGroupView:self.navigationController];  
     NSLog(@"Hello");
 }
 
@@ -192,7 +197,7 @@
 -(void) dealloc
 {
     [super dealloc];
-    
+    [_groupSelectorManager release];
     [groupListTableView release];
     [temp release];
     

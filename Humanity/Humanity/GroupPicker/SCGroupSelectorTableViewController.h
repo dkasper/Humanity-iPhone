@@ -8,6 +8,7 @@
 
 
 #import "SCTableViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @class SCGroupSelectorTableViewController;
 
@@ -17,6 +18,7 @@
 
 
 @class HMButton;
+@class MessageTextView;
 
 @interface SCGroupSelectorTableViewController : SCTableViewController <SCTableViewDelegate, UITableViewDataSource, UITextFieldDelegate> {
 	NSArray *_sourceItems;
@@ -34,7 +36,7 @@
 	UILabel *_tutorialLabel; 
 	NSInteger _rowsToDisplay;
 	
-	//CAGradientLayer *_shadowLayer;
+	CAGradientLayer *_shadowLayer;
 	UIView *_grayLine;
 	BOOL _formatAlertShown; 
     NSString *_groupHeaderText;
@@ -42,7 +44,13 @@
     NSString *_badTextAlertBody;   
     BOOL _cancelButtonClicked; 
     
-    id<SCGroupSelectorTableViewControllerDelegate> _delegate;      
+    id<SCGroupSelectorTableViewControllerDelegate> _delegate;
+     
+    MessageTextView *_expandedTextView;      
+    MessageTextView *_contractedTextView; 
+    
+    NSString *_savedTextInput;
+    NSInteger _savedState;     
 }
 
 - (id) initWithItems:(NSArray *)items;

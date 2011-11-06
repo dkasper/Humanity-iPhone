@@ -16,14 +16,18 @@
 #import "UITableViewAdditions.h"
 #import "UIAlertViewAdditions.h"
 #import "UITableViewCellAdditions.h"
+#import "MessageTextView.h"
+
+
 #define ROW_HEIGHT 35.
 #define BUTTON_HEIGHT 27.
-#define LEFT_BUTTON_TITLE_PAD 15.
+#define LEFT_BUTTON_TITLE_PAD 0.
 #define RIGHT_BUTTON_TITLE_PAD 0.
 
 enum {
 	GroupListMode,
 	MatchListMode,
+	SendListMode,
 	NoListMode
 };
 
@@ -37,20 +41,9 @@ enum {
 - (void) addButtonForCurrentText;
 @end
 
-static UIImage *twitterButtonBackground;
-static UIImage *twitterButtonBackgroundSelected;
+static UIImage *buttonBackground;
+static UIImage *buttonBackgroundSelected;
 
-static UIImage *facebookButtonBackground;
-static UIImage *facebookButtonBackgroundSelected;
-
-static UIImage *phoneButtonBackground;
-static UIImage *phoneButtonBackgroundSelected;
-
-static UIImage *emailButtonBackground;
-static UIImage *emailButtonBackgroundSelected;
-
-static UIImage *socialcamButtonBackground;
-static UIImage *socialcamButtonBackgroundSelected;
 
 
 @implementation SCGroupSelectorTableViewController
@@ -119,40 +112,13 @@ static UIImage *socialcamButtonBackgroundSelected;
 	
 	initialized = YES;
 	
-    facebookButtonBackground = [[[UIImage imageNamed:@"contact-facebook.png"] stretchableImageWithLeftCapWidth:27. topCapHeight:0] retain];
-    facebookButtonBackgroundSelected = [[[UIImage imageNamed:@"contact-facebook-selected.png"] stretchableImageWithLeftCapWidth:27. topCapHeight:0] retain];
-    
-    twitterButtonBackground = [[[UIImage imageNamed:@"contact-twitter.png"] stretchableImageWithLeftCapWidth:27. topCapHeight:0] retain];
-    twitterButtonBackgroundSelected = [[[UIImage imageNamed:@"contact-twitter-selected.png"] stretchableImageWithLeftCapWidth:27. topCapHeight:0] retain];
-    
-    phoneButtonBackground = [[[UIImage imageNamed:@"contact-phone.png"] stretchableImageWithLeftCapWidth:27. topCapHeight:0] retain];
-    phoneButtonBackgroundSelected = [[[UIImage imageNamed:@"contact-phone-selected.png"] stretchableImageWithLeftCapWidth:27. topCapHeight:0] retain];
-    
-    emailButtonBackground = [[[UIImage imageNamed:@"contact-mail.png"] stretchableImageWithLeftCapWidth:27. topCapHeight:0] retain];
-    emailButtonBackgroundSelected = [[[UIImage imageNamed:@"contact-mail-selected.png"] stretchableImageWithLeftCapWidth:27. topCapHeight:0] retain];
-    
-    socialcamButtonBackground = [[[UIImage imageNamed:@"contact-socialcam.png"] stretchableImageWithLeftCapWidth:27. topCapHeight:0] retain];
-    socialcamButtonBackgroundSelected = [[[UIImage imageNamed:@"contact-socialcam-selected.png"] stretchableImageWithLeftCapWidth:27. topCapHeight:0] retain];
+    buttonBackground = [[[UIImage imageNamed:@"user_background_unselected.png"] stretchableImageWithLeftCapWidth:13. topCapHeight:0] retain];
+    buttonBackgroundSelected = [[[UIImage imageNamed:@"user_background_selected.png"] stretchableImageWithLeftCapWidth:13. topCapHeight:0] retain];    
 }
 
 - (UIImage *) backgroundImageForItem:(NSDictionary *)item selected:(BOOL)selected {
-    if ([[item objectForKey:@"type"] isEqual:@"facebook"]) {
-        if (selected) return facebookButtonBackgroundSelected;
-        return facebookButtonBackground;
-    } else if ([[item objectForKey:@"type"] isEqual:@"twitter"]) {
-        if (selected) return twitterButtonBackgroundSelected;
-        return twitterButtonBackground;
-    } else if ([[item objectForKey:@"type"] isEqual:@"phone"]) {
-        if (selected) return phoneButtonBackgroundSelected;
-        return phoneButtonBackground;
-    } else if ([[item objectForKey:@"type"] isEqual:@"email"]) {
-        if (selected) return emailButtonBackgroundSelected;
-        return emailButtonBackground;
-    } else if ([[item objectForKey:@"type"] isEqual:@"socialcam"]) {
-        if (selected) return socialcamButtonBackgroundSelected;
-        return socialcamButtonBackground;
-    }
-	return nil;
+    if (selected) return buttonBackgroundSelected;
+    return buttonBackground;    
 }
  
 - (id) initWithItems:(NSArray *)items {
@@ -234,7 +200,6 @@ static UIImage *socialcamButtonBackgroundSelected;
 	
 	_tableViewListMode = NoListMode;
 	
-	 
 	[altView release];
 	
 	_rowsToDisplay = 3;
@@ -243,7 +208,12 @@ static UIImage *socialcamButtonBackgroundSelected;
 	_grayLine.backgroundColor = [UIColor colorWithRed:(142. / 255.) green:(142. / 255.) blue:(142. / 255.) alpha:1.];;
 	[self.view addSubview:_grayLine];
 	
-	//_shadowLayer = [[CAGradientLayer shadowWithDarkOnBottom:NO forLayer:self.view.layer withHeight:8.] retain];
+	
+	CGColorRef darkColor = [UIColor colorWithRed:0. green:0. blue:0. alpha:((8. / 2) / 8.) * .5].CGColor;
+	CGColorRef lightColor = [UIColor clearColor].CGColor;
+	_shadowLayer = [[CAGradientLayer alloc] init];
+	_shadowLayer.frame = CGRectMake(0., 0., 320., 8.);
+	_shadowLayer.colors = [NSArray arrayWithObjects:(id)lightColor, (id)darkColor, nil];
 	
     _groupHeaderText = [[NSString alloc] initWithString:NSLocalizedString(@"history", @"section header in sharing view")];
 	
@@ -251,6 +221,19 @@ static UIImage *socialcamButtonBackgroundSelected;
 	
     _badTextAlertBody = nil;
 	
+    _contractedTextView = [[MessageTextView alloc] initWithFrame:CGRectMake(0, 0, 320. ,44.)];
+    _contractedTextView.acceptFocus = YES;
+    [_contractedTextView contract];
+    
+    _expandedTextView = [[MessageTextView alloc] initWithFrame:CGRectMake(0, 0, 320. ,44.)];
+    _expandedTextView.acceptFocus = YES;
+    [_expandedTextView expand];
+    
+    _contractedTextView.delegate = self;
+        
+    [self.view addSubview:_contractedTextView];
+    [self.view addSubview:_expandedTextView];
+    
 	return self; 
 }
 
@@ -273,11 +256,14 @@ static UIImage *socialcamButtonBackgroundSelected;
 	[_groups release];
 	[_toLabel release];
 	[_tutorialLabel release];
-	//[_shadowLayer release];
+	[_shadowLayer release];
 	[_grayLine release];
     [_groupHeaderText release];
     [_badTextAlertBody release];
-	[super dealloc];
+    [_contractedTextView release];
+	[_expandedTextView release];
+    [_savedTextInput release];
+    [super dealloc];
 }
 
 - (void) scrollToBottomAnimated:(BOOL)animated {
@@ -291,7 +277,7 @@ static UIImage *socialcamButtonBackgroundSelected;
 
 - (void) viewWillAppear:(BOOL) animated {
     [super viewWillAppear:animated];
-	
+    [self.tableView hideSeparatorLinesForEmptyCells];
     _cancelButtonClicked = NO;
 	
 	[self layoutButtons];
@@ -340,10 +326,11 @@ static UIImage *socialcamButtonBackgroundSelected;
 
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+	/*
 	if (scrollView == self.tableView) {
 		[_dummyTextField resignFirstResponder];
 		[_inputTextfield resignFirstResponder];
-	}
+	}*/
 }
 
 - (BOOL) textField:(UITextField *) textField shouldChangeCharactersInRange:(NSRange) range replacementString:(NSString *) string {
@@ -381,7 +368,7 @@ static UIImage *socialcamButtonBackgroundSelected;
 		
 		if (_tableViewListMode != GroupListMode) {
 			_tableViewListMode = GroupListMode;
-			//[_shadowLayer removeFromSuperlayer];
+			[_shadowLayer removeFromSuperlayer];
 			[self performSelector:@selector(clearFilter) withObject:nil afterDelay:0.1];
 		}
 		[NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(doFilterWithString:) object:textField.text];
@@ -456,6 +443,9 @@ the user holds down delete and does a full-line delete. This catches that case.
 }
 
 - (void) clearFilter {
+    
+    [self showContractedTextArea];
+    
     if (3 != _rowsToDisplay) {
 		_rowsToDisplay = 3;
 		[self layoutButtons];
@@ -469,10 +459,12 @@ the user holds down delete and does a full-line delete. This catches that case.
     
     _tableViewListMode = MatchListMode;
 	
+    [self hideTextArea];
+	
 	if (_matchingItems.count) {
-		//[self.view.layer addSublayer:_shadowLayer];
+		[self.view.layer addSublayer:_shadowLayer];
 	} else {
-		//[_shadowLayer removeFromSuperlayer];
+		[_shadowLayer removeFromSuperlayer];
 	}
 		
 	NSInteger newRowsToDisplay = (_matchingItems.count ? 1 : 3);
@@ -492,6 +484,7 @@ the user holds down delete and does a full-line delete. This catches that case.
 			[_selectedButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 			_selectedButton = nil;
 		}
+        [self showContractedTextArea];
 	}
 }
 
@@ -508,40 +501,52 @@ the user holds down delete and does a full-line delete. This catches that case.
 	frame.origin.x = x;
 	frame.origin.y = y + BUTTON_HEIGHT / 2.0 - frame.size.height / 2.0;
 	_toLabel.frame = frame;
-	
 	x += frame.size.width + 5.;
 	
-	if (_tutorialLabel) {
-		frame = _tutorialLabel.frame;
-		frame.origin.x = x + LEFT_BUTTON_TITLE_PAD;
-		frame.origin.y = y + BUTTON_HEIGHT / 2.0 - frame.size.height / 2.0;
-		frame.size.width = width - frame.origin.x;
-		_tutorialLabel.frame = frame;
-	}
+	if (_tableViewListMode != SendListMode) {
+        _tutorialLabel.hidden = NO;
+    	if (_tutorialLabel) {
+    		frame = _tutorialLabel.frame;
+    		frame.origin.x = x + LEFT_BUTTON_TITLE_PAD;
+    		frame.origin.y = y + BUTTON_HEIGHT / 2.0 - frame.size.height / 2.0;
+    		frame.size.width = width - frame.origin.x;
+    		_tutorialLabel.frame = frame;
+    	}
 	
-	for (UIButton *button in _selectedButtons) {
-		if (x > X_OFFSET && x + button.frame.size.width > width) {
-			x = X_OFFSET;
-			y += ROW_HEIGHT;
-		}
-		frame = button.frame;
-		frame.origin.x = x;
-		frame.origin.y = y;
-		button.frame = frame; 
+    	for (UIButton *button in _selectedButtons) {
+            button.hidden = NO;
+    		if (x > X_OFFSET && x + button.frame.size.width > width) {
+    			x = X_OFFSET;
+    			y += ROW_HEIGHT;
+    		}
+    		frame = button.frame;
+    		frame.origin.x = x;
+    		frame.origin.y = y;
+    		button.frame = frame; 
 			
-		x += frame.size.width + 5.;  
-	}
+    		x += frame.size.width + 5.;  
+    	}
 	
-	if (x > width * 0.66) {
-		x = 0.0;
-		y += ROW_HEIGHT;
+    	if (x > width * 0.66) {
+    		x = 0.0;
+    		y += ROW_HEIGHT;
+    	}
+	} else {
+	    _tutorialLabel.hidden = YES;
+	    for (UIButton *button in _selectedButtons) {
+            button.hidden = YES;
+        }
 	}
 	
 	frame = _inputTextfield.frame;
-	frame.origin.x = x + LEFT_BUTTON_TITLE_PAD - 5.;
+	frame.origin.x = x;
 	frame.origin.y = y;
 	frame.size.width = width - frame.origin.x;
 	_inputTextfield.frame = frame;
+	
+	if (_tableViewListMode == SendListMode) {
+	    _inputTextfield.text = [self titleForSelectedGroupWithFont:_inputTextfield.font constrainedToWidth:320. - _inputTextfield.frame.origin.x];
+	}
 	
 	CGFloat height = y + ROW_HEIGHT;
 	
@@ -629,6 +634,8 @@ the user holds down delete and does a full-line delete. This catches that case.
 		return;
 	}
 	
+	[NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(doFilterWithString:) object:_inputTextfield.text];
+	
 	if (![self typeForValue:_inputTextfield.text] || !_allowRawInput) {
 		[self animateBadText];
 		return; 
@@ -647,7 +654,8 @@ the user holds down delete and does a full-line delete. This catches that case.
     
 	if (_tableViewListMode != GroupListMode) {
 		_tableViewListMode = GroupListMode;
-		//[_shadowLayer removeFromSuperlayer];
+        [self showContractedTextArea];
+		[_shadowLayer removeFromSuperlayer];
 		if (3 != _rowsToDisplay) {
 			_rowsToDisplay = 3;
 			[self layoutButtons];
@@ -814,7 +822,8 @@ the user holds down delete and does a full-line delete. This catches that case.
 	} else if (_tableViewListMode == MatchListMode) {
 		if (indexPath.row < _matchingItems.count) {
 			_tableViewListMode = GroupListMode;
-			//[_shadowLayer removeFromSuperlayer];
+			[self showContractedTextArea];
+			[_shadowLayer removeFromSuperlayer];
 			_rowsToDisplay = 3;
 				
 			[self addButtonForItem:[_matchingItems objectAtIndex:indexPath.row]];
@@ -899,9 +908,9 @@ the user holds down delete and does a full-line delete. This catches that case.
 - (void) resizeAlternateViewAnimated:(BOOL)animated {
 	[super resizeAlternateViewAnimated:animated];
 	[UIView animateWithDuration:(animated ? 0.2 : 0) delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-		//CGRect frame = _shadowLayer.frame;
-		//frame.origin.y = _headerHeight;
-		//_shadowLayer.frame = frame;
+		CGRect frame = _shadowLayer.frame;
+		frame.origin.y = _headerHeight;
+		_shadowLayer.frame = frame;
 		_grayLine.frame = CGRectMake(0, _headerHeight, self.view.frame.size.width, 1.);
 	} completion:^(BOOL innerFinished) {
 	}];
@@ -918,5 +927,67 @@ the user holds down delete and does a full-line delete. This catches that case.
     }
     return rtn;
 }
+
+
+- (void) hideTextArea {
+    _contractedTextView.hidden = YES;
+    _expandedTextView.hidden = YES;
+    
+}
+
+- (void) showContractedTextArea {
+    _contractedTextView.textView.text = _expandedTextView.textView.text;
+    _contractedTextView.hidden = NO;
+    _expandedTextView.hidden = YES;    
+}
+
+- (void) showExpandedTextArea {
+    _contractedTextView.hidden = YES;
+    _contractedTextView.textView.text = nil;
+    _expandedTextView.hidden = NO;    
+}
+
+- (void) keyboardWillShow:(NSNotification *) notification {
+    [super keyboardWillShow:notification];
+	NSValue *keyboardBoundsValue = [notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+	CGRect keyboardBounds;
+	[keyboardBoundsValue getValue:&keyboardBounds];
+    
+    [self showContractedTextArea];
+    
+    CGRect frame = _contractedTextView.frame;
+    frame.origin.y = keyboardBounds.origin.y - frame.size.height - 44. - 20;
+    _contractedTextView.frame = frame;
+    
+    frame = _expandedTextView.frame;
+    frame.origin.y = keyboardBounds.origin.y - frame.size.height - 44. - 20;
+    _expandedTextView.frame = frame;
+}
+
+
+- (void) messageTextViewSelected:(MessageTextView *)messageTextView {
+    if (messageTextView == _contractedTextView) {
+        _savedTextInput = [_inputTextfield.text copy];
+        _savedState = _tableViewListMode;
+        _tableViewListMode = SendListMode;
+        [((UIScrollView *) self.alternateView) setContentOffset:CGPointMake(0, 0) animated:NO];
+        [self layoutButtons];
+        //[self scrollToBottomAnimated:NO];
+        [self showExpandedTextArea];
+        [_expandedTextView.textView becomeFirstResponder];
+    }
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    if (textField == _inputTextfield && _tableViewListMode == SendListMode) {
+        _tableViewListMode = _savedState;
+        _inputTextfield.text = _savedTextInput;
+        [_savedTextInput release], _savedTextInput = nil;
+        [self layoutButtons];
+        [self scrollToBottomAnimated:NO];
+    }
+    return YES;
+}
+
 
 @end

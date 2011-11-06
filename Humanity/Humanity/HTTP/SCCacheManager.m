@@ -90,7 +90,7 @@ static NSString *databasePath;
 	
 	initialized = YES;
 	
-	databasePath = [[[self class] pathToCache:@"/http_cache_1"] retain]; 
+	databasePath = [[SCCacheManager pathToCache:@"/http_cache_1"] retain]; 
 
     if(![[NSFileManager defaultManager] fileExistsAtPath:databasePath]) {
         NSLog(@"Cache dir does not exist");

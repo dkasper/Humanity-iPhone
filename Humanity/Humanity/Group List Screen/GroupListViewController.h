@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "GroupListMessageCell.h"
 
+@class GroupSelectorManager;
+
 @interface GroupListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+    GroupSelectorManager *_groupSelectorManager;
     UITableView *groupListTableView;
     NSMutableArray *temp;
 }

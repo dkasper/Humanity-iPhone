@@ -45,6 +45,8 @@
 		6626A15E146602900019AA25 /* FBRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6626A159146602900019AA25 /* FBRequest.m */; };
 		6626A16114660A980019AA25 /* AccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6626A16014660A980019AA25 /* AccountManager.m */; };
 		663AC87A146638FC005C2D3D /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 663AC879146638FC005C2D3D /* CoreFoundation.framework */; };
+		663AC88114664184005C2D3D /* ContactFetchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 663AC87E14664184005C2D3D /* ContactFetchManager.m */; };
+		663AC88214664184005C2D3D /* GroupSelectorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 663AC88014664184005C2D3D /* GroupSelectorManager.m */; };
 		6668554A1465DBE80023B5DE /* SCAddressBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 666855491465DBE80023B5DE /* SCAddressBook.m */; };
 		666855521465DC050023B5DE /* ASIHTTPRequestAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6668554C1465DC050023B5DE /* ASIHTTPRequestAdditions.m */; };
 		666855531465DC050023B5DE /* SCCachedHTTPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6668554E1465DC050023B5DE /* SCCachedHTTPManager.m */; };
@@ -66,6 +68,11 @@
 		66EE1DEB1465D75900C1600C /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 66EE1DDE1465D75900C1600C /* ASIHTTPRequest.m */; };
 		66EE1DEC1465D75900C1600C /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 66EE1DE21465D75900C1600C /* ASIInputStream.m */; };
 		66EE1DED1465D75900C1600C /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 66EE1DE41465D75900C1600C /* ASINetworkQueue.m */; };
+		66FFBBE2146665A300DFD2C8 /* user_background_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FFBBDE146665A300DFD2C8 /* user_background_selected.png */; };
+		66FFBBE3146665A300DFD2C8 /* user_background_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FFBBDF146665A300DFD2C8 /* user_background_selected@2x.png */; };
+		66FFBBE4146665A300DFD2C8 /* user_background_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FFBBE0146665A300DFD2C8 /* user_background_unselected.png */; };
+		66FFBBE5146665A300DFD2C8 /* user_background_unselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FFBBE1146665A300DFD2C8 /* user_background_unselected@2x.png */; };
+		66FFBBE714671F8000DFD2C8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FFBBE614671F8000DFD2C8 /* QuartzCore.framework */; };
 		F7B78F611465CFE900B7A3E4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B78F601465CFE900B7A3E4 /* UIKit.framework */; };
 		F7B78F631465CFE900B7A3E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B78F621465CFE900B7A3E4 /* Foundation.framework */; };
 		F7B78F651465CFE900B7A3E4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B78F641465CFE900B7A3E4 /* CoreGraphics.framework */; };
@@ -151,6 +158,10 @@
 		6626A15F14660A970019AA25 /* AccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountManager.h; sourceTree = "<group>"; };
 		6626A16014660A980019AA25 /* AccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountManager.m; sourceTree = "<group>"; };
 		663AC879146638FC005C2D3D /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		663AC87D14664184005C2D3D /* ContactFetchManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactFetchManager.h; path = GroupPicker/ContactFetchManager.h; sourceTree = "<group>"; };
+		663AC87E14664184005C2D3D /* ContactFetchManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactFetchManager.m; path = GroupPicker/ContactFetchManager.m; sourceTree = "<group>"; };
+		663AC87F14664184005C2D3D /* GroupSelectorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupSelectorManager.h; path = GroupPicker/GroupSelectorManager.h; sourceTree = "<group>"; };
+		663AC88014664184005C2D3D /* GroupSelectorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupSelectorManager.m; path = GroupPicker/GroupSelectorManager.m; sourceTree = "<group>"; };
 		666855481465DBE80023B5DE /* SCAddressBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCAddressBook.h; path = AddressBook/SCAddressBook.h; sourceTree = "<group>"; };
 		666855491465DBE80023B5DE /* SCAddressBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCAddressBook.m; path = AddressBook/SCAddressBook.m; sourceTree = "<group>"; };
 		6668554B1465DC050023B5DE /* ASIHTTPRequestAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIHTTPRequestAdditions.h; path = HTTP/ASIHTTPRequestAdditions.h; sourceTree = "<group>"; };
@@ -194,6 +205,11 @@
 		66EE1DE31465D75900C1600C /* ASINetworkQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASINetworkQueue.h; sourceTree = "<group>"; };
 		66EE1DE41465D75900C1600C /* ASINetworkQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASINetworkQueue.m; sourceTree = "<group>"; };
 		66EE1DE51465D75900C1600C /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIProgressDelegate.h; sourceTree = "<group>"; };
+		66FFBBDE146665A300DFD2C8 /* user_background_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = user_background_selected.png; path = ../../../../Dropbox/Humanity/user_background_selected.png; sourceTree = "<group>"; };
+		66FFBBDF146665A300DFD2C8 /* user_background_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "user_background_selected@2x.png"; path = "../../../../Dropbox/Humanity/user_background_selected@2x.png"; sourceTree = "<group>"; };
+		66FFBBE0146665A300DFD2C8 /* user_background_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = user_background_unselected.png; path = ../../../../Dropbox/Humanity/user_background_unselected.png; sourceTree = "<group>"; };
+		66FFBBE1146665A300DFD2C8 /* user_background_unselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "user_background_unselected@2x.png"; path = "../../../../Dropbox/Humanity/user_background_unselected@2x.png"; sourceTree = "<group>"; };
+		66FFBBE614671F8000DFD2C8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F7B78F5C1465CFE900B7A3E4 /* Humanity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Humanity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7B78F601465CFE900B7A3E4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F7B78F621465CFE900B7A3E4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -236,6 +252,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66FFBBE714671F8000DFD2C8 /* QuartzCore.framework in Frameworks */,
+				F7B78F651465CFE900B7A3E4 /* CoreGraphics.framework in Frameworks */,
 				49BC871F1466531D00EF87BB /* MessageUI.framework in Frameworks */,
 				663AC87A146638FC005C2D3D /* CoreFoundation.framework in Frameworks */,
 				66A10594146627E200E5FC75 /* StoreKit.framework in Frameworks */,
@@ -248,7 +266,6 @@
 				666855721465E1B90023B5DE /* AddressBookUI.framework in Frameworks */,
 				666855631465DD200023B5DE /* AddressBook.framework in Frameworks */,
 				F7B78F611465CFE900B7A3E4 /* UIKit.framework in Frameworks */,
-				F7B78F651465CFE900B7A3E4 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +430,10 @@
 		666855471465DA390023B5DE /* GroupPicker */ = {
 			isa = PBXGroup;
 			children = (
+				663AC87D14664184005C2D3D /* ContactFetchManager.h */,
+				663AC87E14664184005C2D3D /* ContactFetchManager.m */,
+				663AC87F14664184005C2D3D /* GroupSelectorManager.h */,
+				663AC88014664184005C2D3D /* GroupSelectorManager.m */,
 				666855551465DC320023B5DE /* SCGroupSelectorTableViewController.h */,
 				666855561465DC320023B5DE /* SCGroupSelectorTableViewController.m */,
 			);
@@ -489,9 +510,21 @@
 			path = ASIHTTPRequest;
 			sourceTree = "<group>";
 		};
+		66FFBBDD1466658100DFD2C8 /* UserSelector */ = {
+			isa = PBXGroup;
+			children = (
+				66FFBBDE146665A300DFD2C8 /* user_background_selected.png */,
+				66FFBBDF146665A300DFD2C8 /* user_background_selected@2x.png */,
+				66FFBBE0146665A300DFD2C8 /* user_background_unselected.png */,
+				66FFBBE1146665A300DFD2C8 /* user_background_unselected@2x.png */,
+			);
+			name = UserSelector;
+			sourceTree = "<group>";
+		};
 		F7B78F511465CFE800B7A3E4 = {
 			isa = PBXGroup;
 			children = (
+				66FFBBE614671F8000DFD2C8 /* QuartzCore.framework */,
 				49BC871E1466531C00EF87BB /* MessageUI.framework */,
 				663AC879146638FC005C2D3D /* CoreFoundation.framework */,
 				66A10593146627E200E5FC75 /* StoreKit.framework */,
@@ -593,6 +626,7 @@
 		F7B78FA11465F4F000B7A3E4 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				66FFBBDD1466658100DFD2C8 /* UserSelector */,
 				49BC87081466296A00EF87BB /* Background */,
 				49BC87001466230E00EF87BB /* Profile */,
 				49DA3010146604DC00D4089E /* Facebook */,
@@ -704,6 +738,10 @@
 				49BC87021466233E00EF87BB /* addaphoto.png in Resources */,
 				49BC870C146629A400EF87BB /* addaphoto@2x.png in Resources */,
 				49BC870E146629C500EF87BB /* texture.png in Resources */,
+				66FFBBE2146665A300DFD2C8 /* user_background_selected.png in Resources */,
+				66FFBBE3146665A300DFD2C8 /* user_background_selected@2x.png in Resources */,
+				66FFBBE4146665A300DFD2C8 /* user_background_unselected.png in Resources */,
+				66FFBBE5146665A300DFD2C8 /* user_background_unselected@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -762,6 +800,8 @@
 				49BC87051466236C00EF87BB /* ProfileView.m in Sources */,
 				F7B78FC61466102A00B7A3E4 /* GroupConstants.h in Sources */,
 				66A1058F1466200800E5FC75 /* HMButton.m in Sources */,
+				663AC88114664184005C2D3D /* ContactFetchManager.m in Sources */,
+				663AC88214664184005C2D3D /* GroupSelectorManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

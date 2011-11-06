@@ -20,7 +20,7 @@
 @synthesize enabled = _enabled;
 @synthesize locationSwitch = _locationSwitch;
 @synthesize delegate = _delegate;
-
+@synthesize acceptFocus = _acceptFocus;
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -31,6 +31,7 @@
         self.textView = [[UITextView alloc] initWithFrame:CGRectMake(PICTURE_SIZE + 10, 10, self.bounds.size.width - PICTURE_SIZE - 20, CONTRACTED_TEXT_HEIGHT)];
         self.textView.font = [UIFont systemFontOfSize:14.0];
         self.textView.userInteractionEnabled = NO;
+        self.textView.delegate = self;
         [self addSubview:self.textView];
         
         [self showPlaceholder];
@@ -65,9 +66,10 @@
 }
 
 -(void)expand {
-    [self.textView becomeFirstResponder];
+    if (!_acceptFocus) {
+        [self.textView becomeFirstResponder];
+    }
     self.textView.userInteractionEnabled = YES;
-
     [self hidePlaceholder];
     
     CGRect newFrame = self.textView.frame;
@@ -81,8 +83,13 @@
 }
 
 -(void)contract {
-    [self.textView resignFirstResponder];
-    self.textView.userInteractionEnabled = NO;
+    
+    if (!_acceptFocus) {
+        [self.textView resignFirstResponder];
+        self.textView.userInteractionEnabled = NO;
+    } else {
+        self.textView.userInteractionEnabled = YES;
+    }
     
     [self showPlaceholder];
 
@@ -116,6 +123,12 @@
     NSLog(@"Error");
 }
 
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
+    if(self.delegate && [self.delegate respondsToSelector:@selector(messageTextViewSelected:)]) {
+        [self.delegate messageTextViewSelected:self];
+    }
+    return YES;
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
