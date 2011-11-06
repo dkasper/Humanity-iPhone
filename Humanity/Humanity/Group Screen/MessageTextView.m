@@ -21,23 +21,33 @@
 @synthesize locationSwitch = _locationSwitch;
 @synthesize delegate = _delegate;
 @synthesize acceptFocus = _acceptFocus;
+@synthesize expandedHeight = _expandedHeight;
+@synthesize expandedTextHeight = _expandedTextHeight; 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        
+        _expandedHeight = EXPANDED_HEIGHT;
+        _expandedTextHeight = EXPANDED_TEXT_HEIGHT;
+        
+        
+        _speechBubble = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"speechbubble.png"] stretchableImageWithLeftCapWidth:20. topCapHeight:22.]];
+        [self addSubview:_speechBubble];
+        
         self.clipsToBounds = YES;
         self.backgroundColor = [UIColor colorWithWhite:200/255.0 alpha:1.0];
         self.textView = [[UITextView alloc] initWithFrame:CGRectMake(PICTURE_SIZE + 10, 10, self.bounds.size.width - PICTURE_SIZE - 20, CONTRACTED_TEXT_HEIGHT)];
         self.textView.font = [UIFont systemFontOfSize:14.0];
         self.textView.userInteractionEnabled = NO;
         self.textView.delegate = self;
+        self.textView.backgroundColor = [UIColor clearColor]; 
         [self addSubview:self.textView];
         
         [self showPlaceholder];
         
         self.sendButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.sendButton.frame = CGRectMake(self.bounds.size.width - BUTTON_WIDTH - 5, EXPANDED_HEIGHT - BUTTON_HEIGHT - 5, BUTTON_WIDTH, BUTTON_HEIGHT);
         [self.sendButton setTitle:@"Send" forState:UIControlStateNormal];
         [self.sendButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         self.sendButton.titleLabel.font = [UIFont boldSystemFontOfSize:14.0];
@@ -45,10 +55,14 @@
         [self.sendButton addTarget:self action:@selector(send:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.sendButton];
         
-        self.locationSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(60, self.sendButton.frame.origin.y, BUTTON_WIDTH, BUTTON_HEIGHT)];
+        self.locationSwitch = [[UISwitch alloc] initWithFrame:CGRectZero];
         [self addSubview:self.locationSwitch];
     }
     return self;
+}
+- (void) dealloc {
+    [_speechBubble release];
+    [super dealloc];
 }
 
 -(void)showPlaceholder {
@@ -64,21 +78,35 @@
         self.textView.text = @"";
     }
 }
-
+- (void) layoutSubviews {
+    [super layoutSubviews];
+    CGRect frame = _speechBubble.frame;
+    frame.origin.x = self.textView.frame.origin.x - 7.;
+    frame.origin.y = self.textView.frame.origin.y;
+    frame.size.width = self.textView.frame.size.width + 7.;
+    frame.size.height = self.textView.frame.size.height;
+    _speechBubble.frame = frame;  
+    
+    self.sendButton.frame = CGRectMake(self.textView.frame.origin.x + self.textView.frame.size.width - BUTTON_WIDTH, _expandedHeight - BUTTON_HEIGHT - 5, BUTTON_WIDTH, BUTTON_HEIGHT);
+    self.locationSwitch.frame = CGRectMake(self.textView.frame.origin.x, self.sendButton.frame.origin.y, BUTTON_WIDTH, BUTTON_HEIGHT);
+}
 -(void)expand {
     if (!_acceptFocus) {
         [self.textView becomeFirstResponder];
     }
+    [self setNeedsLayout];
+    
+    
     self.textView.userInteractionEnabled = YES;
     [self hidePlaceholder];
     
     CGRect newFrame = self.textView.frame;
-    newFrame.size.height = EXPANDED_TEXT_HEIGHT;
+    newFrame.size.height = _expandedTextHeight;
     self.textView.frame = newFrame;
     self.enabled = YES;
     
     newFrame = self.frame;
-    newFrame.size.height = EXPANDED_HEIGHT;
+    newFrame.size.height = _expandedHeight;
     self.frame = newFrame;
 }
 
@@ -90,6 +118,8 @@
     } else {
         self.textView.userInteractionEnabled = YES;
     }
+    
+    [self setNeedsLayout];
     
     [self showPlaceholder];
 
@@ -106,12 +136,12 @@
 -(void)send:(id)sender {
     if(self.delegate && [self.delegate respondsToSelector:@selector(sendMessage)]) {
         [self.delegate sendMessage];
-    }
-    
-    ASIHTTPRequest *request = [ASIHTTPRequest apiRequestWithAPI:@"message/create.json" target:self selectorFormat:@"sendRequest"];
-    request.requestMethod = POST;
-    [request setPostValue:self.textView.text forKey:@"content"];
-    [[SCAPIRequestController sharedController] addRequest:request];  
+    } else {    
+        ASIHTTPRequest *request = [ASIHTTPRequest apiRequestWithAPI:@"message/create.json" target:self selectorFormat:@"sendRequest"];
+        request.requestMethod = POST;
+        [request setPostValue:self.textView.text forKey:@"content"];
+        [[SCAPIRequestController sharedController] addRequest:request]; 
+    } 
 }
 
 - (void) sendRequestDidFinish:(ASIHTTPRequest *) request {

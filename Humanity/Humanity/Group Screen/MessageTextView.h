@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface MessageTextView : UIView<UITextViewDelegate> {
-    BOOL _acceptFocus;  
+    BOOL _acceptFocus;
+    CGFloat _expandedHeight;
+    CGFloat _expandedTextHeight;
+    UIImageView *_speechBubble;    
+
 }
 
 -(void)showPlaceholder;
@@ -24,4 +28,7 @@
 @property (assign) BOOL enabled;
 @property (nonatomic, assign) id delegate;
 @property (nonatomic, assign) BOOL acceptFocus;
+@property (nonatomic, assign) CGFloat expandedHeight;
+@property (nonatomic, assign) CGFloat expandedTextHeight;
+
 @end

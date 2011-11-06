@@ -68,11 +68,13 @@
 		66EE1DEB1465D75900C1600C /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 66EE1DDE1465D75900C1600C /* ASIHTTPRequest.m */; };
 		66EE1DEC1465D75900C1600C /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 66EE1DE21465D75900C1600C /* ASIInputStream.m */; };
 		66EE1DED1465D75900C1600C /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 66EE1DE41465D75900C1600C /* ASINetworkQueue.m */; };
-		66FFBBE2146665A300DFD2C8 /* user_background_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FFBBDE146665A300DFD2C8 /* user_background_selected.png */; };
-		66FFBBE3146665A300DFD2C8 /* user_background_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FFBBDF146665A300DFD2C8 /* user_background_selected@2x.png */; };
-		66FFBBE4146665A300DFD2C8 /* user_background_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FFBBE0146665A300DFD2C8 /* user_background_unselected.png */; };
-		66FFBBE5146665A300DFD2C8 /* user_background_unselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FFBBE1146665A300DFD2C8 /* user_background_unselected@2x.png */; };
 		66FFBBE714671F8000DFD2C8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FFBBE614671F8000DFD2C8 /* QuartzCore.framework */; };
+		66FFBBEE14673C3E00DFD2C8 /* speechbubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FFBBEC14673C3E00DFD2C8 /* speechbubble.png */; };
+		66FFBBEF14673C3E00DFD2C8 /* speechbubble@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FFBBED14673C3E00DFD2C8 /* speechbubble@2x.png */; };
+		66FFBBF414673C5500DFD2C8 /* user_background_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FFBBF014673C5500DFD2C8 /* user_background_selected.png */; };
+		66FFBBF514673C5500DFD2C8 /* user_background_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FFBBF114673C5500DFD2C8 /* user_background_selected@2x.png */; };
+		66FFBBF614673C5500DFD2C8 /* user_background_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FFBBF214673C5500DFD2C8 /* user_background_unselected.png */; };
+		66FFBBF714673C5500DFD2C8 /* user_background_unselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FFBBF314673C5500DFD2C8 /* user_background_unselected@2x.png */; };
 		F7B78F611465CFE900B7A3E4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B78F601465CFE900B7A3E4 /* UIKit.framework */; };
 		F7B78F631465CFE900B7A3E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B78F621465CFE900B7A3E4 /* Foundation.framework */; };
 		F7B78F651465CFE900B7A3E4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B78F641465CFE900B7A3E4 /* CoreGraphics.framework */; };
@@ -205,11 +207,13 @@
 		66EE1DE31465D75900C1600C /* ASINetworkQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASINetworkQueue.h; sourceTree = "<group>"; };
 		66EE1DE41465D75900C1600C /* ASINetworkQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASINetworkQueue.m; sourceTree = "<group>"; };
 		66EE1DE51465D75900C1600C /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIProgressDelegate.h; sourceTree = "<group>"; };
-		66FFBBDE146665A300DFD2C8 /* user_background_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = user_background_selected.png; path = ../../../../Dropbox/Humanity/user_background_selected.png; sourceTree = "<group>"; };
-		66FFBBDF146665A300DFD2C8 /* user_background_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "user_background_selected@2x.png"; path = "../../../../Dropbox/Humanity/user_background_selected@2x.png"; sourceTree = "<group>"; };
-		66FFBBE0146665A300DFD2C8 /* user_background_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = user_background_unselected.png; path = ../../../../Dropbox/Humanity/user_background_unselected.png; sourceTree = "<group>"; };
-		66FFBBE1146665A300DFD2C8 /* user_background_unselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "user_background_unselected@2x.png"; path = "../../../../Dropbox/Humanity/user_background_unselected@2x.png"; sourceTree = "<group>"; };
 		66FFBBE614671F8000DFD2C8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		66FFBBEC14673C3E00DFD2C8 /* speechbubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speechbubble.png; sourceTree = "<group>"; };
+		66FFBBED14673C3E00DFD2C8 /* speechbubble@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "speechbubble@2x.png"; sourceTree = "<group>"; };
+		66FFBBF014673C5500DFD2C8 /* user_background_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user_background_selected.png; sourceTree = "<group>"; };
+		66FFBBF114673C5500DFD2C8 /* user_background_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_background_selected@2x.png"; sourceTree = "<group>"; };
+		66FFBBF214673C5500DFD2C8 /* user_background_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user_background_unselected.png; sourceTree = "<group>"; };
+		66FFBBF314673C5500DFD2C8 /* user_background_unselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_background_unselected@2x.png"; sourceTree = "<group>"; };
 		F7B78F5C1465CFE900B7A3E4 /* Humanity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Humanity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7B78F601465CFE900B7A3E4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F7B78F621465CFE900B7A3E4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -513,10 +517,12 @@
 		66FFBBDD1466658100DFD2C8 /* UserSelector */ = {
 			isa = PBXGroup;
 			children = (
-				66FFBBDE146665A300DFD2C8 /* user_background_selected.png */,
-				66FFBBDF146665A300DFD2C8 /* user_background_selected@2x.png */,
-				66FFBBE0146665A300DFD2C8 /* user_background_unselected.png */,
-				66FFBBE1146665A300DFD2C8 /* user_background_unselected@2x.png */,
+				66FFBBF014673C5500DFD2C8 /* user_background_selected.png */,
+				66FFBBF114673C5500DFD2C8 /* user_background_selected@2x.png */,
+				66FFBBF214673C5500DFD2C8 /* user_background_unselected.png */,
+				66FFBBF314673C5500DFD2C8 /* user_background_unselected@2x.png */,
+				66FFBBEC14673C3E00DFD2C8 /* speechbubble.png */,
+				66FFBBED14673C3E00DFD2C8 /* speechbubble@2x.png */,
 			);
 			name = UserSelector;
 			sourceTree = "<group>";
@@ -738,10 +744,12 @@
 				49BC87021466233E00EF87BB /* addaphoto.png in Resources */,
 				49BC870C146629A400EF87BB /* addaphoto@2x.png in Resources */,
 				49BC870E146629C500EF87BB /* texture.png in Resources */,
-				66FFBBE2146665A300DFD2C8 /* user_background_selected.png in Resources */,
-				66FFBBE3146665A300DFD2C8 /* user_background_selected@2x.png in Resources */,
-				66FFBBE4146665A300DFD2C8 /* user_background_unselected.png in Resources */,
-				66FFBBE5146665A300DFD2C8 /* user_background_unselected@2x.png in Resources */,
+				66FFBBEE14673C3E00DFD2C8 /* speechbubble.png in Resources */,
+				66FFBBEF14673C3E00DFD2C8 /* speechbubble@2x.png in Resources */,
+				66FFBBF414673C5500DFD2C8 /* user_background_selected.png in Resources */,
+				66FFBBF514673C5500DFD2C8 /* user_background_selected@2x.png in Resources */,
+				66FFBBF614673C5500DFD2C8 /* user_background_unselected.png in Resources */,
+				66FFBBF714673C5500DFD2C8 /* user_background_unselected@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

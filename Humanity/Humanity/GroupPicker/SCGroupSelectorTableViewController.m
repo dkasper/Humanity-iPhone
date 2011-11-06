@@ -226,6 +226,8 @@ static UIImage *buttonBackgroundSelected;
     [_contractedTextView contract];
     
     _expandedTextView = [[MessageTextView alloc] initWithFrame:CGRectMake(0, 0, 320. ,44.)];
+    _expandedTextView.expandedHeight = 156.;
+    _expandedTextView.expandedTextHeight = 106.;
     _expandedTextView.acceptFocus = YES;
     [_expandedTextView expand];
     
@@ -528,7 +530,7 @@ the user holds down delete and does a full-line delete. This catches that case.
     	}
 	
     	if (x > width * 0.66) {
-    		x = 0.0;
+    		x = X_OFFSET;
     		y += ROW_HEIGHT;
     	}
 	} else {
