@@ -93,7 +93,7 @@ static NSString *cellIdentifier = @"MessageCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [[[self.messages objectAtIndex:indexPath.row] objectForKey:@"body"] sizeWithFont:[UIFont systemFontOfSize:12.0] constrainedToSize:CGSizeMake(280, 9999) lineBreakMode:UILineBreakModeWordWrap].height + 30;
+    return [[[self.messages objectAtIndex:indexPath.row] objectForKey:@"body"] sizeWithFont:[UIFont systemFontOfSize:12.0] constrainedToSize:CGSizeMake(MESSAGE_TEXT_WIDTH, 9999) lineBreakMode:UILineBreakModeWordWrap].height + (EXPANDED_HEIGHT - CONTRACTED_HEIGHT);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -113,19 +113,21 @@ static NSString *cellIdentifier = @"MessageCell";
         [self.messageTextView contract];
         CGRect newFrame = self.toggleTextViewButton.frame;
         newFrame.origin.y = newFrame.origin.y - EXPANDED_HEIGHT;
+        newFrame.size.height = CONTRACTED_HEIGHT;
         self.toggleTextViewButton.frame = newFrame;
         
         newFrame = self.messageTableView.frame;
-        newFrame.origin.y -= 30;
+        newFrame.origin.y -= (EXPANDED_HEIGHT - CONTRACTED_HEIGHT);
         self.messageTableView.frame = newFrame;
     } else {
         [self.messageTextView expand];
         CGRect newFrame = self.toggleTextViewButton.frame;
         newFrame.origin.y = newFrame.origin.y + EXPANDED_HEIGHT;
+        newFrame.size.height = 100;
         self.toggleTextViewButton.frame = newFrame;
         
         newFrame = self.messageTableView.frame;
-        newFrame.origin.y += 30;
+        newFrame.origin.y += (EXPANDED_HEIGHT - CONTRACTED_HEIGHT);
         self.messageTableView.frame = newFrame;
     }
 }

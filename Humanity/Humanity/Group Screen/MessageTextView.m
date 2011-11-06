@@ -25,7 +25,7 @@
         // Initialization code
         self.clipsToBounds = YES;
         self.backgroundColor = [UIColor colorWithWhite:200/255.0 alpha:1.0];
-        self.textView = [[UITextView alloc] initWithFrame:CGRectMake(PICTURE_SIZE + 10, 5, self.bounds.size.width - PICTURE_SIZE - 15, CONTRACTED_TEXT_HEIGHT)];
+        self.textView = [[UITextView alloc] initWithFrame:CGRectMake(PICTURE_SIZE + 10, 10, self.bounds.size.width - PICTURE_SIZE - 20, CONTRACTED_TEXT_HEIGHT)];
         self.textView.font = [UIFont systemFontOfSize:14.0];
         self.textView.userInteractionEnabled = NO;
         [self addSubview:self.textView];
@@ -34,9 +34,10 @@
         
         self.sendButton = [UIButton buttonWithType:UIButtonTypeCustom];
         self.sendButton.frame = CGRectMake(self.bounds.size.width - BUTTON_WIDTH - 5, EXPANDED_HEIGHT - BUTTON_HEIGHT - 5, BUTTON_WIDTH, BUTTON_HEIGHT);
-        self.sendButton.titleLabel.text = @"Send";
-        self.sendButton.titleLabel.textColor = [UIColor whiteColor];
-        self.sendButton.backgroundColor = [UIColor greenColor];
+        [self.sendButton setTitle:@"Send" forState:UIControlStateNormal];
+        [self.sendButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        self.sendButton.titleLabel.font = [UIFont boldSystemFontOfSize:14.0];
+        self.sendButton.backgroundColor = [UIColor colorWithRed:48/255.0 green:128/255.0 blue:20/255.0 alpha:1.0];
         [self.sendButton addTarget:self action:@selector(send:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.sendButton];
         
