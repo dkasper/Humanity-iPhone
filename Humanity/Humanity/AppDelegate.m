@@ -26,7 +26,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-    [[AccountManager sharedAccountManager] loginFromKeychain];
+    //[[AccountManager sharedAccountManager] loginFromKeychain];
     
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     
@@ -34,7 +34,7 @@
     
     self.window.backgroundColor = [UIColor whiteColor];
     
-    
+    /*
     if (![AccountManager sharedAccountManager].loggedIn) {    
         _loginViewController = [[LoginViewController alloc] init];
         //UINavigationController *loginNavController = [[LoginViewController alloc] initWithRootViewController:_loginViewController];
@@ -47,7 +47,14 @@
         [self.window setRootViewController:navController];
     	[navController release];
     }
-        
+    */
+    
+    GroupListViewController *listController = [[GroupListViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:listController];    
+    [listController release];    
+    [self.window setRootViewController:navController];
+    [navController release];
+    
     [self.window makeKeyAndVisible];
     return YES;
 }

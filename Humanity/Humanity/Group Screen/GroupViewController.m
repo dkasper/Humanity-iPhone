@@ -22,7 +22,7 @@
         self.memberListViewController = [[MemberListViewController alloc] init];
         self.messageListViewController = [[MessageListViewController alloc] init];
         self.mapViewController = [[MapViewController alloc] init];
-        self.settingsViewController = [[SettingsViewController alloc] init];
+        self.settingsViewController = [[GroupSettingsViewController alloc] init];
         [self setViewControllers:[NSArray arrayWithObjects:self.messageListViewController, self.memberListViewController, self.mapViewController, self.settingsViewController, nil]];
     }
     return self;

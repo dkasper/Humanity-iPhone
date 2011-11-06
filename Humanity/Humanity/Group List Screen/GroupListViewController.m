@@ -7,6 +7,7 @@
 //
 
 #import "GroupListViewController.h"
+#import "SettingsViewController.h"
 #import "GroupViewController.h"
 
 @implementation GroupListViewController
@@ -20,7 +21,7 @@
 	
 	if(self){
 		self.title = @"Humanity";
-        
+                
         UIBarButtonItem *addButton = [[UIBarButtonItem alloc] 
                                       initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                       target:self 
@@ -31,9 +32,16 @@
         UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc]
                                            initWithBarButtonSystemItem:UIBarButtonSystemItemAction 
                                            target:self 
-                                           action:@selector(addPod)];
+                                           action:@selector(launchSettings)];
         self.navigationItem.leftBarButtonItem = settingsButton;
         [settingsButton release];
+        
+        UIBarButtonItem *customBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Pods" 
+                                                                             style: UIBarButtonItemStyleBordered 
+                                                                            target: nil 
+                                                                            action: nil];
+		self.navigationItem.backBarButtonItem = customBackButton;
+		[customBackButton release];
         
         temp = [[NSMutableArray alloc] init];
         [temp addObject:@"Object 1"];
@@ -60,6 +68,14 @@
 - (void)addPod
 {
     NSLog(@"Hello");
+}
+
+- (void)launchSettings
+{
+    SettingsViewController *settingsViewController = [[[SettingsViewController alloc] init] autorelease];
+	
+    [self.navigationController pushViewController:settingsViewController animated:YES];
+    
 }
 
 #pragma mark - Table View Delegate & Data Source Functions
@@ -132,28 +148,32 @@
 
 #pragma mark - View lifecycle
 
-/*
+
  // Implement loadView to create a view hierarchy programmatically, without using a nib.
  - (void)loadView
  {
+     [super loadView];
+     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+     
+     groupListTableView = [[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 370) style:UITableViewStylePlain] autorelease];
+     groupListTableView.dataSource = self;
+     groupListTableView.delegate = self;
+     
+     [self setTableHeaderView];
+     
+     [self.view addSubview:groupListTableView];
  }
- */
+ 
 
-
+/*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    groupListTableView = [[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 370) style:UITableViewStylePlain] autorelease];
-    groupListTableView.dataSource = self;
-    groupListTableView.delegate = self;
-    
-    [self setTableHeaderView];
-    
-    [self.view addSubview:groupListTableView];
-}
 
+}
+*/
 
 - (void)viewDidUnload
 {
