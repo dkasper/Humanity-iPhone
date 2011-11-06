@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		49BC86FF14660C8500EF87BB /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BC86FE14660C8500EF87BB /* SettingsViewController.m */; };
 		49BC87021466233E00EF87BB /* addaphoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 49BC87011466233E00EF87BB /* addaphoto.png */; };
-		49BC87051466236C00EF87BB /* ProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BC87041466236C00EF87BB /* ProfileView.m */; };
+		49BC87051466236C00EF87BB /* GenericProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BC87041466236C00EF87BB /* GenericProfileView.m */; };
 		49BC870C146629A400EF87BB /* addaphoto@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49BC870B146629A400EF87BB /* addaphoto@2x.png */; };
 		49BC870E146629C500EF87BB /* texture.png in Resources */ = {isa = PBXBuildFile; fileRef = 49BC870D146629C500EF87BB /* texture.png */; };
 		49BC871F1466531D00EF87BB /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BC871E1466531C00EF87BB /* MessageUI.framework */; };
@@ -18,6 +18,8 @@
 		49BC872B14665E8D00EF87BB /* settings_bbi_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 49BC872914665E8D00EF87BB /* settings_bbi_selected.png */; };
 		49BC872C14665E8D00EF87BB /* settings_bbi_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 49BC872A14665E8D00EF87BB /* settings_bbi_unselected.png */; };
 		49BC872F1466601800EF87BB /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BC872E1466601800EF87BB /* EditProfileViewController.m */; };
+		49BC8732146666B200EF87BB /* UserProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BC8731146666B200EF87BB /* UserProfileView.m */; };
+		49BC8735146666CD00EF87BB /* GroupProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BC8734146666CD00EF87BB /* GroupProfileView.m */; };
 		49DA2FF51465ECA600D4089E /* GroupListMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DA2FF41465ECA600D4089E /* GroupListMessageCell.m */; };
 		49DA2FF81465EEA000D4089E /* GroupListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DA2FF71465EEA000D4089E /* GroupListViewController.m */; };
 		49DA30001465FDFE00D4089E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DA2FFF1465FDFE00D4089E /* LoginViewController.m */; };
@@ -100,8 +102,8 @@
 		49BC86FD14660C8500EF87BB /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = "Settings Screen/SettingsViewController.h"; sourceTree = "<group>"; };
 		49BC86FE14660C8500EF87BB /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = "Settings Screen/SettingsViewController.m"; sourceTree = "<group>"; };
 		49BC87011466233E00EF87BB /* addaphoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addaphoto.png; sourceTree = "<group>"; };
-		49BC87031466236C00EF87BB /* ProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileView.h; path = "Settings Screen/ProfileView.h"; sourceTree = "<group>"; };
-		49BC87041466236C00EF87BB /* ProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileView.m; path = "Settings Screen/ProfileView.m"; sourceTree = "<group>"; };
+		49BC87031466236C00EF87BB /* GenericProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GenericProfileView.h; path = "Settings Screen/GenericProfileView.h"; sourceTree = "<group>"; };
+		49BC87041466236C00EF87BB /* GenericProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GenericProfileView.m; path = "Settings Screen/GenericProfileView.m"; sourceTree = "<group>"; };
 		49BC870B146629A400EF87BB /* addaphoto@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addaphoto@2x.png"; sourceTree = "<group>"; };
 		49BC870D146629C500EF87BB /* texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture.png; sourceTree = "<group>"; };
 		49BC871E1466531C00EF87BB /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -111,6 +113,10 @@
 		49BC872A14665E8D00EF87BB /* settings_bbi_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_bbi_unselected.png; sourceTree = "<group>"; };
 		49BC872D1466601800EF87BB /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditProfileViewController.h; path = "Profile Screen/EditProfileViewController.h"; sourceTree = "<group>"; };
 		49BC872E1466601800EF87BB /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditProfileViewController.m; path = "Profile Screen/EditProfileViewController.m"; sourceTree = "<group>"; };
+		49BC8730146666B200EF87BB /* UserProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserProfileView.h; path = "Profile Screen/UserProfileView.h"; sourceTree = "<group>"; };
+		49BC8731146666B200EF87BB /* UserProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserProfileView.m; path = "Profile Screen/UserProfileView.m"; sourceTree = "<group>"; };
+		49BC8733146666CC00EF87BB /* GroupProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; name = GroupProfileView.h; path = "Profile Screen/GroupProfileView.h"; sourceTree = "<group>"; };
+		49BC8734146666CD00EF87BB /* GroupProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupProfileView.m; path = "Profile Screen/GroupProfileView.m"; sourceTree = "<group>"; };
 		49DA2FF31465ECA600D4089E /* GroupListMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupListMessageCell.h; path = "Group LIst Message Cell/GroupListMessageCell.h"; sourceTree = "<group>"; };
 		49DA2FF41465ECA600D4089E /* GroupListMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupListMessageCell.m; path = "Group LIst Message Cell/GroupListMessageCell.m"; sourceTree = "<group>"; };
 		49DA2FF61465EEA000D4089E /* GroupListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupListViewController.h; path = "Group List Screen/GroupListViewController.h"; sourceTree = "<group>"; };
@@ -271,8 +277,6 @@
 			children = (
 				49BC86FD14660C8500EF87BB /* SettingsViewController.h */,
 				49BC86FE14660C8500EF87BB /* SettingsViewController.m */,
-				49BC87031466236C00EF87BB /* ProfileView.h */,
-				49BC87041466236C00EF87BB /* ProfileView.m */,
 			);
 			name = "Settings Screen";
 			sourceTree = "<group>";
@@ -329,6 +333,12 @@
 		49BC8720146659A700EF87BB /* Profile Screen */ = {
 			isa = PBXGroup;
 			children = (
+				49BC87031466236C00EF87BB /* GenericProfileView.h */,
+				49BC87041466236C00EF87BB /* GenericProfileView.m */,
+				49BC8730146666B200EF87BB /* UserProfileView.h */,
+				49BC8731146666B200EF87BB /* UserProfileView.m */,
+				49BC8733146666CC00EF87BB /* GroupProfileView.h */,
+				49BC8734146666CD00EF87BB /* GroupProfileView.m */,
 				49BC872D1466601800EF87BB /* EditProfileViewController.h */,
 				49BC872E1466601800EF87BB /* EditProfileViewController.m */,
 			);
@@ -804,10 +814,12 @@
 				F7B78F991465E23C00B7A3E4 /* MessageTableCell.m in Sources */,
 				F7B78FA01465E58700B7A3E4 /* MessageTableCellContentView.m in Sources */,
 				49BC86FF14660C8500EF87BB /* SettingsViewController.m in Sources */,
-				49BC87051466236C00EF87BB /* ProfileView.m in Sources */,
+				49BC87051466236C00EF87BB /* GenericProfileView.m in Sources */,
 				F7B78FC61466102A00B7A3E4 /* GroupConstants.h in Sources */,
 				66A1058F1466200800E5FC75 /* HMButton.m in Sources */,
 				49BC872F1466601800EF87BB /* EditProfileViewController.m in Sources */,
+				49BC8732146666B200EF87BB /* UserProfileView.m in Sources */,
+				49BC8735146666CD00EF87BB /* GroupProfileView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

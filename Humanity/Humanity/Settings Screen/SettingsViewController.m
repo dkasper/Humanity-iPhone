@@ -8,7 +8,7 @@
 
 #import "SettingsViewController.h"
 #import "EditProfileViewController.h"
-#import "ProfileView.h"
+#import "UserProfileView.h"
 #import "AccountManager.h"
 
 @implementation SettingsViewController
@@ -61,7 +61,7 @@
 - (void)setTableHeaderView
 {
     
-    ProfileView *profileView = [[ProfileView alloc] init];
+    UserProfileView *profileView = [[UserProfileView alloc] init];
     [profileView loadViewContent];
     
     self.settingsTableView.tableHeaderView = profileView;

@@ -7,7 +7,7 @@
 //
 
 #import "GroupSettingsViewController.h"
-#import "ProfileView.h"
+#import "GroupProfileView.h"
 
 @implementation GroupSettingsViewController
 
@@ -21,11 +21,9 @@
                 
         listOfSettings = [[NSMutableArray alloc] init ];
         
-        NSArray *eventSettings = [NSArray arrayWithObjects:@"Time", @"Location", nil];
         NSArray *alertSettings = [NSArray arrayWithObjects:@"Alerts", nil];
         NSArray *leaveSettings = [NSArray arrayWithObjects:@"Leave Pod", nil];
         
-        [listOfSettings addObject:eventSettings];
         [listOfSettings addObject:alertSettings];
         [listOfSettings addObject:leaveSettings];
     }
@@ -44,7 +42,7 @@
 - (void)setTableHeaderView
 {
     
-    ProfileView *profileView = [[ProfileView alloc] init];
+    GroupProfileView *profileView = [[GroupProfileView alloc] init];
     [profileView loadViewContent];
     
     self.settingsTableView.tableHeaderView = profileView;
