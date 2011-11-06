@@ -12,6 +12,12 @@ extern NSString *const POST;
 // didFinishSelector - followingRequestDidFinish:
 // didFailSelector - followingRequestDidFail:
 
+
+BOOL statusCodeIsSuccess(NSUInteger statusCode);
+
+BOOL shouldRetryFromStatusCode(NSUInteger statusCode);
+
+
 @interface ASIHTTPRequest (Additions)
 + (NSString *) pathWithApi:(NSString *)api;
 + (ASIHTTPRequest *) apiRequestWithAPI:(NSString *) api target:(id) target selectorFormat:(NSString *) format;

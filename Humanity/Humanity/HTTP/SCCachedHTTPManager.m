@@ -16,14 +16,6 @@
 
 #import "UIAlertViewAdditions.h"
 
-static BOOL statusCodeIsSuccess(NSUInteger statusCode) {
-	return (statusCode / 100) == 2;
-}
-
-static BOOL shouldRetryFromStatusCode(NSUInteger statusCode) {
-	return (!statusCodeIsSuccess(statusCode)) && ((statusCode / 100) != 4);
-}
-
 
 @interface SCCachedHTTPManager(Private)
 - (void) fetchURL:(NSURL *)url withCacheTime:(double) cacheTime andDelegate:(id <SCCachedHTTPRequestDelegate>) delegate userInfo:(id) userInfo returnType:(NSString *)returnType;

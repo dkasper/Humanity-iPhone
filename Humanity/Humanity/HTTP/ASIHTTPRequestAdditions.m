@@ -6,11 +6,22 @@ NSString *const PUT = @"PUT";
 NSString *const GET = @"GET";
 NSString *const POST = @"POST";
 
-NSString *const APIRootURLFormat =   @"https://api.socialcam.com/api/v4/%@";
-
+NSString *const APIRootURLFormat =   @"http://www.gethumanity.com/%@";
 
 static NSString *localeIdentifier = nil;
 static NSString *versionIdentifier = nil;
+
+
+
+BOOL statusCodeIsSuccess(NSUInteger statusCode) {
+	return (statusCode / 100) == 2;
+}
+
+BOOL shouldRetryFromStatusCode(NSUInteger statusCode) {
+	return (!statusCodeIsSuccess(statusCode)) && ((statusCode / 100) != 4);
+}
+
+
 
 @implementation ASIHTTPRequest (Additions)
 + (void) currentLocaleDidChange:(NSNotification *) notification {

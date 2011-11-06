@@ -9,6 +9,12 @@
 #import "AccountManager.h"
 #import "FBConnect.h"
 #import "UIAlertViewAdditions.h"
+
+#import "SCAPIRequestController.h"
+#import "ASIHTTPRequest.h"
+#import "ASIHTTPRequestAdditions.h"
+
+
 @implementation AccountManager
 
 @synthesize facebookSession = _facebookSession;
@@ -42,16 +48,36 @@
 
 }
 
-
-- (void) fbDidLogin {
-	NSLog(@"Got access token from facebook:%@", _facebookSession.accessToken);
-}
-
 - (void) fbDidNotLogin:(BOOL) cancelled {
 	[UIAlertView presentAlertWithTitle:NSLocalizedString(@"Facebook Error", @"Facebook Error title") message:NSLocalizedString(@"Unable to connect to Facebook.", @"Unable to connect to Facebook. message")];
 	
 	NSLog(@"failed to login with facebook");
 }
 
+- (void) fbDidLogin {
+	NSLog(@"Got access token from facebook:%@", _facebookSession.accessToken);
+    ASIHTTPRequest *request = [ASIHTTPRequest apiRequestWithAPI:@"user/login.json" target:self selectorFormat:@"fbSignOnRequest"];
+    request.requestMethod = POST;
+    [request setPostValue:_facebookSession.accessToken forKey:@"fb_id"];
+    [[SCAPIRequestController sharedController] addRequest:request];    
+}
+
+- (void) fbSignOnRequestDidFail:(ASIHTTPRequest *) request {
+	NSLog(@"fbSignOnRequestDidFail (%d) %@", [request responseStatusCode], [request responseString]);
+	if (!shouldRetryFromStatusCode(request.responseStatusCode) || [[request.userInfo objectForKey:@"retry_count"] intValue] >= 3) {
+		return;
+	}
+	[[SCAPIRequestController sharedController] retryRequest:request];
+}
+
+
+- (void) fbSignOnRequestDidFinish:(ASIHTTPRequest *) request {
+	NSLog(@"fbSignOnRequestDidFinish (%d) %@", [request responseStatusCode], [request responseString]);
+	if (!statusCodeIsSuccess(request.responseStatusCode)) {
+		[self fbSignOnRequestDidFail:request];
+		return;
+	}
+	//HANDLE    	
+}
 
 @end
