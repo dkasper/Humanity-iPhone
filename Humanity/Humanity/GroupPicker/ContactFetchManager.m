@@ -10,6 +10,7 @@
 #import "SCCachedHTTPManager.h"
 #import "SCAddressBook.h"
 #import "ASIHTTPRequestAdditions.h"
+#import "AccountManager.h"
 
 static NSMutableArray *addressBookItems = nil;
 
@@ -75,8 +76,8 @@ static NSMutableArray *addressBookItems = nil;
 }
 
 - (void) fetchContacts {
-	//NSString *path = [ASIHTTPRequest pathWithApi:[NSString stringWithFormat:@"contacts.json?auth_token=%@", [AccountManager sharedAccountManager].railsToken]];
-	//[[SCCachedHTTPManager sharedCachedHTTPManager] fetchObjectAtURL:[NSURL URLWithString:path] withCacheTime:5. andDelegate:self userInfo:nil];
+	NSString *path = [ASIHTTPRequest pathWithApi:[NSString stringWithFormat:@"users?token=%@", [AccountManager sharedAccountManager].accessToken]];
+	[[SCCachedHTTPManager sharedCachedHTTPManager] fetchObjectAtURL:[NSURL URLWithString:path] withCacheTime:5. andDelegate:self userInfo:nil];
 }
 
 - (NSMutableDictionary *) nameDictionaryFromName:(NSString *)name {
@@ -90,71 +91,54 @@ static NSMutableArray *addressBookItems = nil;
 }
 
 - (void) cachedHTTPJSONObjectAvailable:(id)object returnCode:(NSUInteger)returnCode userInfo:(id)userInfo {
-    /*
-    if (![object isKindOfClass:[NSDictionary class]]) {
+    NSLog(@"object %@",  object);
+    
+    if (![object isKindOfClass:[NSArray class]]) {
         return; 
     }
     
-	[_shareItems release];
-	_shareItems = [[NSMutableArray alloc] init];
-	
-    [_tagItems release];
-    _tagItems = [[NSMutableArray alloc] init];
-	
-    BOOL tagFB = [[object safeObjectForKey:@"tag_system"] containsObject:@"facebook"];
-	BOOL shareFB = [[object safeObjectForKey:@"share_system"] containsObject:@"facebook"];
-	
-	for (NSArray *namevalue in [object safeObjectForKey:@"facebook"]) {
-		if (namevalue.count != 2) continue;
-		NSMutableDictionary *item = [self nameDictionaryFromName:[namevalue objectAtIndex:1]];
-		[item setObject:[namevalue objectAtIndex:0] forKey:@"id"];	
-		[item setObject:@"facebook" forKey:@"type"];
-		NSArray *parts = [[namevalue objectAtIndex:1] componentsSeparatedByString:@" "];
-		if (parts.count) {
-			[item setObject:[NSArray arrayWithObject:[parts objectAtIndex:parts.count - 1]] forKey:@"match_keys"];
-		}
-		if(shareFB) [_shareItems addObject:item];
-        if(tagFB) [_tagItems addObject:item];
-	}
-	
-	BOOL tagTwitter = [[object safeObjectForKey:@"tag_system"] containsObject:@"twitter"];
-	BOOL shareTwitter = [[object safeObjectForKey:@"share_system"] containsObject:@"twitter"];
-	for (NSArray *namevalue in [object safeObjectForKey:@"twitter"]) {
-		if (namevalue.count != 2) continue;
-		NSMutableDictionary *item = [self nameDictionaryFromName:[namevalue objectAtIndex:1]];
-		[item setObject:[namevalue objectAtIndex:0] forKey:@"id"];
-		[item setObject:[namevalue objectAtIndex:1] forKey:@"display_name"];
-		[item setObject:@"twitter" forKey:@"type"];
-		NSMutableArray *matchKeys = [NSMutableArray arrayWithObject:[namevalue objectAtIndex:0]];
-		NSArray *parts = [[namevalue objectAtIndex:1] componentsSeparatedByString:@" "];
-		if (parts.count) {
-			[matchKeys addObject:[parts objectAtIndex:parts.count - 1]];
-		}
-		[item setObject:matchKeys forKey:@"match_keys"];
-		if(shareTwitter) [_shareItems addObject:item];
-		if(tagTwitter) [_tagItems addObject:item];
-	}
-	
-	BOOL tagSocialcam = [[object objectForKey:@"tag_system"] containsObject:@"socialcam"];
-	BOOL shareSocialcam = [[object safeObjectForKey:@"share_system"] containsObject:@"socialcam"];
-	for (NSArray *namevalue in [object safeObjectForKey:@"socialcam"]) {
-		if (namevalue.count != 2) continue;
-		NSMutableDictionary *item = [self nameDictionaryFromName:[namevalue objectAtIndex:1]];
-		[item setObject:[namevalue objectAtIndex:0] forKey:@"id"];
-		[item setObject:[namevalue objectAtIndex:1] forKey:@"display_name"];
-		[item setObject:@"socialcam" forKey:@"type"];
-		NSArray *parts = [[namevalue objectAtIndex:1] componentsSeparatedByString:@" "];
-		if (parts.count) {
-			[item setObject:[NSArray arrayWithObject:[parts objectAtIndex:parts.count - 1]] forKey:@"match_keys"];
-		}
-		if(shareSocialcam) [_shareItems addObject:item];
-		if(tagSocialcam) [_tagItems addObject:item];
-	}
-	
+    [_shareItems release];
+    _shareItems = [[NSMutableArray alloc] init];
+    
+    for (NSDictionary *person in object) {
+        if (![person isKindOfClass:[NSDictionary class]]) {
+            return; 
+        }
+        NSString *fname = nil;
+        NSString *lname = nil;
+        NSString *name;
+        if ([person objectForKey:@"first_name"] && [person objectForKey:@"first_name"] != [NSNull null])
+            fname = [person objectForKey:@"first_name"];
+        if ([person objectForKey:@"last_name"] && [person objectForKey:@"last_name"] != [NSNull null])
+            lname = [person objectForKey:@"last_name"];
+        if (fname && lname) {
+            name = [NSString stringWithFormat:@"%@ %@", fname, lname];
+        } else if (fname) {
+            name = fname;
+        } else if (lname) {
+            name = lname;
+        } else {
+            continue; 
+        }
+        
+        NSMutableDictionary *item = [NSMutableDictionary dictionary];
+        if (fname) [item setObject:fname forKey:@"first_name"];
+        if (lname) [item setObject:fname forKey:@"last_name"];
+        [item setObject:name forKey:@"display_name"];
+        [item setObject:[NSString stringWithFormat:@"%@", [person objectForKey:@"id"]] forKey:@"id"];
+        if (lname) {
+            [item setObject:[NSArray arrayWithObject:lname] forKey:@"match_keys"];
+        }
+        [item setObject:@"humanity" forKey:@"type"];
+        [_shareItems addObject:item];
+        
+    }
+    
 	[_shareItems addObjectsFromArray:addressBookItems];
 	
+	NSLog(@"_shareItems: %@", _shareItems);
+	
     [_delegate contactFetcherDidFetchContacts:self];  
-     */
 }
 
 

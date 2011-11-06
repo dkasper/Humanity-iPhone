@@ -18,6 +18,7 @@
 
 - (void)dealloc
 {
+    [_rootNavController release];
     [_loginViewController release];
     [_window release];
     [super dealloc];
@@ -26,7 +27,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-    //[[AccountManager sharedAccountManager] loginFromKeychain];
+    [[AccountManager sharedAccountManager] loginFromKeychain];
     
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     
@@ -34,29 +35,32 @@
     
     self.window.backgroundColor = [UIColor whiteColor];
     
-    /*
-    if (![AccountManager sharedAccountManager].loggedIn) {    
-        _loginViewController = [[LoginViewController alloc] init];
-        //UINavigationController *loginNavController = [[LoginViewController alloc] initWithRootViewController:_loginViewController];
-        [self.window addSubview:_loginViewController.view];
-        //[loginNavController release];
-    } else {
-        GroupListViewController *listController = [[GroupListViewController alloc] init];
-    	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:listController];    
-    	[listController release];    
-        [self.window setRootViewController:navController];
-    	[navController release];
-    }
-    */
     
     GroupListViewController *listController = [[GroupListViewController alloc] init];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:listController];    
+    _rootNavController = [[UINavigationController alloc] initWithRootViewController:listController];    
     [listController release];    
-    [self.window setRootViewController:navController];
-    [navController release];
+    [self.window setRootViewController:_rootNavController];
+    
+    
+    if (![AccountManager sharedAccountManager].loggedIn) {    
+        [self showLoginViewAnimated:NO];
+    }
+    
     
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void) showLoginViewAnimated:(BOOL)animated {
+    if (_loginViewController) return; 
+    _loginViewController = [[LoginViewController alloc] init];
+    UINavigationController *loginNavController = [[LoginViewController alloc] initWithRootViewController:_loginViewController];
+    [_rootNavController presentModalViewController:loginNavController animated:animated];
+    [loginNavController release];
+}
+
+- (void) removeLoginViewAnimated:(BOOL)animated {
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

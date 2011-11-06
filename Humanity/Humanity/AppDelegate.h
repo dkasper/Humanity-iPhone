@@ -11,8 +11,9 @@
 @class LoginViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate> {
-   
+    UINavigationController *_rootNavController;  
     LoginViewController *_loginViewController;
+
 }
 
 @property (strong, nonatomic) UIWindow *window;

@@ -20,6 +20,37 @@
 @synthesize putTime = _putTime;
 
 
+- (id) initWithData:(NSData *)data {
+	if (!(self = [super init])) 
+		return nil;
+	_data = [data retain];
+	return self;
+}
+
+- (void) dealloc {
+	[_data release];
+	[super dealloc];
+}
+
+- (const void *)bytes {
+	return [_data bytes];
+}
+
+- (NSUInteger) length {
+	return _data.length;
+}
+@end
+
+
+static NSString *databasePath;
+
+@interface  SCCacheManager (Private)
+- (void) resetStore;
+@end
+
+
+@implementation SCCacheManager
+
 + (NSString *) pathToDirectoryOfType:(NSSearchPathDirectory) directoryType {
 	NSArray *searchPaths = NSSearchPathForDirectoriesInDomains(directoryType, NSUserDomainMask, YES);
 	if (!searchPaths.count) {
@@ -51,36 +82,6 @@
 	return [path stringByAppendingString:cache];
 }
 
-- (id) initWithData:(NSData *)data {
-	if (!(self = [super init])) 
-		return nil;
-	_data = [data retain];
-	return self;
-}
-
-- (void) dealloc {
-	[_data release];
-	[super dealloc];
-}
-
-- (const void *)bytes {
-	return [_data bytes];
-}
-
-- (NSUInteger) length {
-	return _data.length;
-}
-@end
-
-
-static NSString *databasePath;
-
-@interface  SCCacheManager (Private)
-- (void) resetStore;
-@end
-
-
-@implementation SCCacheManager
 
 + (void) initialize {
 	static BOOL initialized = NO;
