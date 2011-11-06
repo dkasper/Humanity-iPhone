@@ -56,12 +56,15 @@ static NSString *kHMFacebookToken = @"kHMFacebookToken";
 }
 
 - (BOOL) loginFromKeychain {
+    NSLog(@"loginFromKeychain");
     if (_loggingIn || _loggedIn) return NO; 
     NSString *fid = [_keychain objectForKey:kHMFacebookToken];
     if (!fid.length) return NO;
      _facebookID = [fid retain];
      _loggedIn = YES;
      _loggingIn = NO;
+     
+     NSLog(@"loginFromKeychain with ID %@", _facebookID);
      
      [[NSNotificationCenter defaultCenter] postNotificationName:HumanityUserDidLoginNotification object:nil];
      
