@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MemberListViewController : UIViewController
+@interface MemberListViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, retain) NSMutableArray *members;
+@property (nonatomic, retain) UITableView *memberTableView;
 
 @end

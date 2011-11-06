@@ -7,6 +7,7 @@
 //
 
 #import "GroupListViewController.h"
+#import "GroupViewController.h"
 
 @implementation GroupListViewController
 
@@ -91,6 +92,12 @@
     
     return cell;
     
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    GroupViewController *vc = [[GroupViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+    [vc release];
 }
 
 #pragma mark - View Helpers
