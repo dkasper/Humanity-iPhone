@@ -15,7 +15,7 @@
 #import "ASIHTTPRequestAdditions.h"
 #import "ASIFormDataRequest.h"
 #import <Security/Security.h>
-
+#import "NSData+JSONKit.h"
 
 NSString *const HumanityUserDidLoginNotification = @"HumanityUserDidLoginNotification";
 NSString *const HumanityUserDidLogoutNotification = @"HumanityUserDidLogoutNotification";
@@ -25,7 +25,7 @@ static NSString *kHMFacebookToken = @"kHMFacebookToken";
 @implementation AccountManager
 
 @synthesize facebookSession = _facebookSession;
-@synthesize facebookID = _facebookID;
+@synthesize accessToken = _accessToken;
 @synthesize loggedIn = _loggedIn;
 
 - (id) init {
@@ -38,7 +38,7 @@ static NSString *kHMFacebookToken = @"kHMFacebookToken";
 
 - (void) dealloc {
     [_facebookSession release];
-    [_facebookID release];
+    [_accessToken release];
     [super dealloc];
 }
 
@@ -58,11 +58,11 @@ static NSString *kHMFacebookToken = @"kHMFacebookToken";
     if (_loggingIn || _loggedIn) return NO; 
     NSString *fid = [[NSUserDefaults standardUserDefaults] objectForKey:kHMFacebookToken];
     if (!fid.length) return NO;
-     _facebookID = [fid retain];
+     _accessToken = [fid retain];
      _loggedIn = YES;
      _loggingIn = NO;
      
-     NSLog(@"loginFromKeychain with ID %@", _facebookID);
+     NSLog(@"loginFromKeychain with ID %@", _accessToken);
      
      [[NSNotificationCenter defaultCenter] postNotificationName:HumanityUserDidLoginNotification object:nil];
      
@@ -87,7 +87,7 @@ static NSString *kHMFacebookToken = @"kHMFacebookToken";
 	NSLog(@"Got access token from facebook:%@", _facebookSession.accessToken);
     ASIFormDataRequest *request = [ASIFormDataRequest apiRequestWithAPI:@"user/login" target:self selectorFormat:@"fbSignOnRequest"];
     request.requestMethod = POST;
-    [request setPostValue:_facebookSession.accessToken forKey:@"fb_id"];
+    [request setPostValue:_facebookSession.accessToken forKey:@"fb_access_token"];
     [[SCAPIRequestController sharedController] addRequest:request];    
 }
 
@@ -107,11 +107,19 @@ static NSString *kHMFacebookToken = @"kHMFacebookToken";
 		[self fbSignOnRequestDidFail:request];
 		return;
 	}
-    _facebookID = [_facebookSession.accessToken retain];
+	
+    NSDictionary *d = [request.responseData objectFromJSONData];
+    
+    if (![d isKindOfClass:[NSDictionary class]]) {
+        [self fbSignOnRequestDidFail:request];
+		return;
+    }
+	
+    _accessToken = [[d objectForKey:@"token"] copy];
     _loggedIn = YES;
     _loggingIn = NO;
     
-    [[NSUserDefaults standardUserDefaults] setObject:_facebookID forKey:kHMFacebookToken];
+    [[NSUserDefaults standardUserDefaults] setObject:_accessToken forKey:kHMFacebookToken];
     [[NSUserDefaults standardUserDefaults] synchronize];
     [[NSNotificationCenter defaultCenter] postNotificationName:HumanityUserDidLoginNotification object:nil];
 }
