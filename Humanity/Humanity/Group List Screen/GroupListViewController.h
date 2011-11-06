@@ -14,7 +14,7 @@
     NSMutableArray *temp;
 }
 
-@property (retain) UITableView *groupListTableView;
+@property (retain, nonatomic) UITableView *groupListTableView;
 
 @property (retain) NSArray *temp;
 

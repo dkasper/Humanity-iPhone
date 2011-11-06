@@ -6,9 +6,9 @@
 //  Copyright (c) 2011 Humanity. All rights reserved.
 //
 
-#import "SettingsViewController.h"
+#import "GroupSettingsViewController.h"
 
-@implementation SettingsViewController
+@implementation GroupSettingsViewController
 
 -(id)init {
     self = [super init];

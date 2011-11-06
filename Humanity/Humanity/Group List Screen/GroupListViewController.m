@@ -7,6 +7,7 @@
 //
 
 #import "GroupListViewController.h"
+#import "SettingsViewController.h"
 
 @implementation GroupListViewController
 
@@ -30,7 +31,7 @@
         UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc]
                                            initWithBarButtonSystemItem:UIBarButtonSystemItemAction 
                                            target:self 
-                                           action:@selector(addPod)];
+                                           action:@selector(launchSettings)];
         self.navigationItem.leftBarButtonItem = settingsButton;
         [settingsButton release];
         
@@ -59,6 +60,14 @@
 - (void)addPod
 {
     NSLog(@"Hello");
+}
+
+- (void)launchSettings
+{
+    SettingsViewController *settingsViewController = [[[SettingsViewController alloc] init] autorelease];
+	
+    [self.navigationController pushViewController:settingsViewController animated:YES];
+    
 }
 
 #pragma mark - Table View Delegate & Data Source Functions
