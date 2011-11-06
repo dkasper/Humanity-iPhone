@@ -49,6 +49,9 @@
     
     self.view = view;
     [view release];
+    
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+
 }
 
 

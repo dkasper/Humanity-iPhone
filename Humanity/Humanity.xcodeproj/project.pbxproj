@@ -12,6 +12,7 @@
 		49BC87051466236C00EF87BB /* ProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BC87041466236C00EF87BB /* ProfileView.m */; };
 		49BC870C146629A400EF87BB /* addaphoto@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49BC870B146629A400EF87BB /* addaphoto@2x.png */; };
 		49BC870E146629C500EF87BB /* texture.png in Resources */ = {isa = PBXBuildFile; fileRef = 49BC870D146629C500EF87BB /* texture.png */; };
+		49BC871F1466531D00EF87BB /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BC871E1466531C00EF87BB /* MessageUI.framework */; };
 		49DA2FF51465ECA600D4089E /* GroupListMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DA2FF41465ECA600D4089E /* GroupListMessageCell.m */; };
 		49DA2FF81465EEA000D4089E /* GroupListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DA2FF71465EEA000D4089E /* GroupListViewController.m */; };
 		49DA30001465FDFE00D4089E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DA2FFF1465FDFE00D4089E /* LoginViewController.m */; };
@@ -98,6 +99,7 @@
 		49BC87041466236C00EF87BB /* ProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileView.m; path = "Settings Screen/ProfileView.m"; sourceTree = "<group>"; };
 		49BC870B146629A400EF87BB /* addaphoto@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addaphoto@2x.png"; sourceTree = "<group>"; };
 		49BC870D146629C500EF87BB /* texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture.png; sourceTree = "<group>"; };
+		49BC871E1466531C00EF87BB /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		49DA2FF31465ECA600D4089E /* GroupListMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupListMessageCell.h; path = "Group LIst Message Cell/GroupListMessageCell.h"; sourceTree = "<group>"; };
 		49DA2FF41465ECA600D4089E /* GroupListMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupListMessageCell.m; path = "Group LIst Message Cell/GroupListMessageCell.m"; sourceTree = "<group>"; };
 		49DA2FF61465EEA000D4089E /* GroupListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupListViewController.h; path = "Group List Screen/GroupListViewController.h"; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49BC871F1466531D00EF87BB /* MessageUI.framework in Frameworks */,
 				663AC87A146638FC005C2D3D /* CoreFoundation.framework in Frameworks */,
 				66A10594146627E200E5FC75 /* StoreKit.framework in Frameworks */,
 				66A10592146626DD00E5FC75 /* Security.framework in Frameworks */,
@@ -310,6 +313,13 @@
 				49BC870D146629C500EF87BB /* texture.png */,
 			);
 			name = "standard-res";
+			sourceTree = "<group>";
+		};
+		49BC8720146659A700EF87BB /* Profile Screen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Profile Screen";
 			sourceTree = "<group>";
 		};
 		49DA2FED1465DED800D4089E /* Group List Screen */ = {
@@ -482,6 +492,7 @@
 		F7B78F511465CFE800B7A3E4 = {
 			isa = PBXGroup;
 			children = (
+				49BC871E1466531C00EF87BB /* MessageUI.framework */,
 				663AC879146638FC005C2D3D /* CoreFoundation.framework */,
 				66A10593146627E200E5FC75 /* StoreKit.framework */,
 				66A10591146626DD00E5FC75 /* Security.framework */,
@@ -521,6 +532,7 @@
 		F7B78F661465CFE900B7A3E4 /* Humanity */ = {
 			isa = PBXGroup;
 			children = (
+				49BC8720146659A700EF87BB /* Profile Screen */,
 				49BC86FC14660C6800EF87BB /* Settings Screen */,
 				6626A12F1465E8210019AA25 /* SCSearchBar.h */,
 				6626A1301465E8210019AA25 /* SCSearchBar.m */,
@@ -534,10 +546,10 @@
 				F7B78FA11465F4F000B7A3E4 /* Images */,
 				F7B78F771465D23500B7A3E4 /* Group Screen */,
 				F7B78F6F1465CFE900B7A3E4 /* AppDelegate.h */,
+				F7B78F701465CFE900B7A3E4 /* AppDelegate.m */,
 				666855471465DA390023B5DE /* GroupPicker */,
 				666855461465DA1F0023B5DE /* HTTP */,
 				66EE1DCF1465D40700C1600C /* AddressBook */,
-				F7B78F701465CFE900B7A3E4 /* AppDelegate.m */,
 				F7B78F671465CFE900B7A3E4 /* Supporting Files */,
 			);
 			path = Humanity;

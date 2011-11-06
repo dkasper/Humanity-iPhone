@@ -32,7 +32,7 @@
     emailLabel.text = @"mannytee@gmail.com";
     emailLabel.font = [UIFont boldSystemFontOfSize:12.0];
     emailLabel.backgroundColor = [UIColor clearColor];
-    emailLabel.textColor = [UIColor grayColor];
+    emailLabel.textColor = [UIColor colorWithRed:155.0/255 green:155.0/255 blue:155.0/255 alpha:1.0];
     [self addSubview:emailLabel];
     [emailLabel release];
     

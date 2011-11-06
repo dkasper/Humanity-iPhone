@@ -8,6 +8,7 @@
 
 #import "SettingsViewController.h"
 #import "ProfileView.h"
+#import "AccountManager.h"
 
 @implementation SettingsViewController
 
@@ -17,11 +18,22 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        
+        self.title = @"Settings";
+        self.navigationItem.hidesBackButton = YES;
+
+        UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] 
+                                       initWithTitle:@"Done" style:UIBarButtonItemStylePlain 
+                                       target:self 
+                                       action:@selector(doneWithSettings)];
+        self.navigationItem.rightBarButtonItem = doneButton;
+        [doneButton release];
+        
         listOfSettings = [[NSMutableArray alloc] init ];
         
         NSArray *generalSettings = [NSArray arrayWithObjects:@"Mute All", nil];
         NSArray *accountSettings = [NSArray arrayWithObjects:@"Edit Profile", @"Logout", nil];
-        NSArray *supportSettings = [NSArray arrayWithObjects:@"Help", @"Feedback", nil];
+        NSArray *supportSettings = [NSArray arrayWithObjects:@"Feedback", nil];
         
         [listOfSettings addObject:generalSettings];
         [listOfSettings addObject:accountSettings];
@@ -39,6 +51,11 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+-(void)doneWithSettings
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 #pragma mark - View Helpers
 - (void)setTableHeaderView
 {
@@ -50,27 +67,62 @@
     [profileView release];
 }
 
+#pragma mark - Settings Functions
+
+-(void)sendFeedback
+{
+    if ([MFMailComposeViewController canSendMail]){
+        MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
+        [controller setSubject:@"Humanity Feedback"];
+        [controller setToRecipients:[NSArray arrayWithObjects:@"humanityapp@gmail.com", nil]];
+        controller.mailComposeDelegate = self;
+        [self presentModalViewController:controller animated:YES];
+        [controller release];
+    }
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller 
+          didFinishWithResult:(MFMailComposeResult)result 
+                        error:(NSError*)error {
+	[self becomeFirstResponder];
+	[self dismissModalViewControllerAnimated:YES];
+}
+
+-(void)logout
+{
+    [[AccountManager sharedAccountManager] logout];
+}
+
 
 #pragma mark - Table View Delegate & Data Source Functions
 
-
- - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-     if(section == 1){
-         return @"General";
-     } else if (section == 2){
-         return @"Account";
-     } else {
-         return @"Support";
-     }
- }
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if(section == 1){
+        return @"General";
+    } else if (section == 2){
+        return @"Account";
+    } else {
+        return @"Support";
+    }
+}
  
- - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
      return [listOfSettings count];
- }
+}
  
- - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
      return [[listOfSettings objectAtIndex:section] count];
- }
+}
+
+-(void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	UITableViewCell *cell = [self tableView:aTableView cellForRowAtIndexPath:indexPath];
+    if([cell.textLabel.text isEqualToString:@"Feedback"]){
+        [self sendFeedback];
+    } else if([cell.textLabel.text isEqualToString:@"Logout"]){
+        [self logout];
+    }
+}
  
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
  
@@ -85,35 +137,43 @@
      }
  
      cell.textLabel.text = [[listOfSettings objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+     if([cell.textLabel.text isEqualToString:@"Logout"]){
+         cell.accessoryType = UITableViewCellAccessoryNone;
+     } else {
+         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+     }
      return cell;
  
  }
  
 #pragma mark - View lifecycle
 
-/*
+
  // Implement loadView to create a view hierarchy programmatically, without using a nib.
  - (void)loadView
  {
+     [super loadView];
+     settingsTableView = [[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 416) style:UITableViewStyleGrouped] autorelease];
+     settingsTableView.dataSource = self;
+     settingsTableView.delegate = self;
+     settingsTableView.backgroundColor = [UIColor colorWithRed:197.0/255 green:203.0/255 blue:213.0/255 alpha:1.0];
+     //settingsTableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"texture.png"]];
+     [self setTableHeaderView];
+ 
+     [self.view addSubview:settingsTableView];
+
+     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
  }
- */
+ 
 
-
+/*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    settingsTableView = [[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 480) style:UITableViewStyleGrouped] autorelease];
-    settingsTableView.dataSource = self;
-    settingsTableView.delegate = self;
-    settingsTableView.backgroundColor = [UIColor colorWithRed:197.0/255 green:203.0/255 blue:213.0/255 alpha:1.0];
-    //settingsTableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"texture.png"]];
-    [self setTableHeaderView];
-    
-    [self.view addSubview:settingsTableView];
-    
 }
+ */
 
 
 - (void)viewDidUnload
