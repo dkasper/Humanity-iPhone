@@ -43,24 +43,44 @@
     
     
     if (![AccountManager sharedAccountManager].loggedIn) {    
-        [self showLoginViewAnimated:NO];
+        [self performSelector:@selector(showLoginView) withObject:nil afterDelay:0.];
+        //[self showLoginViewAnimated:NO];
     }
     
     
     [self.window makeKeyAndVisible];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLogout:) name:HumanityUserDidLogoutNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLogin:) name:HumanityUserDidLoginNotification object:nil];
+    
     return YES;
 }
 
+- (void) showLoginView {
+    [self showLoginViewAnimated:NO];
+}
+
 - (void) showLoginViewAnimated:(BOOL)animated {
+    NSLog(@"showLoginViewAnimated");
     if (_loginViewController) return; 
     _loginViewController = [[LoginViewController alloc] init];
-    UINavigationController *loginNavController = [[LoginViewController alloc] initWithRootViewController:_loginViewController];
+    UINavigationController *loginNavController = [[UINavigationController alloc] initWithRootViewController:_loginViewController];
     [_rootNavController presentModalViewController:loginNavController animated:animated];
     [loginNavController release];
 }
 
 - (void) removeLoginViewAnimated:(BOOL)animated {
-    
+    if (!_loginViewController) return; 
+    [_rootNavController dismissModalViewControllerAnimated:animated];
+    [_loginViewController release], _loginViewController = nil;
+}
+
+- (void) didLogin:(NSNotification *) notification {
+    [self removeLoginViewAnimated:YES];
+}
+
+- (void) didLogout:(NSNotification *) notification {
+    [self showLoginViewAnimated:YES];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
