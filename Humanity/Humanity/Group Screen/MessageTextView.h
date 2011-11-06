@@ -20,6 +20,8 @@
 @property (nonatomic, retain) UITextView *textView;
 @property (nonatomic, retain) UIButton *closeButton;
 @property (nonatomic, retain) UIButton *sendButton;
+@property (nonatomic, retain) UISwitch *locationSwitch;
 @property (assign) BOOL enabled;
+@property (nonatomic, assign) id delegate;
 
 @end

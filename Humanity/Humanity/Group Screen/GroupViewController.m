@@ -9,6 +9,8 @@
 
 @implementation GroupViewController
 
+@synthesize groupName = _groupName;
+@synthesize groupId = _groupId;
 @synthesize messageListViewController = _messageListViewController;
 @synthesize memberListViewController = _memberListViewController;
 @synthesize mapViewController = _mapViewController;
@@ -24,6 +26,11 @@
         [self setViewControllers:[NSArray arrayWithObjects:self.messageListViewController, self.memberListViewController, self.mapViewController, self.settingsViewController, nil]];
     }
     return self;
+}
+
+-(void)setGroupName:(NSString *)name {
+    _groupName = [name retain];
+    self.title = _groupName;
 }
 
 @end

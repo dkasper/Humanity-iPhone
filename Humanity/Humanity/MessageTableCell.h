@@ -13,7 +13,7 @@
 
 @property (nonatomic, retain) MessageTableCellContentView *messageContentView;
 @property (nonatomic, retain) NSString *name;
-@property (nonatomic, retain) NSString *body;
+@property (nonatomic, retain) NSString *content;
 @property (nonatomic, retain) NSString *time;
 
 @end

@@ -82,6 +82,7 @@
 		F7B78FB21465F4F000B7A3E4 /* members.png in Resources */ = {isa = PBXBuildFile; fileRef = F7B78FAA1465F4F000B7A3E4 /* members.png */; };
 		F7B78FB31465F4F000B7A3E4 /* messages.png in Resources */ = {isa = PBXBuildFile; fileRef = F7B78FAB1465F4F000B7A3E4 /* messages.png */; };
 		F7B78FB41465F4F000B7A3E4 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = F7B78FAC1465F4F000B7A3E4 /* settings.png */; };
+		F7B78FC61466102A00B7A3E4 /* GroupConstants.h in Sources */ = {isa = PBXBuildFile; fileRef = F7B78FC51466102900B7A3E4 /* GroupConstants.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -214,6 +215,7 @@
 		F7B78FAA1465F4F000B7A3E4 /* members.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = members.png; sourceTree = "<group>"; };
 		F7B78FAB1465F4F000B7A3E4 /* messages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = messages.png; sourceTree = "<group>"; };
 		F7B78FAC1465F4F000B7A3E4 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		F7B78FC51466102900B7A3E4 /* GroupConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupConstants.h; path = "Group Screen/GroupConstants.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -499,6 +501,7 @@
 				F7B78F981465E23C00B7A3E4 /* MessageTableCell.m */,
 				F7B78F9E1465E58600B7A3E4 /* MessageTableCellContentView.h */,
 				F7B78F9F1465E58600B7A3E4 /* MessageTableCellContentView.m */,
+				F7B78FC51466102900B7A3E4 /* GroupConstants.h */,
 			);
 			name = "Group Screen";
 			sourceTree = "<group>";
@@ -666,6 +669,7 @@
 				F7B78F961465DAEC00B7A3E4 /* MessageTextView.m in Sources */,
 				F7B78F991465E23C00B7A3E4 /* MessageTableCell.m in Sources */,
 				F7B78FA01465E58700B7A3E4 /* MessageTableCellContentView.m in Sources */,
+				F7B78FC61466102A00B7A3E4 /* GroupConstants.h in Sources */,
 				66A1058F1466200800E5FC75 /* HMButton.m in Sources */,
 				66A105981466297C00E5FC75 /* KeychainItemWrapper.m in Sources */,
 			);

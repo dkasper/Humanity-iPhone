@@ -12,7 +12,7 @@
 
 @synthesize messageContentView = _messageContentView;
 @synthesize name = _name;
-@synthesize body = _body;
+@synthesize content = _content;
 @synthesize time = _time;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
