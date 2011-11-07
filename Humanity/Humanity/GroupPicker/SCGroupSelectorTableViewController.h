@@ -48,9 +48,12 @@
      
     MessageTextView *_expandedTextView;      
     MessageTextView *_contractedTextView; 
+    UIView *_addPeopleView;
     
     NSString *_savedTextInput;
-    NSInteger _savedState;     
+    NSInteger _savedState;  
+    
+    BOOL _displayAddPeopleButton;   
 }
 
 - (id) initWithItems:(NSArray *)items;
@@ -69,5 +72,5 @@
 @property (nonatomic, readonly) BOOL cancelButtonClicked;
 @property (nonatomic, readonly) NSString *message;
 @property (nonatomic, assign) id<SCGroupSelectorTableViewControllerDelegate> delegate;
-
+@property (nonatomic, assign) BOOL displayAddPeopleButton;
 @end

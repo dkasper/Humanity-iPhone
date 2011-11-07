@@ -55,6 +55,7 @@ static UIImage *buttonBackgroundSelected;
 @synthesize badTextAlertBody = _badTextAlertBody;
 @synthesize cancelButtonClicked = _cancelButtonClicked;
 @synthesize delegate = _delegate;
+@synthesize displayAddPeopleButton = _displayAddPeopleButton;
 
 - (void) setItems:(NSArray *)i { 
     NSMutableDictionary *recordCount = nil; 
@@ -233,7 +234,23 @@ static UIImage *buttonBackgroundSelected;
     
     _contractedTextView.delegate = self;
     _expandedTextView.delegate = self;
+    _expandedTextView.hidden = YES;
+    _contractedTextView.hidden = YES;
+    
+    _addPeopleView = [[UIView alloc]  initWithFrame:CGRectMake(0, 0, 320., 44.)];
+    _addPeopleView.backgroundColor = [UIColor grayColor];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setTitle:@"Add To Pod" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    button.titleLabel.font = [UIFont boldSystemFontOfSize:14.0];
+    button.backgroundColor = [UIColor colorWithRed:30./255.0 green:128/255.0 blue:20/255.0 alpha:1.0];
+    [button addTarget:self action:@selector(doneButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [_addPeopleView addSubview:button];
+    button.frame = CGRectMake(0, 0, 150, 30);
+    button.center = _addPeopleView.center;    
+    _addPeopleView.hidden = YES;
         
+    [self.view addSubview:_addPeopleView];
     [self.view addSubview:_contractedTextView];
     [self.view addSubview:_expandedTextView];
     
@@ -266,6 +283,7 @@ static UIImage *buttonBackgroundSelected;
     [_contractedTextView release];
 	[_expandedTextView release];
     [_savedTextInput release];
+    [_addPeopleView release];
     [super dealloc];
 }
 
@@ -940,13 +958,17 @@ the user holds down delete and does a full-line delete. This catches that case.
 - (void) hideTextArea {
     _contractedTextView.hidden = YES;
     _expandedTextView.hidden = YES;
-    
+    _addPeopleView.hidden = YES;
 }
 
 - (void) showContractedTextArea {
-    _contractedTextView.textView.text = _expandedTextView.textView.text;
-    _contractedTextView.hidden = NO;
-    _expandedTextView.hidden = YES;    
+    if (_displayAddPeopleButton) {
+        _addPeopleView.hidden = NO;
+    } else {
+        _contractedTextView.textView.text = _expandedTextView.textView.text;
+        _contractedTextView.hidden = NO;
+        _expandedTextView.hidden = YES; 
+    }   
 }
 
 - (void) showExpandedTextArea {
@@ -970,6 +992,10 @@ the user holds down delete and does a full-line delete. This catches that case.
     frame = _expandedTextView.frame;
     frame.origin.y = keyboardBounds.origin.y - frame.size.height - 44. - 20;
     _expandedTextView.frame = frame;
+    
+    frame = _addPeopleView.frame;
+    frame.origin.y = keyboardBounds.origin.y - frame.size.height - 44. - 20;
+    _addPeopleView.frame = frame;    
 }
 
 
