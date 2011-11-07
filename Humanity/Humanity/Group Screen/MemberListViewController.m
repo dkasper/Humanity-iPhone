@@ -7,6 +7,7 @@
 //
 
 #import "MemberListViewController.h"
+#import "GroupSelectorManager.h"
 
 @implementation MemberListViewController
 
@@ -23,6 +24,12 @@
         [self.members addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"Joe NoEmail", @"name", nil]];
     }
     return self;
+}
+
+- (void) dealloc {
+    [_footerView release];
+    [_groupSelector release];
+    [super dealloc];
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,6 +54,23 @@
     
     [view addSubview:self.memberTableView];
     
+    _footerView = [[UIView alloc] initWithFrame:CGRectMake(0, view.bounds.size.height - 44. - 20. - 44. - 49., 320, 44.)];
+    _footerView.backgroundColor = [UIColor grayColor];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setTitle:@"Add People" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    button.titleLabel.font = [UIFont boldSystemFontOfSize:18.0];
+    button.backgroundColor = [UIColor colorWithRed:30./255.0 green:128/255.0 blue:20/255.0 alpha:1.0];
+    [button addTarget:self action:@selector(addPeople:) forControlEvents:UIControlEventTouchUpInside];
+    [_footerView addSubview:button];
+    button.frame = CGRectMake(0, 0, 200, 35);
+    CGRect frame = button.frame;
+    frame.origin.x = _footerView.frame.size.width / 2. - frame.size.width / 2.;
+    frame.origin.y = _footerView.frame.size.height / 2. - frame.size.height / 2.;
+    button.frame = frame;
+    
+    [view addSubview:_footerView];
+    
     self.view = view;
     [view release];
     
@@ -54,6 +78,14 @@
 
 }
 
+- (void) addPeople:(id)sender{
+    if (!_groupSelector) {
+        _groupSelector = [[GroupSelectorManager alloc] init];
+        //TODO: set a dictionary with info on the pod
+        _groupSelector.pod = [NSDictionary dictionary];
+    }
+    [_groupSelector showGroupView:self.navigationController]; 
+}
 
 /*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.

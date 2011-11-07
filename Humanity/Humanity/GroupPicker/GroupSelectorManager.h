@@ -9,14 +9,13 @@
 #import "ContactFetchManager.h"
 #import "SCGroupSelectorTableViewController.h"
 
-@class SCVideo;
 @interface GroupSelectorManager : NSObject<SCContactFetcherDelegate, SCGroupSelectorTableViewControllerDelegate> {
-	SCVideo *_video;
 	ContactFetchManager *_contactFetcher;
 	SCGroupSelectorTableViewController *_shareGroupSelectorController;
+    NSDictionary *_pod;
 }
 
 - (void) showGroupView:(UINavigationController *)navCon;
+@property(nonatomic, retain) NSDictionary *pod;
 
-@property (nonatomic, retain) SCVideo *video; 
 @end

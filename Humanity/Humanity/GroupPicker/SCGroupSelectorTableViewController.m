@@ -242,11 +242,11 @@ static UIImage *buttonBackgroundSelected;
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setTitle:@"Add To Pod" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    button.titleLabel.font = [UIFont boldSystemFontOfSize:14.0];
+    button.titleLabel.font = [UIFont boldSystemFontOfSize:18.0];
     button.backgroundColor = [UIColor colorWithRed:30./255.0 green:128/255.0 blue:20/255.0 alpha:1.0];
     [button addTarget:self action:@selector(doneButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [_addPeopleView addSubview:button];
-    button.frame = CGRectMake(0, 0, 150, 30);
+    button.frame = CGRectMake(0, 0, 200, 35);
     button.center = _addPeopleView.center;    
     _addPeopleView.hidden = YES;
         

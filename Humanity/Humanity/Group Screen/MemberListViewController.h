@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MemberListViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@class GroupSelectorManager;
+@interface MemberListViewController : UIViewController<UITableViewDelegate, UITableViewDataSource> {
+    UIView *_footerView;
+    GroupSelectorManager *_groupSelector;
+}
+
 
 @property (nonatomic, retain) NSMutableArray *members;
 @property (nonatomic, retain) UITableView *memberTableView;
