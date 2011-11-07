@@ -123,7 +123,7 @@ static NSMutableArray *addressBookItems = nil;
         
         NSMutableDictionary *item = [NSMutableDictionary dictionary];
         if (fname) [item setObject:fname forKey:@"first_name"];
-        if (lname) [item setObject:fname forKey:@"last_name"];
+        if (lname) [item setObject:lname forKey:@"last_name"];
         [item setObject:name forKey:@"display_name"];
         [item setObject:[NSString stringWithFormat:@"%@", [person objectForKey:@"id"]] forKey:@"id"];
         if (lname) {

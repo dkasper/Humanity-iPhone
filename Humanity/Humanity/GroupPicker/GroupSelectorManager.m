@@ -51,10 +51,12 @@
 - (void) groupSelectorDidClose:(SCGroupSelectorTableViewController *)groupSelector doneClicked:(BOOL)done {
 	NSLog(@"groupSelectorDidClose");
 	if (done && groupSelector.selectedItems.count) {
-		ASIFormDataRequest *request = [ASIFormDataRequest apiRequestWithAPI:@"message/send" target:self selectorFormat:@"podCreateRequest"];
+		ASIFormDataRequest *request = [ASIFormDataRequest apiRequestWithAPI:@"messages" target:self selectorFormat:@"podCreateRequest"];
         request.requestMethod = POST;
         [request setPostValue:[AccountManager sharedAccountManager].accessToken forKey:@"token"];
         [request setPostValue:groupSelector.message forKey:@"content"];
+        [request setPostValue:[groupSelector titleForSelectedGroupWithFont:[UIFont boldSystemFontOfSize:18.0] constrainedToWidth:320.] forKey:@"new_group[name]"];
+        
         for (NSDictionary *d in groupSelector.selectedItems) {
             if ([[d objectForKey:@"type"] isEqual:@"humanity"]) {
                 [request setPostValue:[d objectForKey:@"id"] forKey:@"new_group[user_ids][]"];    
